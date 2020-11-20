@@ -112,11 +112,8 @@ void LCD_Pass_Req01(void){
 
 
 void LCD_Pass_Req02(unsigned char Key){
-	if (Key !=0xFF && j!=6){ //0xFF is the default return if no key pressed...
-		send_a_character(Key);
-		_delay_ms(50);
-		j++;
-	}
+	 send_a_character(Key);
+	 _delay_ms(50);
 }
 
 /*******************************

@@ -7,17 +7,20 @@
  */ 
 
 #define F_CPU 8000000UL
+#define MAX_NUMBER_OF_DIGITS 6
+#define DEFAULT_KEYPRESS (unsigned char)0xFF
 
 volatile int j=0; 
 volatile unsigned char Tries=1; // will use that var. to max. the tries to 3!! of the pass entry
-volatile unsigned char PASS[6];
-volatile unsigned char Key=0xFF;	// Default... no entry on Keypad
+volatile unsigned char PASS[MAX_NUMBER_OF_DIGITS];
+volatile unsigned char Key=DEFAULT_KEYPRESS;	// Default... no entry on Keypad
 
 #include "IOuserDef.h" // #include <avr/io.h> #include <avr/iom32.h>     <<-are inside... 
 #include "Keypad.h"
 #include "LCD_Default.h"
-#include "LCD_Messages.h"// LCD_Pass_Req01 LCD_Pass_Req02 LCD_Start Access_Granted Try_Again Locked
+#include "LCD_Messages.h"
 //#include "UART_Main.h"
+#include "SPI.h" 
 
 ///void PASS_CHECK_UART(void);
 //#include <avr/delay.h>
@@ -31,21 +34,28 @@ volatile unsigned char Key=0xFF;	// Default... no entry on Keypad
 
 int main(void)
 {
-   LCD_Init();
-   LCD_GeneralMessage(0,0,"Welcome!       .","Motor Drive P.1M"); // LCD Start message
-   //LCD_GeneralMessage(99,4,"","bye P.1M"); // testing function to LCD_GeneralMessage
-   LCD_Pass_Req01();
-
+	unsigned char counter=0;
+	LCD_Init();
+	LCD_GeneralMessage(0,0,"Welcome!       .","Motor Drive P.1M"); // LCD Start message
+	//LCD_GeneralMessage(99,4,"","bye P.1M"); // testing function to LCD_GeneralMessage
+	LCD_Pass_Req01();
+	SPI_MasterInit();
 	while(1)
     {
-      while(j<6 && Tries<=3)// LOOP to enter pass and for 1st time till entered 6-i/p from 
+      while(j<MAX_NUMBER_OF_DIGITS)// LOOP to enter pass and for 1st time till entered 6-i/p from 
       {
         Key=GetKeyPressed(); //Get the position of pressed key...
         PASS[j]=Key;
         LCD_Pass_Req02(Key);
-        Key=0xFF; //Reset the Keypad entry
+        Key=DEFAULT_KEYPRESS; //Reset the Keypad entry
         _delay_ms(200);
       }
+/************************ SPI SEND DATA TO SLAVE ****************************/	  
+	  for(counter=0;counter<MAX_NUMBER_OF_DIGITS;counter++) 
+	  {		// Sending 6 digits of password to slave
+			SPI_Transmitter( PASS[counter] );
+			_delay_ms(10);	//that delay required to send the data (will fail communication without it)
+	  }
       //UART_Init();
 	 ///PASS_CHECK_UART(); 
 
