@@ -1,8 +1,8 @@
 #ifndef _SPI_H_
 #define _SPI_H_
 
-/*********** SPI PORTS DEFINITIONS **********/
-/*Works on Atmega32 and could be easily optimized to any controller*/
+/*********************** SPI PORTS DEFINITIONS ****************************/
+/* Works on Atmega32 and could be easily optimized to any controller */
 
 #define _CONCAT(a,b) a##b
 #define PORT(x) _CONCAT(PORT,x)
@@ -19,7 +19,7 @@
 #define MISO 6
 #define SCK 7
 
-/******************** FUNCTIONS **************************/
+/******************************** FUNCTIONS ********************************/
 /*
 	Function Name        : SPI_MasterInit
 	Function Returns     : void

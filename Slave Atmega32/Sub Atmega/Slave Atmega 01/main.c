@@ -22,6 +22,7 @@ volatile unsigned char REC_PASS[6]={0};	//Received password from the main save h
 
 int main(void)
 {
+	unsigned char SSS=0;
 	unsigned char counter=0;
 	SPI_SlaveInit();
     while (1) 
@@ -37,6 +38,7 @@ int main(void)
 		
 		}
 /****************testing print out what in pass array*************************/
+if(SSS){
 			LCD_Init();
 			LCD_GeneralMessage(0,0,"PASS RECEIVE IS:","");
 		for(counter=0;counter<6;counter++)
@@ -46,5 +48,6 @@ int main(void)
 
 		
     }
+	}
 }
 

@@ -22,9 +22,7 @@ void SPI_SlaveInit(void)
 
 unsigned char SPI_Transmitter(unsigned char SPI_DATA)
 {
-	//char FLUSH_BUFFER;
 	SPDR = SPI_DATA;			//start transmission
 	while( !(SPSR & (1<<SPIF)) );	//wait for the transmission to complete 
-	//FLUSH_BUFFER=SPDR;
 	return SPDR;				//return receive data
 }

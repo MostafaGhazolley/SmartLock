@@ -1,15 +1,89 @@
 #ifndef _LCD_MESSAGE_H_
 #define _LCD_MESSAGE_H_
+
+/****** DEFINITIONS ******/
+#define DEFAULT_KEYPRESSED 	(unsigned char)0xFF
+#define LOWER_NIBBLE		(unsigned char)0xF0
+#define	cmd_FOURWIRES 		(unsigned char)0x02
+#define cmd_TWOLINES		(unsigned char)0x28
+#define cmd_CURSORON		(unsigned char)0x0E
+#define	cmd_INCREMENTRIGHT	(unsigned char)0x06
+#define	cmd_CLEARSIPLAY		(unsigned char)0x01
+#define	cmd_SECONDLINE		(unsigned char)0xC0
+#define	cmd_RIGHTSHIFT		(unsigned char)0x14
 	
+/****** FUNCTIONS ******/
+/*
+	Function Name        : LCD_GeneralMessage
+	Function Returns     : void
+	Function Arguments   : L1 : -its number of spaces before start to print out on LCD
+								from 0 to 15 (16 digit of LCD)
+								99 indicates thats its empty. (no text will be printed out on LCD of line 1)
+						   L2 : -its number of spaces before start to print out on LCD
+								from 0 to 15 (16 digit of LCD)
+								99 indicates thats its empty. (no text will be printed out on LCD of line 2)
+						   a[] :String or array of characters thats its size define by the number of elements that will be sent
+								and what is inside that string, will be print out in the first line of LCD.
+						   b[] :String or array of characters thats its size define by the number of elements that will be sent
+	Function Description : write 2x16 LCD both lines, which the first two arguments takes a number
+						   where it should start from (number of white spaces before the string)
+						   from 0 to 16... and 99 repreasent nothing.
+						   the last two argument are the strings that will be print out on LCD.
+*/	
 void LCD_GeneralMessage(unsigned char L1,unsigned char L2,char a[],char b[]);
 
+/*
+	Function Name        : LCD_Pass_Req01
+	Function Returns     : void
+	Function Arguments   : void
+	Function Description : .
+*/
 void LCD_Pass_Req01(void);
-void LCD_Pass_Req02(unsigned char Key);
-void LCD_Start(void); // Start output welcome on LCD
 
-void Access_Granted(void);
-void Try_Again(void);
-void Locked(void);
+/*
+	Function Name        : LCD_Pass_Req02
+	Function Returns     : void
+	Function Arguments   : unsigned char
+	Function Description : .
+*/
+void LCD_Pass_Req02(unsigned char Key);
+
 
 #include "LCD_Messages.c"
 #endif /*_LCD_MESSAGE_H_*/
+
+
+
+/****** not using anymore ******/
+
+/*
+	Function Name        : LCD_Start
+	Function Returns     : void
+	Function Arguments   : void
+	Function Description : .
+*/
+//void LCD_Start(void); // Start output welcome on LCD
+
+/*
+	Function Name        : Access_Granted
+	Function Returns     : void
+	Function Arguments   : void
+	Function Description : .
+*/
+//void Access_Granted(void);
+
+/*
+	Function Name        : Try_Again
+	Function Returns     : void
+	Function Arguments   : void
+	Function Description : .
+*/
+//void Try_Again(void);
+
+/*
+	Function Name        : LCD_Pass_Req01
+	Function Returns     : void
+	Function Arguments   : void
+	Function Description : .
+*/
+//void Locked(void);

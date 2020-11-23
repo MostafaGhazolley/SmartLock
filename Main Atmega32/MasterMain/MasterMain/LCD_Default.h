@@ -3,9 +3,14 @@
 #ifndef _LCD_DEFAULT_H_
 #define _LCD_DEFAULT_H_
 
+/****** DEFINITION ******/
 #define RS PD0
 #define EN PD1
 
+#define UPPER_NIBBLE	(unsigned char)0x0F
+#define LOWER_NIBBLE	(unsigned char)0xF0
+
+/****** FUNTIONS ******/
 /*
 	Function Name        : send_a_command
 	Function Returns     : void
@@ -22,6 +27,6 @@ void send_a_command (unsigned char command);
 */
 void send_a_character(unsigned char character); 
 
-#include "LCD_Default.c"
 
+#include "LCD_Default.c"
 #endif /*_LCD_DEFAULT_H_*/
