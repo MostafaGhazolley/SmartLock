@@ -3,57 +3,57 @@ Slave Atmega 01.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         0000016e  00000000  00000000  00000074  2**1
+  0 .text         000004b8  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         00000000  00800060  00800060  000001e2  2**0
+  1 .data         00000000  00800060  00800060  0000052c  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .bss          00000006  00800060  00800060  000001e2  2**0
+  2 .bss          00000006  00800060  00800060  0000052c  2**0
                   ALLOC
-  3 .comment      00000030  00000000  00000000  000001e2  2**0
+  3 .comment      00000030  00000000  00000000  0000052c  2**0
                   CONTENTS, READONLY
-  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000214  2**2
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  0000055c  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 00000068  00000000  00000000  00000250  2**0
+  5 .debug_aranges 000000a8  00000000  00000000  00000598  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   00000d0f  00000000  00000000  000002b8  2**0
+  6 .debug_info   00000fb7  00000000  00000000  00000640  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 000006dd  00000000  00000000  00000fc7  2**0
+  7 .debug_abbrev 00000719  00000000  00000000  000015f7  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00000673  00000000  00000000  000016a4  2**0
+  8 .debug_line   0000082d  00000000  00000000  00001d10  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  0000010c  00000000  00000000  00001d18  2**2
+  9 .debug_frame  0000016c  00000000  00000000  00002540  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    000003ff  00000000  00000000  00001e24  2**0
+ 10 .debug_str    000004aa  00000000  00000000  000026ac  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    000009fe  00000000  00000000  00002223  2**0
+ 11 .debug_loc    00000774  00000000  00000000  00002b56  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 000000a8  00000000  00000000  00002c21  2**0
+ 12 .debug_ranges 00000098  00000000  00000000  000032ca  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
 
 00000000 <__vectors>:
    0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
-   4:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
-   8:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
-   c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
-  10:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
-  14:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
-  18:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
-  1c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
-  20:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
-  24:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
-  28:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
-  2c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
-  30:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
-  34:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
-  38:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
-  3c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
-  40:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
-  44:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
-  48:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
-  4c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
-  50:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   4:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+   8:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+   c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  10:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  14:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  18:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  1c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  20:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  24:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  28:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  2c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  30:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  34:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  38:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  3c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  40:	0c 94 50 02 	jmp	0x4a0	; 0x4a0 <__vector_16>
+  44:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  48:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  4c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  50:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
 
 00000054 <__ctors_end>:
   54:	11 24       	eor	r1, r1
@@ -63,182 +63,916 @@ Disassembly of section .text:
   5c:	de bf       	out	0x3e, r29	; 62
   5e:	cd bf       	out	0x3d, r28	; 61
 
-00000060 <__do_copy_data>:
-  60:	10 e0       	ldi	r17, 0x00	; 0
+00000060 <__do_clear_bss>:
+  60:	20 e0       	ldi	r18, 0x00	; 0
   62:	a0 e6       	ldi	r26, 0x60	; 96
   64:	b0 e0       	ldi	r27, 0x00	; 0
-  66:	ee e6       	ldi	r30, 0x6E	; 110
-  68:	f1 e0       	ldi	r31, 0x01	; 1
-  6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
-  6c:	05 90       	lpm	r0, Z+
-  6e:	0d 92       	st	X+, r0
-  70:	a0 36       	cpi	r26, 0x60	; 96
-  72:	b1 07       	cpc	r27, r17
-  74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
+  66:	01 c0       	rjmp	.+2      	; 0x6a <.do_clear_bss_start>
 
-00000076 <__do_clear_bss>:
-  76:	20 e0       	ldi	r18, 0x00	; 0
-  78:	a0 e6       	ldi	r26, 0x60	; 96
-  7a:	b0 e0       	ldi	r27, 0x00	; 0
-  7c:	01 c0       	rjmp	.+2      	; 0x80 <.do_clear_bss_start>
+00000068 <.do_clear_bss_loop>:
+  68:	1d 92       	st	X+, r1
 
-0000007e <.do_clear_bss_loop>:
-  7e:	1d 92       	st	X+, r1
+0000006a <.do_clear_bss_start>:
+  6a:	a6 36       	cpi	r26, 0x66	; 102
+  6c:	b2 07       	cpc	r27, r18
+  6e:	e1 f7       	brne	.-8      	; 0x68 <.do_clear_bss_loop>
+  70:	0e 94 04 01 	call	0x208	; 0x208 <main>
+  74:	0c 94 5a 02 	jmp	0x4b4	; 0x4b4 <_exit>
 
-00000080 <.do_clear_bss_start>:
-  80:	a6 36       	cpi	r26, 0x66	; 102
-  82:	b2 07       	cpc	r27, r18
-  84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
-  86:	0e 94 9b 00 	call	0x136	; 0x136 <main>
-  8a:	0c 94 b5 00 	jmp	0x16a	; 0x16a <_exit>
+00000078 <__bad_interrupt>:
+  78:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
-0000008e <__bad_interrupt>:
-  8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
-
-00000092 <SPI_SlaveInit>:
-void LCD_Pass_Req02(unsigned char Key)
+0000007c <SPI_SlaveInit>:
+unsigned char I2C_Read_Ack()		// I2C read ack function 
 {
-	if (Key !=DEFAULT_KEYPRESSED && j!=6){ //0xFF is the default return if no key pressed...
-		send_a_character(Key);
-		_delay_ms(50);
-		j++;
-  92:	be 9a       	sbi	0x17, 6	; 23
-  94:	87 b3       	in	r24, 0x17	; 23
-  96:	8f 74       	andi	r24, 0x4F	; 79
-  98:	87 bb       	out	0x17, r24	; 23
-  9a:	80 e4       	ldi	r24, 0x40	; 64
-  9c:	8d b9       	out	0x0d, r24	; 13
-  9e:	08 95       	ret
+	TWCR=(1<<TWEN)|(1<<TWINT)|(1<<TWEA); // Enable TWI, generation of ack 
+	while(!(TWCR&(1<<TWINT)));	// Wait until TWI finish its current job 
+	return TWDR;			// Return received data 
+}
+  7c:	be 9a       	sbi	0x17, 6	; 23
+  7e:	87 b3       	in	r24, 0x17	; 23
+  80:	8f 74       	andi	r24, 0x4F	; 79
+  82:	87 bb       	out	0x17, r24	; 23
+  84:	80 e4       	ldi	r24, 0x40	; 64
+  86:	8d b9       	out	0x0d, r24	; 13
+  88:	08 95       	ret
 
-000000a0 <SPI_Transmitter>:
-  a0:	8f b9       	out	0x0f, r24	; 15
-  a2:	77 9b       	sbis	0x0e, 7	; 14
-  a4:	fe cf       	rjmp	.-4      	; 0xa2 <SPI_Transmitter+0x2>
-  a6:	8f b1       	in	r24, 0x0f	; 15
-  a8:	08 95       	ret
+0000008a <SPI_Transmitter>:
+  8a:	8f b9       	out	0x0f, r24	; 15
+  8c:	8f e1       	ldi	r24, 0x1F	; 31
+  8e:	9e e4       	ldi	r25, 0x4E	; 78
+  90:	01 97       	sbiw	r24, 0x01	; 1
+  92:	f1 f7       	brne	.-4      	; 0x90 <SPI_Transmitter+0x6>
+  94:	00 c0       	rjmp	.+0      	; 0x96 <SPI_Transmitter+0xc>
+  96:	00 00       	nop
+  98:	77 9b       	sbis	0x0e, 7	; 14
+  9a:	fe cf       	rjmp	.-4      	; 0x98 <SPI_Transmitter+0xe>
+  9c:	9f e7       	ldi	r25, 0x7F	; 127
+  9e:	28 e3       	ldi	r18, 0x38	; 56
+  a0:	81 e0       	ldi	r24, 0x01	; 1
+  a2:	91 50       	subi	r25, 0x01	; 1
+  a4:	20 40       	sbci	r18, 0x00	; 0
+  a6:	80 40       	sbci	r24, 0x00	; 0
+  a8:	e1 f7       	brne	.-8      	; 0xa2 <SPI_Transmitter+0x18>
+  aa:	00 c0       	rjmp	.+0      	; 0xac <SPI_Transmitter+0x22>
+  ac:	00 00       	nop
+  ae:	8f b1       	in	r24, 0x0f	; 15
+  b0:	08 95       	ret
 
-000000aa <send_a_command>:
-  aa:	92 b3       	in	r25, 0x12	; 18
-  ac:	9f 70       	andi	r25, 0x0F	; 15
-  ae:	28 2f       	mov	r18, r24
-  b0:	20 7f       	andi	r18, 0xF0	; 240
-  b2:	92 2b       	or	r25, r18
-  b4:	92 bb       	out	0x12, r25	; 18
-  b6:	90 98       	cbi	0x12, 0	; 18
-  b8:	91 9a       	sbi	0x12, 1	; 18
-  ba:	32 e0       	ldi	r19, 0x02	; 2
-  bc:	3a 95       	dec	r19
-  be:	f1 f7       	brne	.-4      	; 0xbc <send_a_command+0x12>
-  c0:	00 c0       	rjmp	.+0      	; 0xc2 <send_a_command+0x18>
-  c2:	91 98       	cbi	0x12, 1	; 18
-  c4:	ef e8       	ldi	r30, 0x8F	; 143
-  c6:	f1 e0       	ldi	r31, 0x01	; 1
-  c8:	31 97       	sbiw	r30, 0x01	; 1
-  ca:	f1 f7       	brne	.-4      	; 0xc8 <send_a_command+0x1e>
-  cc:	00 c0       	rjmp	.+0      	; 0xce <send_a_command+0x24>
-  ce:	00 00       	nop
-  d0:	22 b3       	in	r18, 0x12	; 18
-  d2:	2f 70       	andi	r18, 0x0F	; 15
-  d4:	f0 e1       	ldi	r31, 0x10	; 16
-  d6:	8f 9f       	mul	r24, r31
-  d8:	c0 01       	movw	r24, r0
-  da:	11 24       	eor	r1, r1
-  dc:	82 2b       	or	r24, r18
-  de:	82 bb       	out	0x12, r24	; 18
-  e0:	91 9a       	sbi	0x12, 1	; 18
-  e2:	32 e0       	ldi	r19, 0x02	; 2
-  e4:	3a 95       	dec	r19
-  e6:	f1 f7       	brne	.-4      	; 0xe4 <send_a_command+0x3a>
-  e8:	00 c0       	rjmp	.+0      	; 0xea <send_a_command+0x40>
-  ea:	91 98       	cbi	0x12, 1	; 18
-  ec:	8f e3       	ldi	r24, 0x3F	; 63
-  ee:	9c e9       	ldi	r25, 0x9C	; 156
-  f0:	01 97       	sbiw	r24, 0x01	; 1
-  f2:	f1 f7       	brne	.-4      	; 0xf0 <send_a_command+0x46>
-  f4:	00 c0       	rjmp	.+0      	; 0xf6 <send_a_command+0x4c>
-  f6:	00 00       	nop
-  f8:	08 95       	ret
+000000b2 <I2C_Init>:
+  b2:	84 e0       	ldi	r24, 0x04	; 4
+  b4:	86 bf       	out	0x36, r24	; 54
+  b6:	11 b8       	out	0x01, r1	; 1
+  b8:	82 e0       	ldi	r24, 0x02	; 2
+  ba:	80 b9       	out	0x00, r24	; 0
+  bc:	08 95       	ret
 
-000000fa <LCD_Init>:
-  fa:	81 b3       	in	r24, 0x11	; 17
-  fc:	80 6f       	ori	r24, 0xF0	; 240
-  fe:	81 bb       	out	0x11, r24	; 17
- 100:	88 9a       	sbi	0x11, 0	; 17
- 102:	89 9a       	sbi	0x11, 1	; 17
- 104:	2f e7       	ldi	r18, 0x7F	; 127
- 106:	88 e3       	ldi	r24, 0x38	; 56
- 108:	91 e0       	ldi	r25, 0x01	; 1
- 10a:	21 50       	subi	r18, 0x01	; 1
- 10c:	80 40       	sbci	r24, 0x00	; 0
- 10e:	90 40       	sbci	r25, 0x00	; 0
- 110:	e1 f7       	brne	.-8      	; 0x10a <LCD_Init+0x10>
- 112:	00 c0       	rjmp	.+0      	; 0x114 <LCD_Init+0x1a>
- 114:	00 00       	nop
- 116:	82 e0       	ldi	r24, 0x02	; 2
- 118:	0e 94 55 00 	call	0xaa	; 0xaa <send_a_command>
- 11c:	88 e2       	ldi	r24, 0x28	; 40
- 11e:	0e 94 55 00 	call	0xaa	; 0xaa <send_a_command>
- 122:	8e e0       	ldi	r24, 0x0E	; 14
- 124:	0e 94 55 00 	call	0xaa	; 0xaa <send_a_command>
- 128:	86 e0       	ldi	r24, 0x06	; 6
- 12a:	0e 94 55 00 	call	0xaa	; 0xaa <send_a_command>
- 12e:	81 e0       	ldi	r24, 0x01	; 1
- 130:	0e 94 55 00 	call	0xaa	; 0xaa <send_a_command>
- 134:	08 95       	ret
+000000be <I2C_Start>:
+  be:	84 ea       	ldi	r24, 0xA4	; 164
+  c0:	86 bf       	out	0x36, r24	; 54
+  c2:	06 b6       	in	r0, 0x36	; 54
+  c4:	07 fe       	sbrs	r0, 7
+  c6:	fd cf       	rjmp	.-6      	; 0xc2 <I2C_Start+0x4>
+  c8:	08 95       	ret
 
-00000136 <main>:
+000000ca <I2C_Stop>:
+  ca:	84 e9       	ldi	r24, 0x94	; 148
+  cc:	86 bf       	out	0x36, r24	; 54
+  ce:	06 b6       	in	r0, 0x36	; 54
+  d0:	04 fc       	sbrc	r0, 4
+  d2:	fd cf       	rjmp	.-6      	; 0xce <I2C_Stop+0x4>
+  d4:	08 95       	ret
 
-int main(void)
+000000d6 <I2C_Write>:
+  d6:	83 b9       	out	0x03, r24	; 3
+  d8:	84 e8       	ldi	r24, 0x84	; 132
+  da:	86 bf       	out	0x36, r24	; 54
+  dc:	06 b6       	in	r0, 0x36	; 54
+  de:	07 fe       	sbrs	r0, 7
+  e0:	fd cf       	rjmp	.-6      	; 0xdc <I2C_Write+0x6>
+  e2:	08 95       	ret
+
+000000e4 <I2C_Read_Nack>:
+  e4:	84 e8       	ldi	r24, 0x84	; 132
+  e6:	86 bf       	out	0x36, r24	; 54
+  e8:	06 b6       	in	r0, 0x36	; 54
+  ea:	07 fe       	sbrs	r0, 7
+  ec:	fd cf       	rjmp	.-6      	; 0xe8 <I2C_Read_Nack+0x4>
+  ee:	83 b1       	in	r24, 0x03	; 3
+  f0:	08 95       	ret
+
+000000f2 <ExtEPROM_Write>:
+
+unsigned char ExtEPROM_Write(unsigned int addr,unsigned char data)
 {
-	unsigned char SSS=0;
-	unsigned char counter=0;
-	SPI_SlaveInit();
- 136:	0e 94 49 00 	call	0x92	; 0x92 <SPI_SlaveInit>
-    while (1) 
-    {
-/****************************LCD TESTING OUTPUT*********************************/
-		LCD_Init();
- 13a:	0e 94 7d 00 	call	0xfa	; 0xfa <LCD_Init>
-/***************************** SPI COMMUNICATION ************************************/
-		SPI_SlaveInit();
- 13e:	0e 94 49 00 	call	0x92	; 0x92 <SPI_SlaveInit>
- 142:	c0 e0       	ldi	r28, 0x00	; 0
- 144:	d0 e0       	ldi	r29, 0x00	; 0
-		for(counter=0;counter<6;counter++)
-		{	
-			REC_PASS[counter]=SPI_Transmitter('y'); //Receiving 6 digits from Master Controller
- 146:	89 e7       	ldi	r24, 0x79	; 121
- 148:	0e 94 50 00 	call	0xa0	; 0xa0 <SPI_Transmitter>
- 14c:	fe 01       	movw	r30, r28
- 14e:	e0 5a       	subi	r30, 0xA0	; 160
- 150:	ff 4f       	sbci	r31, 0xFF	; 255
- 152:	80 83       	st	Z, r24
+  f2:	cf 93       	push	r28
+  f4:	df 93       	push	r29
+  f6:	c8 2f       	mov	r28, r24
+  f8:	d6 2f       	mov	r29, r22
+	I2C_Start();
+  fa:	0e 94 5f 00 	call	0xbe	; 0xbe <I2C_Start>
+	return (TWDR);
+}
+
+unsigned char I2C_GetStatus()
+{
+	return (TWSR&0xF8);
+  fe:	81 b1       	in	r24, 0x01	; 1
+	if(I2C_GetStatus() != 0x08)
+ 100:	88 7f       	andi	r24, 0xF8	; 248
+ 102:	88 30       	cpi	r24, 0x08	; 8
+ 104:	c9 f4       	brne	.+50     	; 0x138 <ExtEPROM_Write+0x46>
+	return 1;
+	I2C_Write(EEPROM_Write_Address);
+ 106:	80 ea       	ldi	r24, 0xA0	; 160
+ 108:	0e 94 6b 00 	call	0xd6	; 0xd6 <I2C_Write>
+ 10c:	81 b1       	in	r24, 0x01	; 1
+	if(I2C_GetStatus() != 0x18)
+ 10e:	88 7f       	andi	r24, 0xF8	; 248
+ 110:	88 31       	cpi	r24, 0x18	; 24
+ 112:	a1 f4       	brne	.+40     	; 0x13c <ExtEPROM_Write+0x4a>
+	return 2;
+	I2C_Write((unsigned char)(addr));
+ 114:	8c 2f       	mov	r24, r28
+ 116:	0e 94 6b 00 	call	0xd6	; 0xd6 <I2C_Write>
+ 11a:	81 b1       	in	r24, 0x01	; 1
+	if(I2C_GetStatus() != 0x28)
+ 11c:	88 7f       	andi	r24, 0xF8	; 248
+ 11e:	88 32       	cpi	r24, 0x28	; 40
+ 120:	79 f4       	brne	.+30     	; 0x140 <ExtEPROM_Write+0x4e>
+	return 3;
+	I2C_Write(data);
+ 122:	8d 2f       	mov	r24, r29
+ 124:	0e 94 6b 00 	call	0xd6	; 0xd6 <I2C_Write>
+ 128:	81 b1       	in	r24, 0x01	; 1
+	if(I2C_GetStatus() != 0x28)
+ 12a:	88 7f       	andi	r24, 0xF8	; 248
+ 12c:	88 32       	cpi	r24, 0x28	; 40
+ 12e:	51 f4       	brne	.+20     	; 0x144 <ExtEPROM_Write+0x52>
+	return 4;
+	I2C_Stop();
+ 130:	0e 94 65 00 	call	0xca	; 0xca <I2C_Stop>
+	return 5;
+ 134:	85 e0       	ldi	r24, 0x05	; 5
+ 136:	07 c0       	rjmp	.+14     	; 0x146 <ExtEPROM_Write+0x54>
+
+unsigned char ExtEPROM_Write(unsigned int addr,unsigned char data)
+{
+	I2C_Start();
+	if(I2C_GetStatus() != 0x08)
+	return 1;
+ 138:	81 e0       	ldi	r24, 0x01	; 1
+ 13a:	05 c0       	rjmp	.+10     	; 0x146 <ExtEPROM_Write+0x54>
+	I2C_Write(EEPROM_Write_Address);
+	if(I2C_GetStatus() != 0x18)
+	return 2;
+ 13c:	82 e0       	ldi	r24, 0x02	; 2
+ 13e:	03 c0       	rjmp	.+6      	; 0x146 <ExtEPROM_Write+0x54>
+	I2C_Write((unsigned char)(addr));
+	if(I2C_GetStatus() != 0x28)
+	return 3;
+ 140:	83 e0       	ldi	r24, 0x03	; 3
+ 142:	01 c0       	rjmp	.+2      	; 0x146 <ExtEPROM_Write+0x54>
+	I2C_Write(data);
+	if(I2C_GetStatus() != 0x28)
+	return 4;
+ 144:	84 e0       	ldi	r24, 0x04	; 4
+	I2C_Stop();
+	return 5;
+}
+ 146:	df 91       	pop	r29
+ 148:	cf 91       	pop	r28
+ 14a:	08 95       	ret
+
+0000014c <ExtEPROM_Read>:
+
+unsigned char ExtEPROM_Read(unsigned int addr,unsigned char *data)
+{
+ 14c:	0f 93       	push	r16
+ 14e:	1f 93       	push	r17
+ 150:	cf 93       	push	r28
+ 152:	c8 2f       	mov	r28, r24
+ 154:	8b 01       	movw	r16, r22
+	
+	I2C_Start();
+ 156:	0e 94 5f 00 	call	0xbe	; 0xbe <I2C_Start>
+ 15a:	81 b1       	in	r24, 0x01	; 1
+	if(I2C_GetStatus() != 0x08)
+ 15c:	88 7f       	andi	r24, 0xF8	; 248
+ 15e:	88 30       	cpi	r24, 0x08	; 8
+ 160:	39 f5       	brne	.+78     	; 0x1b0 <ExtEPROM_Read+0x64>
+	return 1;
+	I2C_Write(EEPROM_Write_Address);
+ 162:	80 ea       	ldi	r24, 0xA0	; 160
+ 164:	0e 94 6b 00 	call	0xd6	; 0xd6 <I2C_Write>
+ 168:	81 b1       	in	r24, 0x01	; 1
+	if(I2C_GetStatus() != 0x18)
+ 16a:	88 7f       	andi	r24, 0xF8	; 248
+ 16c:	88 31       	cpi	r24, 0x18	; 24
+ 16e:	11 f5       	brne	.+68     	; 0x1b4 <ExtEPROM_Read+0x68>
+	return 2;
+	I2C_Write((unsigned char)(addr));
+ 170:	8c 2f       	mov	r24, r28
+ 172:	0e 94 6b 00 	call	0xd6	; 0xd6 <I2C_Write>
+ 176:	81 b1       	in	r24, 0x01	; 1
+	if(I2C_GetStatus() != 0x28)
+ 178:	88 7f       	andi	r24, 0xF8	; 248
+ 17a:	88 32       	cpi	r24, 0x28	; 40
+ 17c:	e9 f4       	brne	.+58     	; 0x1b8 <ExtEPROM_Read+0x6c>
+	return 3;
+	I2C_Start();
+ 17e:	0e 94 5f 00 	call	0xbe	; 0xbe <I2C_Start>
+ 182:	81 b1       	in	r24, 0x01	; 1
+	if(I2C_GetStatus() != 0x10)
+ 184:	88 7f       	andi	r24, 0xF8	; 248
+ 186:	80 31       	cpi	r24, 0x10	; 16
+ 188:	c9 f4       	brne	.+50     	; 0x1bc <ExtEPROM_Read+0x70>
+	return 4;
+	I2C_Write(EEPROM_Read_Address);
+ 18a:	81 ea       	ldi	r24, 0xA1	; 161
+ 18c:	0e 94 6b 00 	call	0xd6	; 0xd6 <I2C_Write>
+ 190:	81 b1       	in	r24, 0x01	; 1
+	if(I2C_GetStatus() != 0x40)
+ 192:	88 7f       	andi	r24, 0xF8	; 248
+ 194:	80 34       	cpi	r24, 0x40	; 64
+ 196:	a1 f4       	brne	.+40     	; 0x1c0 <ExtEPROM_Read+0x74>
+	return 5;
+	*data=I2C_Read_Nack();
+ 198:	0e 94 72 00 	call	0xe4	; 0xe4 <I2C_Read_Nack>
+ 19c:	f8 01       	movw	r30, r16
+ 19e:	80 83       	st	Z, r24
+ 1a0:	81 b1       	in	r24, 0x01	; 1
+	if(I2C_GetStatus() != 0x58)
+ 1a2:	88 7f       	andi	r24, 0xF8	; 248
+ 1a4:	88 35       	cpi	r24, 0x58	; 88
+ 1a6:	71 f4       	brne	.+28     	; 0x1c4 <ExtEPROM_Read+0x78>
+	return 6;
+	I2C_Stop();
+ 1a8:	0e 94 65 00 	call	0xca	; 0xca <I2C_Stop>
+	return 7;
+ 1ac:	87 e0       	ldi	r24, 0x07	; 7
+ 1ae:	0b c0       	rjmp	.+22     	; 0x1c6 <ExtEPROM_Read+0x7a>
+unsigned char ExtEPROM_Read(unsigned int addr,unsigned char *data)
+{
+	
+	I2C_Start();
+	if(I2C_GetStatus() != 0x08)
+	return 1;
+ 1b0:	81 e0       	ldi	r24, 0x01	; 1
+ 1b2:	09 c0       	rjmp	.+18     	; 0x1c6 <ExtEPROM_Read+0x7a>
+	I2C_Write(EEPROM_Write_Address);
+	if(I2C_GetStatus() != 0x18)
+	return 2;
+ 1b4:	82 e0       	ldi	r24, 0x02	; 2
+ 1b6:	07 c0       	rjmp	.+14     	; 0x1c6 <ExtEPROM_Read+0x7a>
+	I2C_Write((unsigned char)(addr));
+	if(I2C_GetStatus() != 0x28)
+	return 3;
+ 1b8:	83 e0       	ldi	r24, 0x03	; 3
+ 1ba:	05 c0       	rjmp	.+10     	; 0x1c6 <ExtEPROM_Read+0x7a>
+	I2C_Start();
+	if(I2C_GetStatus() != 0x10)
+	return 4;
+ 1bc:	84 e0       	ldi	r24, 0x04	; 4
+ 1be:	03 c0       	rjmp	.+6      	; 0x1c6 <ExtEPROM_Read+0x7a>
+	I2C_Write(EEPROM_Read_Address);
+	if(I2C_GetStatus() != 0x40)
+	return 5;
+ 1c0:	85 e0       	ldi	r24, 0x05	; 5
+ 1c2:	01 c0       	rjmp	.+2      	; 0x1c6 <ExtEPROM_Read+0x7a>
+	*data=I2C_Read_Nack();
+	if(I2C_GetStatus() != 0x58)
+	return 6;
+ 1c4:	86 e0       	ldi	r24, 0x06	; 6
+	I2C_Stop();
+	return 7;
+ 1c6:	cf 91       	pop	r28
+ 1c8:	1f 91       	pop	r17
+ 1ca:	0f 91       	pop	r16
+ 1cc:	08 95       	ret
+
+000001ce <UART_Init>:
+#include <avr/interrupt.h>
+***********************/
+
+void UART_Init(void)
+{
+	DDRD  |= (1<<PD1);
+ 1ce:	89 9a       	sbi	0x11, 1	; 17
+	DDRD  &= (~(1<<PD0));
+ 1d0:	88 98       	cbi	0x11, 0	; 17
+	UBRRL = 51;
+ 1d2:	83 e3       	ldi	r24, 0x33	; 51
+ 1d4:	89 b9       	out	0x09, r24	; 9
+	UBRRH = 0;
+ 1d6:	10 bc       	out	0x20, r1	; 32
+	//unsigned int BAUD_Rate=9600;								//			F_CPU
+	//unsigned int UBRR_Value;									//UBRR=------------------ - 1					((F_CPU => the clock of the microcontroller..))			
+	//UBRR_Value = (((F_CPU)/(16 * BAUD_Rate))-1);				//		16 * BAUD_Rate							and the BAUD_Rate is the data transferring bits per sec...
+	UCSRB |= (1<<TXEN) | (1<<RXEN);			//Receive complete IE,Data reg. Empty IE, Transmit/Receive enable,Transmit complete IE
+ 1d8:	8a b1       	in	r24, 0x0a	; 10
+ 1da:	88 61       	ori	r24, 0x18	; 24
+ 1dc:	8a b9       	out	0x0a, r24	; 10
+	UCSRC |= (1<<URSEL) |(1<<UCSZ0) | (1<<UCSZ1);			// 8bit-data and parity mode Even
+ 1de:	80 b5       	in	r24, 0x20	; 32
+ 1e0:	86 68       	ori	r24, 0x86	; 134
+ 1e2:	80 bd       	out	0x20, r24	; 32
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
- 154:	8f e0       	ldi	r24, 0x0F	; 15
- 156:	97 e2       	ldi	r25, 0x27	; 39
- 158:	01 97       	sbiw	r24, 0x01	; 1
- 15a:	f1 f7       	brne	.-4      	; 0x158 <main+0x22>
- 15c:	00 c0       	rjmp	.+0      	; 0x15e <main+0x28>
- 15e:	00 00       	nop
- 160:	21 96       	adiw	r28, 0x01	; 1
-    {
-/****************************LCD TESTING OUTPUT*********************************/
-		LCD_Init();
-/***************************** SPI COMMUNICATION ************************************/
-		SPI_SlaveInit();
+ 1e4:	2f e7       	ldi	r18, 0x7F	; 127
+ 1e6:	8a e1       	ldi	r24, 0x1A	; 26
+ 1e8:	96 e0       	ldi	r25, 0x06	; 6
+ 1ea:	21 50       	subi	r18, 0x01	; 1
+ 1ec:	80 40       	sbci	r24, 0x00	; 0
+ 1ee:	90 40       	sbci	r25, 0x00	; 0
+ 1f0:	e1 f7       	brne	.-8      	; 0x1ea <UART_Init+0x1c>
+ 1f2:	00 c0       	rjmp	.+0      	; 0x1f4 <UART_Init+0x26>
+ 1f4:	00 00       	nop
+ 1f6:	08 95       	ret
+
+000001f8 <UART_Send>:
+	
+}
+
+void UART_Send(unsigned char data)
+{
+	while( !(UCSRA & (1<<UDRE)) ) ; //wait until UDR is empty...
+ 1f8:	5d 9b       	sbis	0x0b, 5	; 11
+ 1fa:	fe cf       	rjmp	.-4      	; 0x1f8 <UART_Send>
+		UDR = data;					//putting data into UDR, send the data...
+ 1fc:	8c b9       	out	0x0c, r24	; 12
+ 1fe:	08 95       	ret
+
+00000200 <UART_Rec>:
+	
+}
+
+unsigned char UART_Rec(void)
+{	
+	while ( !(UCSRA & (1<<RXC)) );	// wait for the receive complete (RXC) flag...
+ 200:	5f 9b       	sbis	0x0b, 7	; 11
+ 202:	fe cf       	rjmp	.-4      	; 0x200 <UART_Rec>
+	return UDR;						//Get and return received data from buffer...
+ 204:	8c b1       	in	r24, 0x0c	; 12
+ 206:	08 95       	ret
+
+00000208 <main>:
+volatile unsigned char SPI_INTERRUPT_FLAG=NONE;
+volatile unsigned char SPI_REC_DATA=NONE;
+volatile unsigned char SPI_SEND_DATA=NONE;
+
+int main(void)
+{
+ 208:	cf 93       	push	r28
+ 20a:	df 93       	push	r29
+ 20c:	1f 92       	push	r1
+ 20e:	cd b7       	in	r28, 0x3d	; 61
+ 210:	de b7       	in	r29, 0x3e	; 62
+	unsigned char counter=0;
+	unsigned char buffer=0;
+	unsigned char ExtEEPROM_buffer=0;
+ 212:	19 82       	std	Y+1, r1	; 0x01
+	unsigned char PASSWORD=EMPTY;
+	unsigned char Rec_MODE = EMPTY;
+	unsigned char ADJUSTING_DATA_STAT=NONE;
+
+	sei();
+ 214:	78 94       	sei
+	UART_Init();
+ 216:	0e 94 e7 00 	call	0x1ce	; 0x1ce <UART_Init>
+	SPI_SlaveInit();
+ 21a:	0e 94 3e 00 	call	0x7c	; 0x7c <SPI_SlaveInit>
+	I2C_Init();
+ 21e:	0e 94 59 00 	call	0xb2	; 0xb2 <I2C_Init>
+	* if not and the EEPROM is new (first time usage)
+	* i will write the default Password of ADMIN & host and also, will change the flag to 0xEE
+	* to stop repeating the write default password.
+	*/
+	unsigned char DELETE_IN_PRACTICAL_CODE =1;	
+	ExtEPROM_Read(FIRST_ADDRESS,&ExtEEPROM_buffer);
+ 222:	be 01       	movw	r22, r28
+ 224:	6f 5f       	subi	r22, 0xFF	; 255
+ 226:	7f 4f       	sbci	r23, 0xFF	; 255
+ 228:	80 e0       	ldi	r24, 0x00	; 0
+ 22a:	90 e0       	ldi	r25, 0x00	; 0
+ 22c:	0e 94 a6 00 	call	0x14c	; 0x14c <ExtEPROM_Read>
+ 230:	11 e3       	ldi	r17, 0x31	; 49
+ 232:	68 94       	set
+ 234:	ee 24       	eor	r14, r14
+ 236:	e1 f8       	bld	r14, 1
+ 238:	f1 2c       	mov	r15, r1
+*/
+
+/*******************Default ADMIN & HOST PASSWORD DATA IN EEPROM*****************/
 		for(counter=0;counter<6;counter++)
- 162:	c6 30       	cpi	r28, 0x06	; 6
- 164:	d1 05       	cpc	r29, r1
- 166:	79 f7       	brne	.-34     	; 0x146 <main+0x10>
- 168:	e8 cf       	rjmp	.-48     	; 0x13a <main+0x4>
+		{
+			ExtEPROM_Write((ADMIN_ADDRESS + counter) , (0x31+ counter) );
+ 23a:	61 2f       	mov	r22, r17
+ 23c:	c7 01       	movw	r24, r14
+ 23e:	0e 94 79 00 	call	0xf2	; 0xf2 <ExtEPROM_Write>
+ 242:	8f e4       	ldi	r24, 0x4F	; 79
+ 244:	93 ec       	ldi	r25, 0xC3	; 195
+ 246:	01 97       	sbiw	r24, 0x01	; 1
+ 248:	f1 f7       	brne	.-4      	; 0x246 <main+0x3e>
+ 24a:	00 c0       	rjmp	.+0      	; 0x24c <main+0x44>
+ 24c:	00 00       	nop
+			_delay_ms(25);
+			ExtEPROM_Write((HOST_ADDRESS  + counter ), (0x31+ counter) );
+ 24e:	61 2f       	mov	r22, r17
+ 250:	c7 01       	movw	r24, r14
+ 252:	07 96       	adiw	r24, 0x07	; 7
+ 254:	0e 94 79 00 	call	0xf2	; 0xf2 <ExtEPROM_Write>
+ 258:	8f e4       	ldi	r24, 0x4F	; 79
+ 25a:	93 ec       	ldi	r25, 0xC3	; 195
+ 25c:	01 97       	sbiw	r24, 0x01	; 1
+ 25e:	f1 f7       	brne	.-4      	; 0x25c <main+0x54>
+ 260:	00 c0       	rjmp	.+0      	; 0x262 <main+0x5a>
+ 262:	00 00       	nop
+ 264:	9f ef       	ldi	r25, 0xFF	; 255
+ 266:	e9 1a       	sub	r14, r25
+ 268:	f9 0a       	sbc	r15, r25
+ 26a:	1f 5f       	subi	r17, 0xFF	; 255
+	once, so on that if condition is entered once, and thats okay (what we already
+	want) in real life.
+*/
 
-0000016a <_exit>:
- 16a:	f8 94       	cli
+/*******************Default ADMIN & HOST PASSWORD DATA IN EEPROM*****************/
+		for(counter=0;counter<6;counter++)
+ 26c:	17 33       	cpi	r17, 0x37	; 55
+ 26e:	29 f7       	brne	.-54     	; 0x23a <main+0x32>
+			_delay_ms(25);
+		}
+		
+/************************ DEFAULT AC DATA (OFF/27°C) ******************/
+		//ExtEPROM_Write( AC_STAT_ADDRESS , AC_STAT_OFF +0x30);
+		ExtEPROM_Write(AC_STAT_ADDRESS, AC_STAT_OFF);
+ 270:	61 eb       	ldi	r22, 0xB1	; 177
+ 272:	80 e1       	ldi	r24, 0x10	; 16
+ 274:	90 e0       	ldi	r25, 0x00	; 0
+ 276:	0e 94 79 00 	call	0xf2	; 0xf2 <ExtEPROM_Write>
+ 27a:	8f e5       	ldi	r24, 0x5F	; 95
+ 27c:	9a ee       	ldi	r25, 0xEA	; 234
+ 27e:	01 97       	sbiw	r24, 0x01	; 1
+ 280:	f1 f7       	brne	.-4      	; 0x27e <main+0x76>
+ 282:	00 c0       	rjmp	.+0      	; 0x284 <main+0x7c>
+ 284:	00 00       	nop
+		_delay_ms(30);
+		ExtEPROM_Write(AC_TEMP_ADDRESS, 27 );
+ 286:	6b e1       	ldi	r22, 0x1B	; 27
+ 288:	81 e1       	ldi	r24, 0x11	; 17
+ 28a:	90 e0       	ldi	r25, 0x00	; 0
+ 28c:	0e 94 79 00 	call	0xf2	; 0xf2 <ExtEPROM_Write>
+ 290:	8f e5       	ldi	r24, 0x5F	; 95
+ 292:	9a ee       	ldi	r25, 0xEA	; 234
+ 294:	01 97       	sbiw	r24, 0x01	; 1
+ 296:	f1 f7       	brne	.-4      	; 0x294 <main+0x8c>
+ 298:	00 c0       	rjmp	.+0      	; 0x29a <main+0x92>
+ 29a:	00 00       	nop
+		_delay_ms(30);	
+		
+/****************DEFAULT INDICATOR FLAG TO EEPROM INITIALIZATION*****************/
+		ExtEPROM_Write(FIRST_ADDRESS, PASSWORDS_SET );
+ 29c:	6e ee       	ldi	r22, 0xEE	; 238
+ 29e:	80 e0       	ldi	r24, 0x00	; 0
+ 2a0:	90 e0       	ldi	r25, 0x00	; 0
+ 2a2:	0e 94 79 00 	call	0xf2	; 0xf2 <ExtEPROM_Write>
+ 2a6:	8f e5       	ldi	r24, 0x5F	; 95
+ 2a8:	9a ee       	ldi	r25, 0xEA	; 234
+ 2aa:	01 97       	sbiw	r24, 0x01	; 1
+ 2ac:	f1 f7       	brne	.-4      	; 0x2aa <main+0xa2>
+ 2ae:	00 c0       	rjmp	.+0      	; 0x2b0 <main+0xa8>
+ 2b0:	00 00       	nop
+		}//End Admin checking all entries
+		else if (Rec_MODE == HOST && PASSWORD == NONE)
+		{
+			for(counter=0;counter<6;counter++)
+			{
+				ExtEPROM_Read(HOST_ADDRESS+counter,&ExtEEPROM_buffer);
+ 2b2:	9e 01       	movw	r18, r28
+ 2b4:	2f 5f       	subi	r18, 0xFF	; 255
+ 2b6:	3f 4f       	sbci	r19, 0xFF	; 255
+ 2b8:	79 01       	movw	r14, r18
+	}
+	
+    while (1) 
+    {
+		
+		DDRA=0xFF;
+ 2ba:	aa 24       	eor	r10, r10
+ 2bc:	aa 94       	dec	r10
+		//PORTA=0x00;
+		PORTA=0b11111111;
+		PASSWORD=NONE;	//resetting all used variables
+ 2be:	91 2c       	mov	r9, r1
+		}//End Admin checking all entries
+		else if (Rec_MODE == HOST && PASSWORD == NONE)
+		{
+			for(counter=0;counter<6;counter++)
+			{
+				ExtEPROM_Read(HOST_ADDRESS+counter,&ExtEEPROM_buffer);
+ 2c0:	c2 2e       	mov	r12, r18
+ 2c2:	df 2c       	mov	r13, r15
+				if(REC_PASS[counter]!=ExtEEPROM_buffer)
+				{
+					PASSWORD=Wrong_PASSWORD;
+ 2c4:	0f 2e       	mov	r0, r31
+ 2c6:	f9 e0       	ldi	r31, 0x09	; 9
+ 2c8:	bf 2e       	mov	r11, r31
+ 2ca:	f0 2d       	mov	r31, r0
+					counter=6;	//get out of loop
+				}
+				else
+				{
+					PASSWORD=Right_PASSWORD;
+ 2cc:	68 94       	set
+ 2ce:	77 24       	eor	r7, r7
+ 2d0:	73 f8       	bld	r7, 3
+	}
+	
+    while (1) 
+    {
+		
+		DDRA=0xFF;
+ 2d2:	aa ba       	out	0x1a, r10	; 26
+		//PORTA=0x00;
+		PORTA=0b11111111;
+ 2d4:	ab ba       	out	0x1b, r10	; 27
+		Rec_MODE=NONE;
+		ADJUSTING_DATA_STAT=NONE;
+		buffer=0;
+		
+/*********************** SPI-Receiving MODE and PASS *******************/
+		Rec_MODE = SPI_Transmitter(TRANSMISSION_COMPLETE);	//first receiving message contains the mode
+ 2d6:	8a e0       	ldi	r24, 0x0A	; 10
+ 2d8:	0e 94 45 00 	call	0x8a	; 0x8a <SPI_Transmitter>
+ 2dc:	88 2e       	mov	r8, r24
+ 2de:	00 e0       	ldi	r16, 0x00	; 0
+ 2e0:	10 e0       	ldi	r17, 0x00	; 0
+		for(counter=0;counter<6;counter++)
+		{
+			REC_PASS[counter]=SPI_Transmitter(TRANSMISSION_COMPLETE); //Receiving 6 digits from Master Controller
+ 2e2:	8a e0       	ldi	r24, 0x0A	; 10
+ 2e4:	0e 94 45 00 	call	0x8a	; 0x8a <SPI_Transmitter>
+ 2e8:	f8 01       	movw	r30, r16
+ 2ea:	e0 5a       	subi	r30, 0xA0	; 160
+ 2ec:	ff 4f       	sbci	r31, 0xFF	; 255
+ 2ee:	80 83       	st	Z, r24
+ 2f0:	3f e7       	ldi	r19, 0x7F	; 127
+ 2f2:	88 e3       	ldi	r24, 0x38	; 56
+ 2f4:	91 e0       	ldi	r25, 0x01	; 1
+ 2f6:	31 50       	subi	r19, 0x01	; 1
+ 2f8:	80 40       	sbci	r24, 0x00	; 0
+ 2fa:	90 40       	sbci	r25, 0x00	; 0
+ 2fc:	e1 f7       	brne	.-8      	; 0x2f6 <main+0xee>
+ 2fe:	00 c0       	rjmp	.+0      	; 0x300 <main+0xf8>
+ 300:	00 00       	nop
+ 302:	0f 5f       	subi	r16, 0xFF	; 255
+ 304:	1f 4f       	sbci	r17, 0xFF	; 255
+		ADJUSTING_DATA_STAT=NONE;
+		buffer=0;
+		
+/*********************** SPI-Receiving MODE and PASS *******************/
+		Rec_MODE = SPI_Transmitter(TRANSMISSION_COMPLETE);	//first receiving message contains the mode
+		for(counter=0;counter<6;counter++)
+ 306:	06 30       	cpi	r16, 0x06	; 6
+ 308:	11 05       	cpc	r17, r1
+ 30a:	59 f7       	brne	.-42     	; 0x2e2 <main+0xda>
+			REC_PASS[counter]=SPI_Transmitter(TRANSMISSION_COMPLETE); //Receiving 6 digits from Master Controller
+			_delay_ms(50);
+		}
 
-0000016c <__stop_program>:
- 16c:	ff cf       	rjmp	.-2      	; 0x16c <__stop_program>
+/****************************CHECKING PASSWORD MODE DEPENDING ******************/
+		if(Rec_MODE == ADMIN && PASSWORD==NONE)
+ 30c:	21 e0       	ldi	r18, 0x01	; 1
+ 30e:	82 12       	cpse	r8, r18
+ 310:	16 c0       	rjmp	.+44     	; 0x33e <main+0x136>
+ 312:	00 e0       	ldi	r16, 0x00	; 0
+ 314:	10 e0       	ldi	r17, 0x00	; 0
+		{
+			for(counter=0;counter<6;counter++)
+			{	
+				ExtEPROM_Read(ADMIN_ADDRESS+counter,&ExtEEPROM_buffer);
+ 316:	6c 2d       	mov	r22, r12
+ 318:	7d 2d       	mov	r23, r13
+ 31a:	c8 01       	movw	r24, r16
+ 31c:	02 96       	adiw	r24, 0x02	; 2
+ 31e:	0e 94 a6 00 	call	0x14c	; 0x14c <ExtEPROM_Read>
+				if(REC_PASS[counter]!=ExtEEPROM_buffer)
+ 322:	f8 01       	movw	r30, r16
+ 324:	e0 5a       	subi	r30, 0xA0	; 160
+ 326:	ff 4f       	sbci	r31, 0xFF	; 255
+ 328:	90 81       	ld	r25, Z
+ 32a:	89 81       	ldd	r24, Y+1	; 0x01
+ 32c:	98 13       	cpse	r25, r24
+ 32e:	20 c0       	rjmp	.+64     	; 0x370 <main+0x168>
+ 330:	0f 5f       	subi	r16, 0xFF	; 255
+ 332:	1f 4f       	sbci	r17, 0xFF	; 255
+		}
+
+/****************************CHECKING PASSWORD MODE DEPENDING ******************/
+		if(Rec_MODE == ADMIN && PASSWORD==NONE)
+		{
+			for(counter=0;counter<6;counter++)
+ 334:	06 30       	cpi	r16, 0x06	; 6
+ 336:	11 05       	cpc	r17, r1
+ 338:	71 f7       	brne	.-36     	; 0x316 <main+0x10e>
+					PASSWORD=Wrong_PASSWORD;
+					counter=6;	//get out of loop
+				}
+				else
+				{
+					PASSWORD=Right_PASSWORD;
+ 33a:	87 2d       	mov	r24, r7
+ 33c:	1e c0       	rjmp	.+60     	; 0x37a <main+0x172>
+			else
+			{
+				//nothing
+			}//end of checking Admin user entering right password.
+		}//End Admin checking all entries
+		else if (Rec_MODE == HOST && PASSWORD == NONE)
+ 33e:	32 e0       	ldi	r19, 0x02	; 2
+ 340:	83 12       	cpse	r8, r19
+ 342:	18 c0       	rjmp	.+48     	; 0x374 <main+0x16c>
+ 344:	00 e0       	ldi	r16, 0x00	; 0
+ 346:	10 e0       	ldi	r17, 0x00	; 0
+		{
+			for(counter=0;counter<6;counter++)
+			{
+				ExtEPROM_Read(HOST_ADDRESS+counter,&ExtEEPROM_buffer);
+ 348:	6c 2d       	mov	r22, r12
+ 34a:	7d 2d       	mov	r23, r13
+ 34c:	c8 01       	movw	r24, r16
+ 34e:	09 96       	adiw	r24, 0x09	; 9
+ 350:	0e 94 a6 00 	call	0x14c	; 0x14c <ExtEPROM_Read>
+				if(REC_PASS[counter]!=ExtEEPROM_buffer)
+ 354:	f8 01       	movw	r30, r16
+ 356:	e0 5a       	subi	r30, 0xA0	; 160
+ 358:	ff 4f       	sbci	r31, 0xFF	; 255
+ 35a:	90 81       	ld	r25, Z
+ 35c:	89 81       	ldd	r24, Y+1	; 0x01
+ 35e:	98 13       	cpse	r25, r24
+ 360:	0b c0       	rjmp	.+22     	; 0x378 <main+0x170>
+ 362:	0f 5f       	subi	r16, 0xFF	; 255
+ 364:	1f 4f       	sbci	r17, 0xFF	; 255
+				//nothing
+			}//end of checking Admin user entering right password.
+		}//End Admin checking all entries
+		else if (Rec_MODE == HOST && PASSWORD == NONE)
+		{
+			for(counter=0;counter<6;counter++)
+ 366:	06 30       	cpi	r16, 0x06	; 6
+ 368:	11 05       	cpc	r17, r1
+ 36a:	71 f7       	brne	.-36     	; 0x348 <main+0x140>
+					PASSWORD=Wrong_PASSWORD;
+					counter=6;	//get out of loop
+				}
+				else
+				{
+					PASSWORD=Right_PASSWORD;
+ 36c:	87 2d       	mov	r24, r7
+ 36e:	05 c0       	rjmp	.+10     	; 0x37a <main+0x172>
+			for(counter=0;counter<6;counter++)
+			{	
+				ExtEPROM_Read(ADMIN_ADDRESS+counter,&ExtEEPROM_buffer);
+				if(REC_PASS[counter]!=ExtEEPROM_buffer)
+				{
+					PASSWORD=Wrong_PASSWORD;
+ 370:	8b 2d       	mov	r24, r11
+ 372:	03 c0       	rjmp	.+6      	; 0x37a <main+0x172>
+    {
+		
+		DDRA=0xFF;
+		//PORTA=0x00;
+		PORTA=0b11111111;
+		PASSWORD=NONE;	//resetting all used variables
+ 374:	89 2d       	mov	r24, r9
+ 376:	01 c0       	rjmp	.+2      	; 0x37a <main+0x172>
+			for(counter=0;counter<6;counter++)
+			{
+				ExtEPROM_Read(HOST_ADDRESS+counter,&ExtEEPROM_buffer);
+				if(REC_PASS[counter]!=ExtEEPROM_buffer)
+				{
+					PASSWORD=Wrong_PASSWORD;
+ 378:	8b 2d       	mov	r24, r11
+		{
+			//nothing..
+		}
+		
+/**************** SPI SEND BACK FEEDBACK IF PASSWORD MATCHES? ***********/
+			buffer=SPI_Transmitter(PASSWORD); //if the password right go to the next step
+ 37a:	0e 94 45 00 	call	0x8a	; 0x8a <SPI_Transmitter>
+ 37e:	8f e7       	ldi	r24, 0x7F	; 127
+ 380:	98 e3       	ldi	r25, 0x38	; 56
+ 382:	21 e0       	ldi	r18, 0x01	; 1
+ 384:	81 50       	subi	r24, 0x01	; 1
+ 386:	90 40       	sbci	r25, 0x00	; 0
+ 388:	20 40       	sbci	r18, 0x00	; 0
+ 38a:	e1 f7       	brne	.-8      	; 0x384 <main+0x17c>
+ 38c:	00 c0       	rjmp	.+0      	; 0x38e <main+0x186>
+ 38e:	00 00       	nop
+			_delay_ms(50);
+			Rec_MODE=SPI_Transmitter(TRANSMISSION_COMPLETE); //getting if we will change HOST pass on EEPROM
+ 390:	8a e0       	ldi	r24, 0x0A	; 10
+ 392:	0e 94 45 00 	call	0x8a	; 0x8a <SPI_Transmitter>
+ 396:	3f e7       	ldi	r19, 0x7F	; 127
+ 398:	98 e3       	ldi	r25, 0x38	; 56
+ 39a:	21 e0       	ldi	r18, 0x01	; 1
+ 39c:	31 50       	subi	r19, 0x01	; 1
+ 39e:	90 40       	sbci	r25, 0x00	; 0
+ 3a0:	20 40       	sbci	r18, 0x00	; 0
+ 3a2:	e1 f7       	brne	.-8      	; 0x39c <main+0x194>
+ 3a4:	00 c0       	rjmp	.+0      	; 0x3a6 <main+0x19e>
+ 3a6:	00 00       	nop
+			_delay_ms(50);	
+	
+/****************** CHANGING HOST PASS ON EEPROM ********************/
+		if(Rec_MODE==TADMIN_SET_NewHostPass)
+ 3a8:	86 30       	cpi	r24, 0x06	; 6
+ 3aa:	81 f5       	brne	.+96     	; 0x40c <__EEPROM_REGION_LENGTH__+0xc>
+ 3ac:	00 e0       	ldi	r16, 0x00	; 0
+ 3ae:	10 e0       	ldi	r17, 0x00	; 0
+		{
+			for(counter=0;counter<6;counter++)
+			{
+				REC_PASS[counter]=SPI_Transmitter(TRANSMISSION_COMPLETE); //Receiving 6 digits from Master Controller
+ 3b0:	8a e0       	ldi	r24, 0x0A	; 10
+ 3b2:	0e 94 45 00 	call	0x8a	; 0x8a <SPI_Transmitter>
+ 3b6:	f8 01       	movw	r30, r16
+ 3b8:	e0 5a       	subi	r30, 0xA0	; 160
+ 3ba:	ff 4f       	sbci	r31, 0xFF	; 255
+ 3bc:	80 83       	st	Z, r24
+ 3be:	3f e7       	ldi	r19, 0x7F	; 127
+ 3c0:	88 e3       	ldi	r24, 0x38	; 56
+ 3c2:	91 e0       	ldi	r25, 0x01	; 1
+ 3c4:	31 50       	subi	r19, 0x01	; 1
+ 3c6:	80 40       	sbci	r24, 0x00	; 0
+ 3c8:	90 40       	sbci	r25, 0x00	; 0
+ 3ca:	e1 f7       	brne	.-8      	; 0x3c4 <main+0x1bc>
+ 3cc:	00 c0       	rjmp	.+0      	; 0x3ce <main+0x1c6>
+ 3ce:	00 00       	nop
+ 3d0:	0f 5f       	subi	r16, 0xFF	; 255
+ 3d2:	1f 4f       	sbci	r17, 0xFF	; 255
+			_delay_ms(50);	
+	
+/****************** CHANGING HOST PASS ON EEPROM ********************/
+		if(Rec_MODE==TADMIN_SET_NewHostPass)
+		{
+			for(counter=0;counter<6;counter++)
+ 3d4:	06 30       	cpi	r16, 0x06	; 6
+ 3d6:	11 05       	cpc	r17, r1
+ 3d8:	59 f7       	brne	.-42     	; 0x3b0 <main+0x1a8>
+ 3da:	00 e0       	ldi	r16, 0x00	; 0
+ 3dc:	10 e0       	ldi	r17, 0x00	; 0
+				REC_PASS[counter]=SPI_Transmitter(TRANSMISSION_COMPLETE); //Receiving 6 digits from Master Controller
+				_delay_ms(50);
+			}
+			for(counter=0;counter<6;counter++)
+			{
+				ExtEPROM_Write(HOST_ADDRESS+counter,REC_PASS[counter]);
+ 3de:	f8 01       	movw	r30, r16
+ 3e0:	e0 5a       	subi	r30, 0xA0	; 160
+ 3e2:	ff 4f       	sbci	r31, 0xFF	; 255
+ 3e4:	60 81       	ld	r22, Z
+ 3e6:	c8 01       	movw	r24, r16
+ 3e8:	09 96       	adiw	r24, 0x09	; 9
+ 3ea:	0e 94 79 00 	call	0xf2	; 0xf2 <ExtEPROM_Write>
+ 3ee:	2f eb       	ldi	r18, 0xBF	; 191
+ 3f0:	3a ed       	ldi	r19, 0xDA	; 218
+ 3f2:	80 e0       	ldi	r24, 0x00	; 0
+ 3f4:	21 50       	subi	r18, 0x01	; 1
+ 3f6:	30 40       	sbci	r19, 0x00	; 0
+ 3f8:	80 40       	sbci	r24, 0x00	; 0
+ 3fa:	e1 f7       	brne	.-8      	; 0x3f4 <main+0x1ec>
+ 3fc:	00 c0       	rjmp	.+0      	; 0x3fe <main+0x1f6>
+ 3fe:	00 00       	nop
+ 400:	0f 5f       	subi	r16, 0xFF	; 255
+ 402:	1f 4f       	sbci	r17, 0xFF	; 255
+			for(counter=0;counter<6;counter++)
+			{
+				REC_PASS[counter]=SPI_Transmitter(TRANSMISSION_COMPLETE); //Receiving 6 digits from Master Controller
+				_delay_ms(50);
+			}
+			for(counter=0;counter<6;counter++)
+ 404:	06 30       	cpi	r16, 0x06	; 6
+ 406:	11 05       	cpc	r17, r1
+ 408:	51 f7       	brne	.-44     	; 0x3de <main+0x1d6>
+ 40a:	04 c0       	rjmp	.+8      	; 0x414 <__EEPROM_REGION_LENGTH__+0x14>
+		{
+			//nothing..
+		}
+	
+/************* DATA ADJUSTING FROM ADMIN OR HOST ***************/
+		if(
+ 40c:	85 50       	subi	r24, 0x05	; 5
+ 40e:	83 30       	cpi	r24, 0x03	; 3
+ 410:	08 f0       	brcs	.+2      	; 0x414 <__EEPROM_REGION_LENGTH__+0x14>
+ 412:	5f cf       	rjmp	.-322    	; 0x2d2 <main+0xca>
+		(Rec_MODE==TADMIN_SET_NewHostPass || Rec_MODE==TRUE_ADMIN 
+		|| Rec_MODE==TRUE_HOST))
+		{
+			ExtEPROM_Read(AC_STAT_ADDRESS,&ExtEEPROM_buffer);
+ 414:	b7 01       	movw	r22, r14
+ 416:	80 e1       	ldi	r24, 0x10	; 16
+ 418:	90 e0       	ldi	r25, 0x00	; 0
+ 41a:	0e 94 a6 00 	call	0x14c	; 0x14c <ExtEPROM_Read>
+			UART_Send(ExtEEPROM_buffer);
+ 41e:	89 81       	ldd	r24, Y+1	; 0x01
+ 420:	0e 94 fc 00 	call	0x1f8	; 0x1f8 <UART_Send>
+ 424:	9f e7       	ldi	r25, 0x7F	; 127
+ 426:	2a e1       	ldi	r18, 0x1A	; 26
+ 428:	36 e0       	ldi	r19, 0x06	; 6
+ 42a:	91 50       	subi	r25, 0x01	; 1
+ 42c:	20 40       	sbci	r18, 0x00	; 0
+ 42e:	30 40       	sbci	r19, 0x00	; 0
+ 430:	e1 f7       	brne	.-8      	; 0x42a <__EEPROM_REGION_LENGTH__+0x2a>
+ 432:	00 c0       	rjmp	.+0      	; 0x434 <__EEPROM_REGION_LENGTH__+0x34>
+ 434:	00 00       	nop
+			_delay_ms(250);
+			ExtEPROM_Read(AC_TEMP_ADDRESS,&ExtEEPROM_buffer);
+ 436:	b7 01       	movw	r22, r14
+ 438:	81 e1       	ldi	r24, 0x11	; 17
+ 43a:	90 e0       	ldi	r25, 0x00	; 0
+ 43c:	0e 94 a6 00 	call	0x14c	; 0x14c <ExtEPROM_Read>
+			UART_Send(ExtEEPROM_buffer);
+ 440:	89 81       	ldd	r24, Y+1	; 0x01
+ 442:	0e 94 fc 00 	call	0x1f8	; 0x1f8 <UART_Send>
+			ADJUSTING_DATA_STAT=UART_Rec();
+ 446:	0e 94 00 01 	call	0x200	; 0x200 <UART_Rec>
+/************************** MAIN MCU ADJUSTING DATA ******************************/
+			while(ADJUSTING_DATA_STAT==BUSY)
+ 44a:	8b 3c       	cpi	r24, 0xCB	; 203
+ 44c:	09 f0       	breq	.+2      	; 0x450 <__EEPROM_REGION_LENGTH__+0x50>
+ 44e:	41 cf       	rjmp	.-382    	; 0x2d2 <main+0xca>
+			{
+				ADJUSTING_DATA_STAT=UART_Rec();
+ 450:	0e 94 00 01 	call	0x200	; 0x200 <UART_Rec>
+				if(ADJUSTING_DATA_STAT==BUSY)
+ 454:	8b 3c       	cpi	r24, 0xCB	; 203
+ 456:	09 f0       	breq	.+2      	; 0x45a <__EEPROM_REGION_LENGTH__+0x5a>
+ 458:	3c cf       	rjmp	.-392    	; 0x2d2 <main+0xca>
+				{
+					ExtEEPROM_buffer=UART_Rec();
+ 45a:	0e 94 00 01 	call	0x200	; 0x200 <UART_Rec>
+ 45e:	89 83       	std	Y+1, r24	; 0x01
+					ExtEPROM_Write(AC_STAT_ADDRESS,ExtEEPROM_buffer);
+ 460:	68 2f       	mov	r22, r24
+ 462:	80 e1       	ldi	r24, 0x10	; 16
+ 464:	90 e0       	ldi	r25, 0x00	; 0
+ 466:	0e 94 79 00 	call	0xf2	; 0xf2 <ExtEPROM_Write>
+ 46a:	8f e7       	ldi	r24, 0x7F	; 127
+ 46c:	98 e3       	ldi	r25, 0x38	; 56
+ 46e:	21 e0       	ldi	r18, 0x01	; 1
+ 470:	81 50       	subi	r24, 0x01	; 1
+ 472:	90 40       	sbci	r25, 0x00	; 0
+ 474:	20 40       	sbci	r18, 0x00	; 0
+ 476:	e1 f7       	brne	.-8      	; 0x470 <__EEPROM_REGION_LENGTH__+0x70>
+ 478:	00 c0       	rjmp	.+0      	; 0x47a <__EEPROM_REGION_LENGTH__+0x7a>
+ 47a:	00 00       	nop
+					_delay_ms(50);
+					ExtEEPROM_buffer=UART_Rec();
+ 47c:	0e 94 00 01 	call	0x200	; 0x200 <UART_Rec>
+ 480:	89 83       	std	Y+1, r24	; 0x01
+					ExtEPROM_Write(AC_TEMP_ADDRESS,ExtEEPROM_buffer);
+ 482:	68 2f       	mov	r22, r24
+ 484:	81 e1       	ldi	r24, 0x11	; 17
+ 486:	90 e0       	ldi	r25, 0x00	; 0
+ 488:	0e 94 79 00 	call	0xf2	; 0xf2 <ExtEPROM_Write>
+ 48c:	3f e7       	ldi	r19, 0x7F	; 127
+ 48e:	88 e3       	ldi	r24, 0x38	; 56
+ 490:	91 e0       	ldi	r25, 0x01	; 1
+ 492:	31 50       	subi	r19, 0x01	; 1
+ 494:	80 40       	sbci	r24, 0x00	; 0
+ 496:	90 40       	sbci	r25, 0x00	; 0
+ 498:	e1 f7       	brne	.-8      	; 0x492 <__EEPROM_REGION_LENGTH__+0x92>
+ 49a:	00 c0       	rjmp	.+0      	; 0x49c <__EEPROM_REGION_LENGTH__+0x9c>
+ 49c:	00 00       	nop
+ 49e:	d8 cf       	rjmp	.-80     	; 0x450 <__EEPROM_REGION_LENGTH__+0x50>
+
+000004a0 <__vector_16>:
+	
+	return 0;
+}
+
+ISR(ADC_vect)
+{
+ 4a0:	1f 92       	push	r1
+ 4a2:	0f 92       	push	r0
+ 4a4:	0f b6       	in	r0, 0x3f	; 63
+ 4a6:	0f 92       	push	r0
+ 4a8:	11 24       	eor	r1, r1
+	
+ 4aa:	0f 90       	pop	r0
+ 4ac:	0f be       	out	0x3f, r0	; 63
+ 4ae:	0f 90       	pop	r0
+ 4b0:	1f 90       	pop	r1
+ 4b2:	18 95       	reti
+
+000004b4 <_exit>:
+ 4b4:	f8 94       	cli
+
+000004b6 <__stop_program>:
+ 4b6:	ff cf       	rjmp	.-2      	; 0x4b6 <__stop_program>
