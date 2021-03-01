@@ -2,7 +2,8 @@
 #define _SPI_H_
 
 /*********************** SPI PORTS DEFINITIONS ****************************/
-/* Works on Atmega32 and could be easily optimized to any controller */
+/* Works on Atmega32 and could be easily optimized to any MCU */
+extern volatile unsigned char SPI_INTERRUPT_FLAG;
 
 #define _CONCAT(a,b) a##b
 #define PORT(x) _CONCAT(PORT,x)
@@ -40,9 +41,11 @@ void SPI_SlaveInit(void);
 	Function Name        : SPI_Transmitter
 	Function Returns     : void
 	Function Arguments   : unsigned char
-	Function Description : Send data in case of master or receive data and send response in case of slave.
+	Function Description : Send and Receive data (FULL DUPLEX).
 */
 unsigned char SPI_Transmitter(unsigned char DATA);
 
+
+#include "IOuserDef.h" // #include <avr/io.h> #include <avr/iom32.h>     <<-are inside...
 #include "SPI.c"
 #endif /*_SPI_H_*/

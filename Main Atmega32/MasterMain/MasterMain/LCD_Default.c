@@ -3,7 +3,6 @@ Default of sending a character or a command to the LCD devise
 PORTS used are D & C.....
 ******************/
 
-#include <avr/delay.h>
 
 void send_a_command (unsigned char command)
 {

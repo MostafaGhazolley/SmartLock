@@ -1,4 +1,5 @@
-main.d main.o: .././main.c .././IOuserDef.h \
+main.d main.o: .././main.c .././Master.MCU.Definitions.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -10,14 +11,18 @@ main.d main.o: .././main.c .././IOuserDef.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
- .././Keypad.h .././Keypad.c .././LCD_Default.h .././LCD_Default.c \
+ .././IOuserDef.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\delay.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
- .././LCD_Messages.h .././LCD_Messages.c .././SPI.h .././SPI.c
+ .././Keypad.h .././Keypad.c .././LCD_Default.h .././LCD_Default.c \
+ .././LCD_Messages.h .././LCD_Messages.c .././SPI.h .././SPI.c \
+ .././Timer.h .././Timer.c .././UART.h .././UART.c
 
-.././IOuserDef.h:
+.././Master.MCU.Definitions.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -41,13 +46,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h:
 
-.././Keypad.h:
-
-.././Keypad.c:
-
-.././LCD_Default.h:
-
-.././LCD_Default.c:
+.././IOuserDef.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\delay.h:
 
@@ -57,6 +56,14 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
 
+.././Keypad.h:
+
+.././Keypad.c:
+
+.././LCD_Default.h:
+
+.././LCD_Default.c:
+
 .././LCD_Messages.h:
 
 .././LCD_Messages.c:
@@ -64,3 +71,11 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 .././SPI.h:
 
 .././SPI.c:
+
+.././Timer.h:
+
+.././Timer.c:
+
+.././UART.h:
+
+.././UART.c:

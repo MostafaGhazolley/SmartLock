@@ -37,42 +37,51 @@
 
 extern volatile unsigned char Key;
 
-unsigned char GetKeyPressed(void)
- {
-    unsigned char r,c; //rows and columns
+static unsigned char GetKeyPressed(void)
+{
+	RESET_PRESSED_KEY
+    static unsigned char r,c; //rows and columns
     
     KEYPAD_PORT|= ALL_ROWS_HIGH; //0b0000 1111
 
-    for(c=0;c<NUMBER_COLs;c++){
-      KEYPAD_DDR&=~(ROW_COLUMN_HGIH); //0b0111 1111
-      KEYPAD_DDR|=(FOURTHBIT<<c);  //0b0001 0000
-    for(r=0;r<NUMBER_ROWs;r++)
-    {
-     if(!(KEYPAD_PIN & (FIRSTBIT<<r)))
-	 { //0b0000 0001
-       if(r==FOURTH_ROW)
-	   {
-         if(c==FIRST_COL)
-		 {
-           return (HASH_ASCII);	//return a '#' in ASCII-table.
-         }
-         if(c==SECOND_COL)
-		 {
-           return (ZERO_ASCII);	//return a '0' in ASCII-table.
-         }
-         if(c==THIRD_COL)
-		 {
-           return (ASTERISK_ASCII);	//return a '*' in ASCII-table.
-         }
-       }//END OF IF AT FOURTH ROW
-       else
-          {
-            return (SWITCH_TO_ASCII+(r*NUMBER_COLs)+c); //+(hex 0x31) to switch to ASCII-table values.
-          }
-     }//END OF IF AT CHECKING PINS OUTPUT
-     
-    }//END FOR SECOND LOOP of rows
-  }//END OF FIRST FOR LOOP OF COLUMNS
+    for(c=0;c<NUMBER_COLs;c++)
+	{
+		KEYPAD_DDR&=~(ROW_COLUMN_HGIH); //0b0111 1111
+		KEYPAD_DDR|=(FOURTHBIT<<c);  //0b0001 0000
+		for(r=0;r<NUMBER_ROWs;r++)
+		{
+			if(!(KEYPAD_PIN & (FIRSTBIT<<r)))
+			{ //0b0000 0001
+				if(r==FOURTH_ROW)
+				{
+					if(c==FIRST_COL)
+					{
+						return (ASTERISK_ASCII);	//return a '*' in ASCII-table.
+					}
+					else if(c==SECOND_COL)
+					{
+						return (ZERO_ASCII);		//return a '0' in ASCII-table.
+					}
+					else if(c==THIRD_COL)
+					{
+						return (HASH_ASCII);		//return a '#' in ASCII-table.
+					}
+					else
+					{
+						//nothing
+					}
+				}//END OF IF AT FOURTH ROW
+				else
+				{
+					return (SWITCH_TO_ASCII+(r*NUMBER_COLs)+c); //+(hex 0x31) to switch to ASCII-table values.
+				}
+			}//END OF IF AT CHECKING PINS OUTPUT
+			else
+			{
+				//nothing 
+			}
+		}//END FOR SECOND LOOP of rows
+	 }//END OF FIRST FOR LOOP OF COLUMNS
   return DEFAULT_KEYPRESS; //Indicate No key pressed.
 }
 

@@ -3,31 +3,31 @@ MasterMain.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         00000598  00000000  00000000  00000094  2**1
+  0 .text         00000dc2  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         00000034  00800060  00000598  0000062c  2**0
+  1 .data         000000ee  00800060  00000dc2  00000e56  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .bss          00000008  00800094  00800094  00000660  2**0
+  2 .bss          0000000f  0080014e  0080014e  00000f44  2**0
                   ALLOC
-  3 .comment      00000030  00000000  00000000  00000660  2**0
+  3 .comment      00000030  00000000  00000000  00000f44  2**0
                   CONTENTS, READONLY
-  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000690  2**2
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000f74  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 00000070  00000000  00000000  000006cc  2**0
+  5 .debug_aranges 000000b0  00000000  00000000  00000fb0  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   00000dc6  00000000  00000000  0000073c  2**0
+  6 .debug_info   000019cb  00000000  00000000  00001060  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 000006ce  00000000  00000000  00001502  2**0
+  7 .debug_abbrev 00000783  00000000  00000000  00002a2b  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00000738  00000000  00000000  00001bd0  2**0
+  8 .debug_line   00000dea  00000000  00000000  000031ae  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  0000011c  00000000  00000000  00002308  2**2
+  9 .debug_frame  000001c8  00000000  00000000  00003f98  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00000403  00000000  00000000  00002424  2**0
+ 10 .debug_str    00000520  00000000  00000000  00004160  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00000ab5  00000000  00000000  00002827  2**0
+ 11 .debug_loc    00000edf  00000000  00000000  00004680  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 000000b0  00000000  00000000  000032dc  2**0
+ 12 .debug_ranges 000000d8  00000000  00000000  0000555f  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -44,7 +44,7 @@ Disassembly of section .text:
   20:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
   24:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
   28:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
-  2c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  2c:	0c 94 91 06 	jmp	0xd22	; 0xd22 <__vector_11>
   30:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
   34:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
   38:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
@@ -64,722 +64,1999 @@ Disassembly of section .text:
   5e:	cd bf       	out	0x3d, r28	; 61
 
 00000060 <__do_copy_data>:
-  60:	10 e0       	ldi	r17, 0x00	; 0
+  60:	11 e0       	ldi	r17, 0x01	; 1
   62:	a0 e6       	ldi	r26, 0x60	; 96
   64:	b0 e0       	ldi	r27, 0x00	; 0
-  66:	e8 e9       	ldi	r30, 0x98	; 152
-  68:	f5 e0       	ldi	r31, 0x05	; 5
+  66:	e2 ec       	ldi	r30, 0xC2	; 194
+  68:	fd e0       	ldi	r31, 0x0D	; 13
   6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
   6c:	05 90       	lpm	r0, Z+
   6e:	0d 92       	st	X+, r0
-  70:	a4 39       	cpi	r26, 0x94	; 148
+  70:	ae 34       	cpi	r26, 0x4E	; 78
   72:	b1 07       	cpc	r27, r17
   74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
 
 00000076 <__do_clear_bss>:
-  76:	20 e0       	ldi	r18, 0x00	; 0
-  78:	a4 e9       	ldi	r26, 0x94	; 148
-  7a:	b0 e0       	ldi	r27, 0x00	; 0
+  76:	21 e0       	ldi	r18, 0x01	; 1
+  78:	ae e4       	ldi	r26, 0x4E	; 78
+  7a:	b1 e0       	ldi	r27, 0x01	; 1
   7c:	01 c0       	rjmp	.+2      	; 0x80 <.do_clear_bss_start>
 
 0000007e <.do_clear_bss_loop>:
   7e:	1d 92       	st	X+, r1
 
 00000080 <.do_clear_bss_start>:
-  80:	ac 39       	cpi	r26, 0x9C	; 156
+  80:	ad 35       	cpi	r26, 0x5D	; 93
   82:	b2 07       	cpc	r27, r18
   84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
-  86:	0e 94 85 02 	call	0x50a	; 0x50a <main>
-  8a:	0c 94 ca 02 	jmp	0x594	; 0x594 <_exit>
+  86:	0e 94 69 03 	call	0x6d2	; 0x6d2 <main>
+  8a:	0c 94 df 06 	jmp	0xdbe	; 0xdbe <_exit>
 
 0000008e <__bad_interrupt>:
   8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
 00000092 <GetKeyPressed>:
-	//set MOSI, SCK, SS as output pins...
-	SPI_DDR |= (1<<MISO);
-	//Set MISO as input pin...
-	SPI_DDR &=~(1<<MOSI) & ~(1<<SCK) & ~(1<<SS);
-	//Enable SPI, Master mode, Shift Clock clk/16
-	SPCR = (1<<SPE);
-  92:	8b b3       	in	r24, 0x1b	; 27
-  94:	8f 60       	ori	r24, 0x0F	; 15
-  96:	8b bb       	out	0x1b, r24	; 27
-  98:	60 e0       	ldi	r22, 0x00	; 0
-  9a:	70 e0       	ldi	r23, 0x00	; 0
-  9c:	e0 e1       	ldi	r30, 0x10	; 16
-  9e:	f0 e0       	ldi	r31, 0x00	; 0
-  a0:	86 2f       	mov	r24, r22
-  a2:	2a b3       	in	r18, 0x1a	; 26
-  a4:	20 78       	andi	r18, 0x80	; 128
-  a6:	2a bb       	out	0x1a, r18	; 26
-  a8:	9a b3       	in	r25, 0x1a	; 26
-  aa:	9f 01       	movw	r18, r30
-  ac:	06 2e       	mov	r0, r22
-  ae:	02 c0       	rjmp	.+4      	; 0xb4 <GetKeyPressed+0x22>
-  b0:	22 0f       	add	r18, r18
-  b2:	33 1f       	adc	r19, r19
-  b4:	0a 94       	dec	r0
-  b6:	e2 f7       	brpl	.-8      	; 0xb0 <GetKeyPressed+0x1e>
-  b8:	29 2b       	or	r18, r25
-  ba:	2a bb       	out	0x1a, r18	; 26
-  bc:	40 e0       	ldi	r20, 0x00	; 0
-  be:	50 e0       	ldi	r21, 0x00	; 0
-  c0:	94 2f       	mov	r25, r20
-  c2:	29 b3       	in	r18, 0x19	; 25
-  c4:	30 e0       	ldi	r19, 0x00	; 0
-  c6:	04 2e       	mov	r0, r20
-  c8:	02 c0       	rjmp	.+4      	; 0xce <GetKeyPressed+0x3c>
-  ca:	35 95       	asr	r19
-  cc:	27 95       	ror	r18
-  ce:	0a 94       	dec	r0
-  d0:	e2 f7       	brpl	.-8      	; 0xca <GetKeyPressed+0x38>
-  d2:	20 fd       	sbrc	r18, 0
-  d4:	0f c0       	rjmp	.+30     	; 0xf4 <GetKeyPressed+0x62>
-  d6:	44 30       	cpi	r20, 0x04	; 4
-  d8:	39 f4       	brne	.+14     	; 0xe8 <GetKeyPressed+0x56>
-  da:	88 23       	and	r24, r24
-  dc:	b9 f0       	breq	.+46     	; 0x10c <GetKeyPressed+0x7a>
-  de:	81 30       	cpi	r24, 0x01	; 1
-  e0:	b9 f0       	breq	.+46     	; 0x110 <GetKeyPressed+0x7e>
-  e2:	82 30       	cpi	r24, 0x02	; 2
-  e4:	61 f4       	brne	.+24     	; 0xfe <GetKeyPressed+0x6c>
-  e6:	16 c0       	rjmp	.+44     	; 0x114 <GetKeyPressed+0x82>
-  e8:	8f 5c       	subi	r24, 0xCF	; 207
-  ea:	24 2f       	mov	r18, r20
-  ec:	22 0f       	add	r18, r18
-  ee:	92 0f       	add	r25, r18
-  f0:	89 0f       	add	r24, r25
-  f2:	08 95       	ret
-  f4:	4f 5f       	subi	r20, 0xFF	; 255
-  f6:	5f 4f       	sbci	r21, 0xFF	; 255
-  f8:	44 30       	cpi	r20, 0x04	; 4
-  fa:	51 05       	cpc	r21, r1
-  fc:	09 f7       	brne	.-62     	; 0xc0 <GetKeyPressed+0x2e>
-  fe:	6f 5f       	subi	r22, 0xFF	; 255
- 100:	7f 4f       	sbci	r23, 0xFF	; 255
- 102:	63 30       	cpi	r22, 0x03	; 3
- 104:	71 05       	cpc	r23, r1
- 106:	61 f6       	brne	.-104    	; 0xa0 <GetKeyPressed+0xe>
- 108:	8f ef       	ldi	r24, 0xFF	; 255
- 10a:	08 95       	ret
- 10c:	8a e2       	ldi	r24, 0x2A	; 42
- 10e:	08 95       	ret
- 110:	80 e3       	ldi	r24, 0x30	; 48
- 112:	08 95       	ret
- 114:	83 e2       	ldi	r24, 0x23	; 35
- 116:	08 95       	ret
-
-00000118 <send_a_command>:
- 118:	92 b3       	in	r25, 0x12	; 18
- 11a:	9f 70       	andi	r25, 0x0F	; 15
- 11c:	28 2f       	mov	r18, r24
- 11e:	20 7f       	andi	r18, 0xF0	; 240
- 120:	92 2b       	or	r25, r18
- 122:	92 bb       	out	0x12, r25	; 18
- 124:	90 98       	cbi	0x12, 0	; 18
- 126:	91 9a       	sbi	0x12, 1	; 18
- 128:	32 e0       	ldi	r19, 0x02	; 2
- 12a:	3a 95       	dec	r19
- 12c:	f1 f7       	brne	.-4      	; 0x12a <send_a_command+0x12>
- 12e:	00 c0       	rjmp	.+0      	; 0x130 <send_a_command+0x18>
- 130:	91 98       	cbi	0x12, 1	; 18
- 132:	ef e8       	ldi	r30, 0x8F	; 143
- 134:	f1 e0       	ldi	r31, 0x01	; 1
- 136:	31 97       	sbiw	r30, 0x01	; 1
- 138:	f1 f7       	brne	.-4      	; 0x136 <send_a_command+0x1e>
- 13a:	00 c0       	rjmp	.+0      	; 0x13c <send_a_command+0x24>
- 13c:	00 00       	nop
- 13e:	22 b3       	in	r18, 0x12	; 18
- 140:	2f 70       	andi	r18, 0x0F	; 15
- 142:	f0 e1       	ldi	r31, 0x10	; 16
- 144:	8f 9f       	mul	r24, r31
- 146:	c0 01       	movw	r24, r0
- 148:	11 24       	eor	r1, r1
- 14a:	82 2b       	or	r24, r18
- 14c:	82 bb       	out	0x12, r24	; 18
- 14e:	91 9a       	sbi	0x12, 1	; 18
- 150:	32 e0       	ldi	r19, 0x02	; 2
- 152:	3a 95       	dec	r19
- 154:	f1 f7       	brne	.-4      	; 0x152 <send_a_command+0x3a>
- 156:	00 c0       	rjmp	.+0      	; 0x158 <send_a_command+0x40>
- 158:	91 98       	cbi	0x12, 1	; 18
- 15a:	8f e3       	ldi	r24, 0x3F	; 63
- 15c:	9c e9       	ldi	r25, 0x9C	; 156
- 15e:	01 97       	sbiw	r24, 0x01	; 1
- 160:	f1 f7       	brne	.-4      	; 0x15e <send_a_command+0x46>
- 162:	00 c0       	rjmp	.+0      	; 0x164 <send_a_command+0x4c>
- 164:	00 00       	nop
- 166:	08 95       	ret
-
-00000168 <send_a_character>:
- 168:	92 b3       	in	r25, 0x12	; 18
- 16a:	9f 70       	andi	r25, 0x0F	; 15
- 16c:	28 2f       	mov	r18, r24
- 16e:	20 7f       	andi	r18, 0xF0	; 240
- 170:	92 2b       	or	r25, r18
- 172:	92 bb       	out	0x12, r25	; 18
- 174:	90 9a       	sbi	0x12, 0	; 18
- 176:	91 9a       	sbi	0x12, 1	; 18
- 178:	32 e0       	ldi	r19, 0x02	; 2
- 17a:	3a 95       	dec	r19
- 17c:	f1 f7       	brne	.-4      	; 0x17a <send_a_character+0x12>
- 17e:	00 c0       	rjmp	.+0      	; 0x180 <send_a_character+0x18>
- 180:	91 98       	cbi	0x12, 1	; 18
- 182:	ef e8       	ldi	r30, 0x8F	; 143
- 184:	f1 e0       	ldi	r31, 0x01	; 1
- 186:	31 97       	sbiw	r30, 0x01	; 1
- 188:	f1 f7       	brne	.-4      	; 0x186 <send_a_character+0x1e>
- 18a:	00 c0       	rjmp	.+0      	; 0x18c <send_a_character+0x24>
- 18c:	00 00       	nop
- 18e:	22 b3       	in	r18, 0x12	; 18
- 190:	2f 70       	andi	r18, 0x0F	; 15
- 192:	f0 e1       	ldi	r31, 0x10	; 16
- 194:	8f 9f       	mul	r24, r31
- 196:	c0 01       	movw	r24, r0
- 198:	11 24       	eor	r1, r1
- 19a:	82 2b       	or	r24, r18
- 19c:	82 bb       	out	0x12, r24	; 18
- 19e:	91 9a       	sbi	0x12, 1	; 18
- 1a0:	32 e0       	ldi	r19, 0x02	; 2
- 1a2:	3a 95       	dec	r19
- 1a4:	f1 f7       	brne	.-4      	; 0x1a2 <send_a_character+0x3a>
- 1a6:	00 c0       	rjmp	.+0      	; 0x1a8 <send_a_character+0x40>
- 1a8:	91 98       	cbi	0x12, 1	; 18
- 1aa:	8f e3       	ldi	r24, 0x3F	; 63
- 1ac:	9c e9       	ldi	r25, 0x9C	; 156
- 1ae:	01 97       	sbiw	r24, 0x01	; 1
- 1b0:	f1 f7       	brne	.-4      	; 0x1ae <send_a_character+0x46>
- 1b2:	00 c0       	rjmp	.+0      	; 0x1b4 <send_a_character+0x4c>
- 1b4:	00 00       	nop
- 1b6:	08 95       	ret
-
-000001b8 <LCD_GeneralMessage>:
- 1b8:	af 92       	push	r10
- 1ba:	bf 92       	push	r11
- 1bc:	cf 92       	push	r12
- 1be:	df 92       	push	r13
- 1c0:	ef 92       	push	r14
- 1c2:	ff 92       	push	r15
- 1c4:	0f 93       	push	r16
- 1c6:	1f 93       	push	r17
- 1c8:	cf 93       	push	r28
- 1ca:	df 93       	push	r29
- 1cc:	d8 2f       	mov	r29, r24
- 1ce:	c6 2f       	mov	r28, r22
- 1d0:	6a 01       	movw	r12, r20
- 1d2:	79 01       	movw	r14, r18
- 1d4:	81 b3       	in	r24, 0x11	; 17
- 1d6:	80 6f       	ori	r24, 0xF0	; 240
- 1d8:	81 bb       	out	0x11, r24	; 17
- 1da:	88 9a       	sbi	0x11, 0	; 17
- 1dc:	89 9a       	sbi	0x11, 1	; 17
- 1de:	d1 31       	cpi	r29, 0x11	; 17
- 1e0:	20 f0       	brcs	.+8      	; 0x1ea <LCD_GeneralMessage+0x32>
- 1e2:	d3 36       	cpi	r29, 0x63	; 99
- 1e4:	09 f0       	breq	.+2      	; 0x1e8 <LCD_GeneralMessage+0x30>
- 1e6:	56 c0       	rjmp	.+172    	; 0x294 <LCD_GeneralMessage+0xdc>
- 1e8:	62 c0       	rjmp	.+196    	; 0x2ae <LCD_GeneralMessage+0xf6>
- 1ea:	60 31       	cpi	r22, 0x10	; 16
- 1ec:	10 f4       	brcc	.+4      	; 0x1f2 <LCD_GeneralMessage+0x3a>
- 1ee:	05 c0       	rjmp	.+10     	; 0x1fa <LCD_GeneralMessage+0x42>
- 1f0:	d0 e0       	ldi	r29, 0x00	; 0
- 1f2:	c3 36       	cpi	r28, 0x63	; 99
- 1f4:	09 f0       	breq	.+2      	; 0x1f8 <LCD_GeneralMessage+0x40>
- 1f6:	78 c0       	rjmp	.+240    	; 0x2e8 <LCD_GeneralMessage+0x130>
- 1f8:	62 c0       	rjmp	.+196    	; 0x2be <LCD_GeneralMessage+0x106>
- 1fa:	2f e7       	ldi	r18, 0x7F	; 127
- 1fc:	88 e3       	ldi	r24, 0x38	; 56
- 1fe:	91 e0       	ldi	r25, 0x01	; 1
- 200:	21 50       	subi	r18, 0x01	; 1
- 202:	80 40       	sbci	r24, 0x00	; 0
- 204:	90 40       	sbci	r25, 0x00	; 0
- 206:	e1 f7       	brne	.-8      	; 0x200 <LCD_GeneralMessage+0x48>
- 208:	00 c0       	rjmp	.+0      	; 0x20a <LCD_GeneralMessage+0x52>
- 20a:	00 00       	nop
- 20c:	d3 36       	cpi	r29, 0x63	; 99
- 20e:	e1 f0       	breq	.+56     	; 0x248 <LCD_GeneralMessage+0x90>
- 210:	fa 01       	movw	r30, r20
- 212:	80 81       	ld	r24, Z
- 214:	81 11       	cpse	r24, r1
- 216:	04 c0       	rjmp	.+8      	; 0x220 <LCD_GeneralMessage+0x68>
- 218:	17 c0       	rjmp	.+46     	; 0x248 <LCD_GeneralMessage+0x90>
- 21a:	c0 e0       	ldi	r28, 0x00	; 0
- 21c:	01 c0       	rjmp	.+2      	; 0x220 <LCD_GeneralMessage+0x68>
- 21e:	c3 e6       	ldi	r28, 0x63	; 99
- 220:	dd 23       	and	r29, r29
- 222:	29 f0       	breq	.+10     	; 0x22e <LCD_GeneralMessage+0x76>
- 224:	84 e1       	ldi	r24, 0x14	; 20
- 226:	0e 94 8c 00 	call	0x118	; 0x118 <send_a_command>
- 22a:	d1 50       	subi	r29, 0x01	; 1
- 22c:	d9 f7       	brne	.-10     	; 0x224 <LCD_GeneralMessage+0x6c>
- 22e:	86 01       	movw	r16, r12
- 230:	56 01       	movw	r10, r12
- 232:	f0 e1       	ldi	r31, 0x10	; 16
- 234:	af 0e       	add	r10, r31
- 236:	b1 1c       	adc	r11, r1
- 238:	63 c0       	rjmp	.+198    	; 0x300 <LCD_GeneralMessage+0x148>
- 23a:	a0 16       	cp	r10, r16
- 23c:	b1 06       	cpc	r11, r17
- 23e:	21 f0       	breq	.+8      	; 0x248 <LCD_GeneralMessage+0x90>
- 240:	f8 01       	movw	r30, r16
- 242:	80 81       	ld	r24, Z
- 244:	81 11       	cpse	r24, r1
- 246:	5c c0       	rjmp	.+184    	; 0x300 <LCD_GeneralMessage+0x148>
- 248:	80 ec       	ldi	r24, 0xC0	; 192
- 24a:	0e 94 8c 00 	call	0x118	; 0x118 <send_a_command>
- 24e:	c3 36       	cpi	r28, 0x63	; 99
- 250:	09 f4       	brne	.+2      	; 0x254 <LCD_GeneralMessage+0x9c>
- 252:	9f c0       	rjmp	.+318    	; 0x392 <LCD_GeneralMessage+0x1da>
- 254:	f7 01       	movw	r30, r14
- 256:	80 81       	ld	r24, Z
- 258:	81 11       	cpse	r24, r1
- 25a:	0b c0       	rjmp	.+22     	; 0x272 <LCD_GeneralMessage+0xba>
- 25c:	9a c0       	rjmp	.+308    	; 0x392 <LCD_GeneralMessage+0x1da>
- 25e:	84 e1       	ldi	r24, 0x14	; 20
- 260:	0e 94 8c 00 	call	0x118	; 0x118 <send_a_command>
- 264:	c1 50       	subi	r28, 0x01	; 1
- 266:	d9 f7       	brne	.-10     	; 0x25e <LCD_GeneralMessage+0xa6>
- 268:	5e c0       	rjmp	.+188    	; 0x326 <LCD_GeneralMessage+0x16e>
- 26a:	88 81       	ld	r24, Y
- 26c:	81 11       	cpse	r24, r1
- 26e:	5f c0       	rjmp	.+190    	; 0x32e <LCD_GeneralMessage+0x176>
- 270:	90 c0       	rjmp	.+288    	; 0x392 <LCD_GeneralMessage+0x1da>
- 272:	c1 11       	cpse	r28, r1
- 274:	f4 cf       	rjmp	.-24     	; 0x25e <LCD_GeneralMessage+0xa6>
- 276:	57 c0       	rjmp	.+174    	; 0x326 <LCD_GeneralMessage+0x16e>
- 278:	ff e7       	ldi	r31, 0x7F	; 127
- 27a:	28 e3       	ldi	r18, 0x38	; 56
- 27c:	81 e0       	ldi	r24, 0x01	; 1
- 27e:	f1 50       	subi	r31, 0x01	; 1
- 280:	20 40       	sbci	r18, 0x00	; 0
- 282:	80 40       	sbci	r24, 0x00	; 0
- 284:	e1 f7       	brne	.-8      	; 0x27e <LCD_GeneralMessage+0xc6>
- 286:	00 c0       	rjmp	.+0      	; 0x288 <LCD_GeneralMessage+0xd0>
- 288:	00 00       	nop
- 28a:	f6 01       	movw	r30, r12
- 28c:	80 81       	ld	r24, Z
- 28e:	88 23       	and	r24, r24
- 290:	d9 f2       	breq	.-74     	; 0x248 <LCD_GeneralMessage+0x90>
- 292:	cd cf       	rjmp	.-102    	; 0x22e <LCD_GeneralMessage+0x76>
- 294:	60 31       	cpi	r22, 0x10	; 16
- 296:	80 f3       	brcs	.-32     	; 0x278 <LCD_GeneralMessage+0xc0>
- 298:	ab cf       	rjmp	.-170    	; 0x1f0 <LCD_GeneralMessage+0x38>
- 29a:	ff e7       	ldi	r31, 0x7F	; 127
- 29c:	28 e3       	ldi	r18, 0x38	; 56
- 29e:	81 e0       	ldi	r24, 0x01	; 1
- 2a0:	f1 50       	subi	r31, 0x01	; 1
- 2a2:	20 40       	sbci	r18, 0x00	; 0
- 2a4:	80 40       	sbci	r24, 0x00	; 0
- 2a6:	e1 f7       	brne	.-8      	; 0x2a0 <LCD_GeneralMessage+0xe8>
- 2a8:	00 c0       	rjmp	.+0      	; 0x2aa <LCD_GeneralMessage+0xf2>
- 2aa:	00 00       	nop
- 2ac:	cd cf       	rjmp	.-102    	; 0x248 <LCD_GeneralMessage+0x90>
- 2ae:	60 31       	cpi	r22, 0x10	; 16
- 2b0:	08 f0       	brcs	.+2      	; 0x2b4 <LCD_GeneralMessage+0xfc>
- 2b2:	58 c0       	rjmp	.+176    	; 0x364 <LCD_GeneralMessage+0x1ac>
- 2b4:	f2 cf       	rjmp	.-28     	; 0x29a <LCD_GeneralMessage+0xe2>
- 2b6:	80 ec       	ldi	r24, 0xC0	; 192
- 2b8:	0e 94 8c 00 	call	0x118	; 0x118 <send_a_command>
- 2bc:	6a c0       	rjmp	.+212    	; 0x392 <LCD_GeneralMessage+0x1da>
- 2be:	9f e7       	ldi	r25, 0x7F	; 127
- 2c0:	e8 e3       	ldi	r30, 0x38	; 56
- 2c2:	f1 e0       	ldi	r31, 0x01	; 1
- 2c4:	91 50       	subi	r25, 0x01	; 1
- 2c6:	e0 40       	sbci	r30, 0x00	; 0
- 2c8:	f0 40       	sbci	r31, 0x00	; 0
- 2ca:	e1 f7       	brne	.-8      	; 0x2c4 <LCD_GeneralMessage+0x10c>
- 2cc:	00 c0       	rjmp	.+0      	; 0x2ce <LCD_GeneralMessage+0x116>
- 2ce:	00 00       	nop
- 2d0:	d3 36       	cpi	r29, 0x63	; 99
- 2d2:	09 f0       	breq	.+2      	; 0x2d6 <LCD_GeneralMessage+0x11e>
- 2d4:	59 c0       	rjmp	.+178    	; 0x388 <LCD_GeneralMessage+0x1d0>
- 2d6:	ef cf       	rjmp	.-34     	; 0x2b6 <LCD_GeneralMessage+0xfe>
- 2d8:	80 ec       	ldi	r24, 0xC0	; 192
- 2da:	0e 94 8c 00 	call	0x118	; 0x118 <send_a_command>
- 2de:	f7 01       	movw	r30, r14
- 2e0:	80 81       	ld	r24, Z
- 2e2:	81 11       	cpse	r24, r1
- 2e4:	20 c0       	rjmp	.+64     	; 0x326 <LCD_GeneralMessage+0x16e>
- 2e6:	55 c0       	rjmp	.+170    	; 0x392 <LCD_GeneralMessage+0x1da>
- 2e8:	ff e7       	ldi	r31, 0x7F	; 127
- 2ea:	28 e3       	ldi	r18, 0x38	; 56
- 2ec:	81 e0       	ldi	r24, 0x01	; 1
- 2ee:	f1 50       	subi	r31, 0x01	; 1
- 2f0:	20 40       	sbci	r18, 0x00	; 0
- 2f2:	80 40       	sbci	r24, 0x00	; 0
- 2f4:	e1 f7       	brne	.-8      	; 0x2ee <LCD_GeneralMessage+0x136>
- 2f6:	00 c0       	rjmp	.+0      	; 0x2f8 <LCD_GeneralMessage+0x140>
- 2f8:	00 00       	nop
- 2fa:	d3 36       	cpi	r29, 0x63	; 99
- 2fc:	e1 f5       	brne	.+120    	; 0x376 <LCD_GeneralMessage+0x1be>
- 2fe:	ec cf       	rjmp	.-40     	; 0x2d8 <LCD_GeneralMessage+0x120>
- 300:	f8 01       	movw	r30, r16
- 302:	81 91       	ld	r24, Z+
- 304:	8f 01       	movw	r16, r30
- 306:	0e 94 b4 00 	call	0x168	; 0x168 <send_a_character>
- 30a:	ff e7       	ldi	r31, 0x7F	; 127
- 30c:	28 e3       	ldi	r18, 0x38	; 56
- 30e:	81 e0       	ldi	r24, 0x01	; 1
- 310:	f1 50       	subi	r31, 0x01	; 1
- 312:	20 40       	sbci	r18, 0x00	; 0
- 314:	80 40       	sbci	r24, 0x00	; 0
- 316:	e1 f7       	brne	.-8      	; 0x310 <LCD_GeneralMessage+0x158>
- 318:	00 c0       	rjmp	.+0      	; 0x31a <LCD_GeneralMessage+0x162>
- 31a:	00 00       	nop
- 31c:	f6 01       	movw	r30, r12
- 31e:	80 81       	ld	r24, Z
- 320:	81 11       	cpse	r24, r1
- 322:	8b cf       	rjmp	.-234    	; 0x23a <LCD_GeneralMessage+0x82>
- 324:	91 cf       	rjmp	.-222    	; 0x248 <LCD_GeneralMessage+0x90>
- 326:	e7 01       	movw	r28, r14
- 328:	f0 e1       	ldi	r31, 0x10	; 16
- 32a:	ef 0e       	add	r14, r31
- 32c:	f1 1c       	adc	r15, r1
- 32e:	89 91       	ld	r24, Y+
- 330:	0e 94 b4 00 	call	0x168	; 0x168 <send_a_character>
- 334:	2f ef       	ldi	r18, 0xFF	; 255
- 336:	8f ea       	ldi	r24, 0xAF	; 175
- 338:	94 e0       	ldi	r25, 0x04	; 4
- 33a:	21 50       	subi	r18, 0x01	; 1
- 33c:	80 40       	sbci	r24, 0x00	; 0
- 33e:	90 40       	sbci	r25, 0x00	; 0
- 340:	e1 f7       	brne	.-8      	; 0x33a <LCD_GeneralMessage+0x182>
- 342:	00 c0       	rjmp	.+0      	; 0x344 <LCD_GeneralMessage+0x18c>
- 344:	00 00       	nop
- 346:	ce 15       	cp	r28, r14
- 348:	df 05       	cpc	r29, r15
- 34a:	09 f0       	breq	.+2      	; 0x34e <LCD_GeneralMessage+0x196>
- 34c:	8e cf       	rjmp	.-228    	; 0x26a <LCD_GeneralMessage+0xb2>
- 34e:	21 c0       	rjmp	.+66     	; 0x392 <LCD_GeneralMessage+0x1da>
- 350:	ef e7       	ldi	r30, 0x7F	; 127
- 352:	f8 e3       	ldi	r31, 0x38	; 56
- 354:	21 e0       	ldi	r18, 0x01	; 1
- 356:	e1 50       	subi	r30, 0x01	; 1
- 358:	f0 40       	sbci	r31, 0x00	; 0
- 35a:	20 40       	sbci	r18, 0x00	; 0
- 35c:	e1 f7       	brne	.-8      	; 0x356 <LCD_GeneralMessage+0x19e>
- 35e:	00 c0       	rjmp	.+0      	; 0x360 <LCD_GeneralMessage+0x1a8>
- 360:	00 00       	nop
- 362:	ba cf       	rjmp	.-140    	; 0x2d8 <LCD_GeneralMessage+0x120>
- 364:	63 36       	cpi	r22, 0x63	; 99
- 366:	09 f4       	brne	.+2      	; 0x36a <LCD_GeneralMessage+0x1b2>
- 368:	aa cf       	rjmp	.-172    	; 0x2be <LCD_GeneralMessage+0x106>
- 36a:	f2 cf       	rjmp	.-28     	; 0x350 <LCD_GeneralMessage+0x198>
- 36c:	80 ec       	ldi	r24, 0xC0	; 192
- 36e:	0e 94 8c 00 	call	0x118	; 0x118 <send_a_command>
- 372:	c0 e0       	ldi	r28, 0x00	; 0
- 374:	6f cf       	rjmp	.-290    	; 0x254 <LCD_GeneralMessage+0x9c>
- 376:	f6 01       	movw	r30, r12
- 378:	80 81       	ld	r24, Z
- 37a:	81 11       	cpse	r24, r1
- 37c:	4e cf       	rjmp	.-356    	; 0x21a <LCD_GeneralMessage+0x62>
- 37e:	f6 cf       	rjmp	.-20     	; 0x36c <LCD_GeneralMessage+0x1b4>
- 380:	80 ec       	ldi	r24, 0xC0	; 192
- 382:	0e 94 8c 00 	call	0x118	; 0x118 <send_a_command>
- 386:	05 c0       	rjmp	.+10     	; 0x392 <LCD_GeneralMessage+0x1da>
- 388:	f6 01       	movw	r30, r12
- 38a:	80 81       	ld	r24, Z
- 38c:	81 11       	cpse	r24, r1
- 38e:	47 cf       	rjmp	.-370    	; 0x21e <LCD_GeneralMessage+0x66>
- 390:	f7 cf       	rjmp	.-18     	; 0x380 <LCD_GeneralMessage+0x1c8>
- 392:	df 91       	pop	r29
- 394:	cf 91       	pop	r28
- 396:	1f 91       	pop	r17
- 398:	0f 91       	pop	r16
- 39a:	ff 90       	pop	r15
- 39c:	ef 90       	pop	r14
- 39e:	df 90       	pop	r13
- 3a0:	cf 90       	pop	r12
- 3a2:	bf 90       	pop	r11
- 3a4:	af 90       	pop	r10
- 3a6:	08 95       	ret
-
-000003a8 <LCD_Init>:
- 3a8:	81 b3       	in	r24, 0x11	; 17
- 3aa:	80 6f       	ori	r24, 0xF0	; 240
- 3ac:	81 bb       	out	0x11, r24	; 17
- 3ae:	88 9a       	sbi	0x11, 0	; 17
- 3b0:	89 9a       	sbi	0x11, 1	; 17
- 3b2:	2f e7       	ldi	r18, 0x7F	; 127
- 3b4:	88 e3       	ldi	r24, 0x38	; 56
- 3b6:	91 e0       	ldi	r25, 0x01	; 1
- 3b8:	21 50       	subi	r18, 0x01	; 1
- 3ba:	80 40       	sbci	r24, 0x00	; 0
- 3bc:	90 40       	sbci	r25, 0x00	; 0
- 3be:	e1 f7       	brne	.-8      	; 0x3b8 <LCD_Init+0x10>
- 3c0:	00 c0       	rjmp	.+0      	; 0x3c2 <LCD_Init+0x1a>
- 3c2:	00 00       	nop
- 3c4:	82 e0       	ldi	r24, 0x02	; 2
- 3c6:	0e 94 8c 00 	call	0x118	; 0x118 <send_a_command>
- 3ca:	88 e2       	ldi	r24, 0x28	; 40
- 3cc:	0e 94 8c 00 	call	0x118	; 0x118 <send_a_command>
- 3d0:	8e e0       	ldi	r24, 0x0E	; 14
- 3d2:	0e 94 8c 00 	call	0x118	; 0x118 <send_a_command>
- 3d6:	86 e0       	ldi	r24, 0x06	; 6
- 3d8:	0e 94 8c 00 	call	0x118	; 0x118 <send_a_command>
- 3dc:	81 e0       	ldi	r24, 0x01	; 1
- 3de:	0e 94 8c 00 	call	0x118	; 0x118 <send_a_command>
- 3e2:	08 95       	ret
-
-000003e4 <LCD_Pass_Req01>:
- 3e4:	ef 92       	push	r14
- 3e6:	ff 92       	push	r15
- 3e8:	0f 93       	push	r16
- 3ea:	1f 93       	push	r17
- 3ec:	cf 93       	push	r28
- 3ee:	df 93       	push	r29
- 3f0:	cd b7       	in	r28, 0x3d	; 61
- 3f2:	de b7       	in	r29, 0x3e	; 62
- 3f4:	60 97       	sbiw	r28, 0x10	; 16
- 3f6:	0f b6       	in	r0, 0x3f	; 63
- 3f8:	f8 94       	cli
- 3fa:	de bf       	out	0x3e, r29	; 62
- 3fc:	0f be       	out	0x3f, r0	; 63
- 3fe:	cd bf       	out	0x3d, r28	; 61
- 400:	80 e1       	ldi	r24, 0x10	; 16
- 402:	e1 e6       	ldi	r30, 0x61	; 97
- 404:	f0 e0       	ldi	r31, 0x00	; 0
- 406:	de 01       	movw	r26, r28
- 408:	11 96       	adiw	r26, 0x01	; 1
- 40a:	01 90       	ld	r0, Z+
- 40c:	0d 92       	st	X+, r0
- 40e:	8a 95       	dec	r24
- 410:	e1 f7       	brne	.-8      	; 0x40a <__LOCK_REGION_LENGTH__+0xa>
- 412:	81 b3       	in	r24, 0x11	; 17
- 414:	80 6f       	ori	r24, 0xF0	; 240
- 416:	81 bb       	out	0x11, r24	; 17
- 418:	88 9a       	sbi	0x11, 0	; 17
- 41a:	89 9a       	sbi	0x11, 1	; 17
- 41c:	2f e7       	ldi	r18, 0x7F	; 127
- 41e:	88 e3       	ldi	r24, 0x38	; 56
- 420:	91 e0       	ldi	r25, 0x01	; 1
- 422:	21 50       	subi	r18, 0x01	; 1
- 424:	80 40       	sbci	r24, 0x00	; 0
- 426:	90 40       	sbci	r25, 0x00	; 0
- 428:	e1 f7       	brne	.-8      	; 0x422 <__LOCK_REGION_LENGTH__+0x22>
- 42a:	00 c0       	rjmp	.+0      	; 0x42c <__LOCK_REGION_LENGTH__+0x2c>
- 42c:	00 00       	nop
- 42e:	81 e0       	ldi	r24, 0x01	; 1
- 430:	0e 94 8c 00 	call	0x118	; 0x118 <send_a_command>
- 434:	8e e0       	ldi	r24, 0x0E	; 14
- 436:	0e 94 8c 00 	call	0x118	; 0x118 <send_a_command>
- 43a:	89 81       	ldd	r24, Y+1	; 0x01
- 43c:	81 11       	cpse	r24, r1
- 43e:	1a c0       	rjmp	.+52     	; 0x474 <__LOCK_REGION_LENGTH__+0x74>
- 440:	15 c0       	rjmp	.+42     	; 0x46c <__LOCK_REGION_LENGTH__+0x6c>
- 442:	0f 5f       	subi	r16, 0xFF	; 255
- 444:	1f 4f       	sbci	r17, 0xFF	; 255
- 446:	80 81       	ld	r24, Z
- 448:	0e 94 b4 00 	call	0x168	; 0x168 <send_a_character>
- 44c:	af e7       	ldi	r26, 0x7F	; 127
- 44e:	b8 e3       	ldi	r27, 0x38	; 56
- 450:	21 e0       	ldi	r18, 0x01	; 1
- 452:	a1 50       	subi	r26, 0x01	; 1
- 454:	b0 40       	sbci	r27, 0x00	; 0
- 456:	20 40       	sbci	r18, 0x00	; 0
- 458:	e1 f7       	brne	.-8      	; 0x452 <__LOCK_REGION_LENGTH__+0x52>
- 45a:	00 c0       	rjmp	.+0      	; 0x45c <__LOCK_REGION_LENGTH__+0x5c>
- 45c:	00 00       	nop
- 45e:	0e 15       	cp	r16, r14
- 460:	1f 05       	cpc	r17, r15
- 462:	21 f0       	breq	.+8      	; 0x46c <__LOCK_REGION_LENGTH__+0x6c>
- 464:	f8 01       	movw	r30, r16
- 466:	80 81       	ld	r24, Z
- 468:	81 11       	cpse	r24, r1
- 46a:	eb cf       	rjmp	.-42     	; 0x442 <__LOCK_REGION_LENGTH__+0x42>
- 46c:	80 ec       	ldi	r24, 0xC0	; 192
- 46e:	0e 94 8c 00 	call	0x118	; 0x118 <send_a_command>
- 472:	14 c0       	rjmp	.+40     	; 0x49c <__LOCK_REGION_LENGTH__+0x9c>
- 474:	89 81       	ldd	r24, Y+1	; 0x01
- 476:	0e 94 b4 00 	call	0x168	; 0x168 <send_a_character>
- 47a:	8f e7       	ldi	r24, 0x7F	; 127
- 47c:	98 e3       	ldi	r25, 0x38	; 56
- 47e:	a1 e0       	ldi	r26, 0x01	; 1
- 480:	81 50       	subi	r24, 0x01	; 1
- 482:	90 40       	sbci	r25, 0x00	; 0
- 484:	a0 40       	sbci	r26, 0x00	; 0
- 486:	e1 f7       	brne	.-8      	; 0x480 <__LOCK_REGION_LENGTH__+0x80>
- 488:	00 c0       	rjmp	.+0      	; 0x48a <__LOCK_REGION_LENGTH__+0x8a>
- 48a:	00 00       	nop
- 48c:	8e 01       	movw	r16, r28
- 48e:	0e 5f       	subi	r16, 0xFE	; 254
- 490:	1f 4f       	sbci	r17, 0xFF	; 255
- 492:	7e 01       	movw	r14, r28
- 494:	b1 e1       	ldi	r27, 0x11	; 17
- 496:	eb 0e       	add	r14, r27
- 498:	f1 1c       	adc	r15, r1
- 49a:	e4 cf       	rjmp	.-56     	; 0x464 <__LOCK_REGION_LENGTH__+0x64>
- 49c:	60 96       	adiw	r28, 0x10	; 16
- 49e:	0f b6       	in	r0, 0x3f	; 63
- 4a0:	f8 94       	cli
- 4a2:	de bf       	out	0x3e, r29	; 62
- 4a4:	0f be       	out	0x3f, r0	; 63
- 4a6:	cd bf       	out	0x3d, r28	; 61
- 4a8:	df 91       	pop	r29
- 4aa:	cf 91       	pop	r28
- 4ac:	1f 91       	pop	r17
- 4ae:	0f 91       	pop	r16
- 4b0:	ff 90       	pop	r15
- 4b2:	ef 90       	pop	r14
- 4b4:	08 95       	ret
-
-000004b6 <LCD_Pass_Req02>:
- 4b6:	8f 3f       	cpi	r24, 0xFF	; 255
- 4b8:	d9 f0       	breq	.+54     	; 0x4f0 <LCD_Pass_Req02+0x3a>
- 4ba:	20 91 94 00 	lds	r18, 0x0094	; 0x800094 <__data_end>
- 4be:	30 91 95 00 	lds	r19, 0x0095	; 0x800095 <__data_end+0x1>
- 4c2:	26 30       	cpi	r18, 0x06	; 6
- 4c4:	31 05       	cpc	r19, r1
- 4c6:	a1 f0       	breq	.+40     	; 0x4f0 <LCD_Pass_Req02+0x3a>
- 4c8:	0e 94 b4 00 	call	0x168	; 0x168 <send_a_character>
- 4cc:	2f e7       	ldi	r18, 0x7F	; 127
- 4ce:	88 e3       	ldi	r24, 0x38	; 56
- 4d0:	91 e0       	ldi	r25, 0x01	; 1
- 4d2:	21 50       	subi	r18, 0x01	; 1
- 4d4:	80 40       	sbci	r24, 0x00	; 0
- 4d6:	90 40       	sbci	r25, 0x00	; 0
- 4d8:	e1 f7       	brne	.-8      	; 0x4d2 <LCD_Pass_Req02+0x1c>
- 4da:	00 c0       	rjmp	.+0      	; 0x4dc <LCD_Pass_Req02+0x26>
- 4dc:	00 00       	nop
- 4de:	80 91 94 00 	lds	r24, 0x0094	; 0x800094 <__data_end>
- 4e2:	90 91 95 00 	lds	r25, 0x0095	; 0x800095 <__data_end+0x1>
- 4e6:	01 96       	adiw	r24, 0x01	; 1
- 4e8:	90 93 95 00 	sts	0x0095, r25	; 0x800095 <__data_end+0x1>
- 4ec:	80 93 94 00 	sts	0x0094, r24	; 0x800094 <__data_end>
- 4f0:	08 95       	ret
-
-000004f2 <SPI_MasterInit>:
- 4f2:	87 b3       	in	r24, 0x17	; 23
- 4f4:	80 6b       	ori	r24, 0xB0	; 176
- 4f6:	87 bb       	out	0x17, r24	; 23
- 4f8:	be 98       	cbi	0x17, 6	; 23
- 4fa:	81 e5       	ldi	r24, 0x51	; 81
- 4fc:	8d b9       	out	0x0d, r24	; 13
- 4fe:	08 95       	ret
-
-00000500 <SPI_Transmitter>:
-	
+	TCCR0=(1<<CS00)|(1<<CS01);			//Start Timer0 & clock/64 PreScale.
 }
 
-unsigned char SPI_Transmitter(unsigned char SPI_DATA)
+void Close_TIMER0(void)
 {
-	SPDR = SPI_DATA;			//start transmission
- 500:	8f b9       	out	0x0f, r24	; 15
-	while( !(SPSR & (1<<SPIF)) );	//wait for the transmission to complete 
- 502:	77 9b       	sbis	0x0e, 7	; 14
- 504:	fe cf       	rjmp	.-4      	; 0x502 <SPI_Transmitter+0x2>
-	return SPDR;				//return receive data
- 506:	8f b1       	in	r24, 0x0f	; 15
- 508:	08 95       	ret
+	TCCR0=0x00;
+  92:	8f ef       	ldi	r24, 0xFF	; 255
+  94:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__DATA_REGION_ORIGIN__>
+  98:	8b b3       	in	r24, 0x1b	; 27
+  9a:	8f 60       	ori	r24, 0x0F	; 15
+  9c:	8b bb       	out	0x1b, r24	; 27
+  9e:	10 92 4f 01 	sts	0x014F, r1	; 0x80014f <c.1746>
+  a2:	60 e1       	ldi	r22, 0x10	; 16
+  a4:	70 e0       	ldi	r23, 0x00	; 0
+  a6:	8a b3       	in	r24, 0x1a	; 26
+  a8:	80 78       	andi	r24, 0x80	; 128
+  aa:	8a bb       	out	0x1a, r24	; 26
+  ac:	2a b3       	in	r18, 0x1a	; 26
+  ae:	cb 01       	movw	r24, r22
+  b0:	00 90 4f 01 	lds	r0, 0x014F	; 0x80014f <c.1746>
+  b4:	02 c0       	rjmp	.+4      	; 0xba <GetKeyPressed+0x28>
+  b6:	88 0f       	add	r24, r24
+  b8:	99 1f       	adc	r25, r25
+  ba:	0a 94       	dec	r0
+  bc:	e2 f7       	brpl	.-8      	; 0xb6 <GetKeyPressed+0x24>
+  be:	82 2b       	or	r24, r18
+  c0:	8a bb       	out	0x1a, r24	; 26
+  c2:	10 92 4e 01 	sts	0x014E, r1	; 0x80014e <__data_end>
+  c6:	40 e0       	ldi	r20, 0x00	; 0
+  c8:	50 e0       	ldi	r21, 0x00	; 0
+  ca:	90 e0       	ldi	r25, 0x00	; 0
+  cc:	29 b3       	in	r18, 0x19	; 25
+  ce:	30 e0       	ldi	r19, 0x00	; 0
+  d0:	04 2e       	mov	r0, r20
+  d2:	02 c0       	rjmp	.+4      	; 0xd8 <GetKeyPressed+0x46>
+  d4:	35 95       	asr	r19
+  d6:	27 95       	ror	r18
+  d8:	0a 94       	dec	r0
+  da:	e2 f7       	brpl	.-8      	; 0xd4 <GetKeyPressed+0x42>
+  dc:	20 fd       	sbrc	r18, 0
+  de:	15 c0       	rjmp	.+42     	; 0x10a <GetKeyPressed+0x78>
+  e0:	93 30       	cpi	r25, 0x03	; 3
+  e2:	49 f4       	brne	.+18     	; 0xf6 <GetKeyPressed+0x64>
+  e4:	80 91 4f 01 	lds	r24, 0x014F	; 0x80014f <c.1746>
+  e8:	88 23       	and	r24, r24
+  ea:	01 f1       	breq	.+64     	; 0x12c <GetKeyPressed+0x9a>
+  ec:	81 30       	cpi	r24, 0x01	; 1
+  ee:	01 f1       	breq	.+64     	; 0x130 <GetKeyPressed+0x9e>
+  f0:	82 30       	cpi	r24, 0x02	; 2
+  f2:	11 f5       	brne	.+68     	; 0x138 <GetKeyPressed+0xa6>
+  f4:	1f c0       	rjmp	.+62     	; 0x134 <GetKeyPressed+0xa2>
+  f6:	80 91 4f 01 	lds	r24, 0x014F	; 0x80014f <c.1746>
+  fa:	21 e3       	ldi	r18, 0x31	; 49
+  fc:	28 0f       	add	r18, r24
+  fe:	89 2f       	mov	r24, r25
+ 100:	88 0f       	add	r24, r24
+ 102:	98 0f       	add	r25, r24
+ 104:	82 2f       	mov	r24, r18
+ 106:	89 0f       	add	r24, r25
+ 108:	08 95       	ret
+ 10a:	9f 5f       	subi	r25, 0xFF	; 255
+ 10c:	90 93 4e 01 	sts	0x014E, r25	; 0x80014e <__data_end>
+ 110:	4f 5f       	subi	r20, 0xFF	; 255
+ 112:	5f 4f       	sbci	r21, 0xFF	; 255
+ 114:	94 30       	cpi	r25, 0x04	; 4
+ 116:	d1 f6       	brne	.-76     	; 0xcc <GetKeyPressed+0x3a>
+ 118:	80 91 4f 01 	lds	r24, 0x014F	; 0x80014f <c.1746>
+ 11c:	8f 5f       	subi	r24, 0xFF	; 255
+ 11e:	80 93 4f 01 	sts	0x014F, r24	; 0x80014f <c.1746>
+ 122:	83 30       	cpi	r24, 0x03	; 3
+ 124:	08 f4       	brcc	.+2      	; 0x128 <GetKeyPressed+0x96>
+ 126:	bf cf       	rjmp	.-130    	; 0xa6 <GetKeyPressed+0x14>
+ 128:	8f ef       	ldi	r24, 0xFF	; 255
+ 12a:	08 95       	ret
+ 12c:	8a e2       	ldi	r24, 0x2A	; 42
+ 12e:	08 95       	ret
+ 130:	80 e3       	ldi	r24, 0x30	; 48
+ 132:	08 95       	ret
+ 134:	83 e2       	ldi	r24, 0x23	; 35
+ 136:	08 95       	ret
+ 138:	9f 5f       	subi	r25, 0xFF	; 255
+ 13a:	90 93 4e 01 	sts	0x014E, r25	; 0x80014e <__data_end>
+ 13e:	ec cf       	rjmp	.-40     	; 0x118 <GetKeyPressed+0x86>
 
-0000050a <main>:
- */ 
+00000140 <send_a_command>:
+ 140:	92 b3       	in	r25, 0x12	; 18
+ 142:	9f 70       	andi	r25, 0x0F	; 15
+ 144:	28 2f       	mov	r18, r24
+ 146:	20 7f       	andi	r18, 0xF0	; 240
+ 148:	92 2b       	or	r25, r18
+ 14a:	92 bb       	out	0x12, r25	; 18
+ 14c:	92 98       	cbi	0x12, 2	; 18
+ 14e:	93 9a       	sbi	0x12, 3	; 18
+ 150:	32 e0       	ldi	r19, 0x02	; 2
+ 152:	3a 95       	dec	r19
+ 154:	f1 f7       	brne	.-4      	; 0x152 <send_a_command+0x12>
+ 156:	00 c0       	rjmp	.+0      	; 0x158 <send_a_command+0x18>
+ 158:	93 98       	cbi	0x12, 3	; 18
+ 15a:	ef e8       	ldi	r30, 0x8F	; 143
+ 15c:	f1 e0       	ldi	r31, 0x01	; 1
+ 15e:	31 97       	sbiw	r30, 0x01	; 1
+ 160:	f1 f7       	brne	.-4      	; 0x15e <send_a_command+0x1e>
+ 162:	00 c0       	rjmp	.+0      	; 0x164 <send_a_command+0x24>
+ 164:	00 00       	nop
+ 166:	22 b3       	in	r18, 0x12	; 18
+ 168:	2f 70       	andi	r18, 0x0F	; 15
+ 16a:	f0 e1       	ldi	r31, 0x10	; 16
+ 16c:	8f 9f       	mul	r24, r31
+ 16e:	c0 01       	movw	r24, r0
+ 170:	11 24       	eor	r1, r1
+ 172:	82 2b       	or	r24, r18
+ 174:	82 bb       	out	0x12, r24	; 18
+ 176:	93 9a       	sbi	0x12, 3	; 18
+ 178:	32 e0       	ldi	r19, 0x02	; 2
+ 17a:	3a 95       	dec	r19
+ 17c:	f1 f7       	brne	.-4      	; 0x17a <send_a_command+0x3a>
+ 17e:	00 c0       	rjmp	.+0      	; 0x180 <send_a_command+0x40>
+ 180:	93 98       	cbi	0x12, 3	; 18
+ 182:	8f e3       	ldi	r24, 0x3F	; 63
+ 184:	9c e9       	ldi	r25, 0x9C	; 156
+ 186:	01 97       	sbiw	r24, 0x01	; 1
+ 188:	f1 f7       	brne	.-4      	; 0x186 <send_a_command+0x46>
+ 18a:	00 c0       	rjmp	.+0      	; 0x18c <send_a_command+0x4c>
+ 18c:	00 00       	nop
+ 18e:	08 95       	ret
 
-int main(void)
+00000190 <send_a_character>:
+ 190:	92 b3       	in	r25, 0x12	; 18
+ 192:	9f 70       	andi	r25, 0x0F	; 15
+ 194:	28 2f       	mov	r18, r24
+ 196:	20 7f       	andi	r18, 0xF0	; 240
+ 198:	92 2b       	or	r25, r18
+ 19a:	92 bb       	out	0x12, r25	; 18
+ 19c:	92 9a       	sbi	0x12, 2	; 18
+ 19e:	93 9a       	sbi	0x12, 3	; 18
+ 1a0:	32 e0       	ldi	r19, 0x02	; 2
+ 1a2:	3a 95       	dec	r19
+ 1a4:	f1 f7       	brne	.-4      	; 0x1a2 <send_a_character+0x12>
+ 1a6:	00 c0       	rjmp	.+0      	; 0x1a8 <send_a_character+0x18>
+ 1a8:	93 98       	cbi	0x12, 3	; 18
+ 1aa:	ef e8       	ldi	r30, 0x8F	; 143
+ 1ac:	f1 e0       	ldi	r31, 0x01	; 1
+ 1ae:	31 97       	sbiw	r30, 0x01	; 1
+ 1b0:	f1 f7       	brne	.-4      	; 0x1ae <send_a_character+0x1e>
+ 1b2:	00 c0       	rjmp	.+0      	; 0x1b4 <send_a_character+0x24>
+ 1b4:	00 00       	nop
+ 1b6:	22 b3       	in	r18, 0x12	; 18
+ 1b8:	2f 70       	andi	r18, 0x0F	; 15
+ 1ba:	f0 e1       	ldi	r31, 0x10	; 16
+ 1bc:	8f 9f       	mul	r24, r31
+ 1be:	c0 01       	movw	r24, r0
+ 1c0:	11 24       	eor	r1, r1
+ 1c2:	82 2b       	or	r24, r18
+ 1c4:	82 bb       	out	0x12, r24	; 18
+ 1c6:	93 9a       	sbi	0x12, 3	; 18
+ 1c8:	32 e0       	ldi	r19, 0x02	; 2
+ 1ca:	3a 95       	dec	r19
+ 1cc:	f1 f7       	brne	.-4      	; 0x1ca <send_a_character+0x3a>
+ 1ce:	00 c0       	rjmp	.+0      	; 0x1d0 <send_a_character+0x40>
+ 1d0:	93 98       	cbi	0x12, 3	; 18
+ 1d2:	8f e3       	ldi	r24, 0x3F	; 63
+ 1d4:	9c e9       	ldi	r25, 0x9C	; 156
+ 1d6:	01 97       	sbiw	r24, 0x01	; 1
+ 1d8:	f1 f7       	brne	.-4      	; 0x1d6 <send_a_character+0x46>
+ 1da:	00 c0       	rjmp	.+0      	; 0x1dc <send_a_character+0x4c>
+ 1dc:	00 00       	nop
+ 1de:	08 95       	ret
+
+000001e0 <LCD_GeneralMessage>:
+ 1e0:	af 92       	push	r10
+ 1e2:	bf 92       	push	r11
+ 1e4:	cf 92       	push	r12
+ 1e6:	df 92       	push	r13
+ 1e8:	ef 92       	push	r14
+ 1ea:	ff 92       	push	r15
+ 1ec:	0f 93       	push	r16
+ 1ee:	1f 93       	push	r17
+ 1f0:	cf 93       	push	r28
+ 1f2:	df 93       	push	r29
+ 1f4:	d8 2f       	mov	r29, r24
+ 1f6:	c6 2f       	mov	r28, r22
+ 1f8:	6a 01       	movw	r12, r20
+ 1fa:	79 01       	movw	r14, r18
+ 1fc:	81 b3       	in	r24, 0x11	; 17
+ 1fe:	80 6f       	ori	r24, 0xF0	; 240
+ 200:	81 bb       	out	0x11, r24	; 17
+ 202:	8a 9a       	sbi	0x11, 2	; 17
+ 204:	8b 9a       	sbi	0x11, 3	; 17
+ 206:	d1 31       	cpi	r29, 0x11	; 17
+ 208:	20 f0       	brcs	.+8      	; 0x212 <LCD_GeneralMessage+0x32>
+ 20a:	d3 36       	cpi	r29, 0x63	; 99
+ 20c:	09 f0       	breq	.+2      	; 0x210 <LCD_GeneralMessage+0x30>
+ 20e:	56 c0       	rjmp	.+172    	; 0x2bc <LCD_GeneralMessage+0xdc>
+ 210:	62 c0       	rjmp	.+196    	; 0x2d6 <LCD_GeneralMessage+0xf6>
+ 212:	60 31       	cpi	r22, 0x10	; 16
+ 214:	10 f4       	brcc	.+4      	; 0x21a <LCD_GeneralMessage+0x3a>
+ 216:	05 c0       	rjmp	.+10     	; 0x222 <LCD_GeneralMessage+0x42>
+ 218:	d0 e0       	ldi	r29, 0x00	; 0
+ 21a:	c3 36       	cpi	r28, 0x63	; 99
+ 21c:	09 f0       	breq	.+2      	; 0x220 <LCD_GeneralMessage+0x40>
+ 21e:	78 c0       	rjmp	.+240    	; 0x310 <LCD_GeneralMessage+0x130>
+ 220:	62 c0       	rjmp	.+196    	; 0x2e6 <LCD_GeneralMessage+0x106>
+ 222:	8f e5       	ldi	r24, 0x5F	; 95
+ 224:	9a ee       	ldi	r25, 0xEA	; 234
+ 226:	01 97       	sbiw	r24, 0x01	; 1
+ 228:	f1 f7       	brne	.-4      	; 0x226 <LCD_GeneralMessage+0x46>
+ 22a:	00 c0       	rjmp	.+0      	; 0x22c <LCD_GeneralMessage+0x4c>
+ 22c:	00 00       	nop
+ 22e:	82 e0       	ldi	r24, 0x02	; 2
+ 230:	0e 94 a0 00 	call	0x140	; 0x140 <send_a_command>
+ 234:	d3 36       	cpi	r29, 0x63	; 99
+ 236:	e1 f0       	breq	.+56     	; 0x270 <LCD_GeneralMessage+0x90>
+ 238:	f6 01       	movw	r30, r12
+ 23a:	80 81       	ld	r24, Z
+ 23c:	81 11       	cpse	r24, r1
+ 23e:	04 c0       	rjmp	.+8      	; 0x248 <LCD_GeneralMessage+0x68>
+ 240:	17 c0       	rjmp	.+46     	; 0x270 <LCD_GeneralMessage+0x90>
+ 242:	c0 e0       	ldi	r28, 0x00	; 0
+ 244:	01 c0       	rjmp	.+2      	; 0x248 <LCD_GeneralMessage+0x68>
+ 246:	c3 e6       	ldi	r28, 0x63	; 99
+ 248:	dd 23       	and	r29, r29
+ 24a:	29 f0       	breq	.+10     	; 0x256 <LCD_GeneralMessage+0x76>
+ 24c:	84 e1       	ldi	r24, 0x14	; 20
+ 24e:	0e 94 a0 00 	call	0x140	; 0x140 <send_a_command>
+ 252:	d1 50       	subi	r29, 0x01	; 1
+ 254:	d9 f7       	brne	.-10     	; 0x24c <LCD_GeneralMessage+0x6c>
+ 256:	86 01       	movw	r16, r12
+ 258:	56 01       	movw	r10, r12
+ 25a:	f0 e1       	ldi	r31, 0x10	; 16
+ 25c:	af 0e       	add	r10, r31
+ 25e:	b1 1c       	adc	r11, r1
+ 260:	63 c0       	rjmp	.+198    	; 0x328 <LCD_GeneralMessage+0x148>
+ 262:	a0 16       	cp	r10, r16
+ 264:	b1 06       	cpc	r11, r17
+ 266:	21 f0       	breq	.+8      	; 0x270 <LCD_GeneralMessage+0x90>
+ 268:	f8 01       	movw	r30, r16
+ 26a:	80 81       	ld	r24, Z
+ 26c:	81 11       	cpse	r24, r1
+ 26e:	5c c0       	rjmp	.+184    	; 0x328 <LCD_GeneralMessage+0x148>
+ 270:	80 ec       	ldi	r24, 0xC0	; 192
+ 272:	0e 94 a0 00 	call	0x140	; 0x140 <send_a_command>
+ 276:	c3 36       	cpi	r28, 0x63	; 99
+ 278:	09 f4       	brne	.+2      	; 0x27c <LCD_GeneralMessage+0x9c>
+ 27a:	99 c0       	rjmp	.+306    	; 0x3ae <LCD_GeneralMessage+0x1ce>
+ 27c:	f7 01       	movw	r30, r14
+ 27e:	80 81       	ld	r24, Z
+ 280:	81 11       	cpse	r24, r1
+ 282:	0b c0       	rjmp	.+22     	; 0x29a <LCD_GeneralMessage+0xba>
+ 284:	94 c0       	rjmp	.+296    	; 0x3ae <LCD_GeneralMessage+0x1ce>
+ 286:	84 e1       	ldi	r24, 0x14	; 20
+ 288:	0e 94 a0 00 	call	0x140	; 0x140 <send_a_command>
+ 28c:	c1 50       	subi	r28, 0x01	; 1
+ 28e:	d9 f7       	brne	.-10     	; 0x286 <LCD_GeneralMessage+0xa6>
+ 290:	5b c0       	rjmp	.+182    	; 0x348 <LCD_GeneralMessage+0x168>
+ 292:	88 81       	ld	r24, Y
+ 294:	81 11       	cpse	r24, r1
+ 296:	5c c0       	rjmp	.+184    	; 0x350 <LCD_GeneralMessage+0x170>
+ 298:	8a c0       	rjmp	.+276    	; 0x3ae <LCD_GeneralMessage+0x1ce>
+ 29a:	c1 11       	cpse	r28, r1
+ 29c:	f4 cf       	rjmp	.-24     	; 0x286 <LCD_GeneralMessage+0xa6>
+ 29e:	54 c0       	rjmp	.+168    	; 0x348 <LCD_GeneralMessage+0x168>
+ 2a0:	8f e5       	ldi	r24, 0x5F	; 95
+ 2a2:	9a ee       	ldi	r25, 0xEA	; 234
+ 2a4:	01 97       	sbiw	r24, 0x01	; 1
+ 2a6:	f1 f7       	brne	.-4      	; 0x2a4 <LCD_GeneralMessage+0xc4>
+ 2a8:	00 c0       	rjmp	.+0      	; 0x2aa <LCD_GeneralMessage+0xca>
+ 2aa:	00 00       	nop
+ 2ac:	82 e0       	ldi	r24, 0x02	; 2
+ 2ae:	0e 94 a0 00 	call	0x140	; 0x140 <send_a_command>
+ 2b2:	f6 01       	movw	r30, r12
+ 2b4:	80 81       	ld	r24, Z
+ 2b6:	88 23       	and	r24, r24
+ 2b8:	d9 f2       	breq	.-74     	; 0x270 <LCD_GeneralMessage+0x90>
+ 2ba:	cd cf       	rjmp	.-102    	; 0x256 <LCD_GeneralMessage+0x76>
+ 2bc:	60 31       	cpi	r22, 0x10	; 16
+ 2be:	80 f3       	brcs	.-32     	; 0x2a0 <LCD_GeneralMessage+0xc0>
+ 2c0:	ab cf       	rjmp	.-170    	; 0x218 <LCD_GeneralMessage+0x38>
+ 2c2:	8f e5       	ldi	r24, 0x5F	; 95
+ 2c4:	9a ee       	ldi	r25, 0xEA	; 234
+ 2c6:	01 97       	sbiw	r24, 0x01	; 1
+ 2c8:	f1 f7       	brne	.-4      	; 0x2c6 <LCD_GeneralMessage+0xe6>
+ 2ca:	00 c0       	rjmp	.+0      	; 0x2cc <LCD_GeneralMessage+0xec>
+ 2cc:	00 00       	nop
+ 2ce:	82 e0       	ldi	r24, 0x02	; 2
+ 2d0:	0e 94 a0 00 	call	0x140	; 0x140 <send_a_command>
+ 2d4:	cd cf       	rjmp	.-102    	; 0x270 <LCD_GeneralMessage+0x90>
+ 2d6:	60 31       	cpi	r22, 0x10	; 16
+ 2d8:	08 f0       	brcs	.+2      	; 0x2dc <LCD_GeneralMessage+0xfc>
+ 2da:	52 c0       	rjmp	.+164    	; 0x380 <LCD_GeneralMessage+0x1a0>
+ 2dc:	f2 cf       	rjmp	.-28     	; 0x2c2 <LCD_GeneralMessage+0xe2>
+ 2de:	80 ec       	ldi	r24, 0xC0	; 192
+ 2e0:	0e 94 a0 00 	call	0x140	; 0x140 <send_a_command>
+ 2e4:	64 c0       	rjmp	.+200    	; 0x3ae <LCD_GeneralMessage+0x1ce>
+ 2e6:	ef e5       	ldi	r30, 0x5F	; 95
+ 2e8:	fa ee       	ldi	r31, 0xEA	; 234
+ 2ea:	31 97       	sbiw	r30, 0x01	; 1
+ 2ec:	f1 f7       	brne	.-4      	; 0x2ea <LCD_GeneralMessage+0x10a>
+ 2ee:	00 c0       	rjmp	.+0      	; 0x2f0 <LCD_GeneralMessage+0x110>
+ 2f0:	00 00       	nop
+ 2f2:	82 e0       	ldi	r24, 0x02	; 2
+ 2f4:	0e 94 a0 00 	call	0x140	; 0x140 <send_a_command>
+ 2f8:	d3 36       	cpi	r29, 0x63	; 99
+ 2fa:	09 f0       	breq	.+2      	; 0x2fe <LCD_GeneralMessage+0x11e>
+ 2fc:	53 c0       	rjmp	.+166    	; 0x3a4 <LCD_GeneralMessage+0x1c4>
+ 2fe:	ef cf       	rjmp	.-34     	; 0x2de <LCD_GeneralMessage+0xfe>
+ 300:	80 ec       	ldi	r24, 0xC0	; 192
+ 302:	0e 94 a0 00 	call	0x140	; 0x140 <send_a_command>
+ 306:	f7 01       	movw	r30, r14
+ 308:	80 81       	ld	r24, Z
+ 30a:	81 11       	cpse	r24, r1
+ 30c:	1d c0       	rjmp	.+58     	; 0x348 <LCD_GeneralMessage+0x168>
+ 30e:	4f c0       	rjmp	.+158    	; 0x3ae <LCD_GeneralMessage+0x1ce>
+ 310:	8f e5       	ldi	r24, 0x5F	; 95
+ 312:	9a ee       	ldi	r25, 0xEA	; 234
+ 314:	01 97       	sbiw	r24, 0x01	; 1
+ 316:	f1 f7       	brne	.-4      	; 0x314 <LCD_GeneralMessage+0x134>
+ 318:	00 c0       	rjmp	.+0      	; 0x31a <LCD_GeneralMessage+0x13a>
+ 31a:	00 00       	nop
+ 31c:	82 e0       	ldi	r24, 0x02	; 2
+ 31e:	0e 94 a0 00 	call	0x140	; 0x140 <send_a_command>
+ 322:	d3 36       	cpi	r29, 0x63	; 99
+ 324:	b1 f5       	brne	.+108    	; 0x392 <LCD_GeneralMessage+0x1b2>
+ 326:	ec cf       	rjmp	.-40     	; 0x300 <LCD_GeneralMessage+0x120>
+ 328:	f8 01       	movw	r30, r16
+ 32a:	81 91       	ld	r24, Z+
+ 32c:	8f 01       	movw	r16, r30
+ 32e:	0e 94 c8 00 	call	0x190	; 0x190 <send_a_character>
+ 332:	8f e4       	ldi	r24, 0x4F	; 79
+ 334:	93 ec       	ldi	r25, 0xC3	; 195
+ 336:	01 97       	sbiw	r24, 0x01	; 1
+ 338:	f1 f7       	brne	.-4      	; 0x336 <LCD_GeneralMessage+0x156>
+ 33a:	00 c0       	rjmp	.+0      	; 0x33c <LCD_GeneralMessage+0x15c>
+ 33c:	00 00       	nop
+ 33e:	f6 01       	movw	r30, r12
+ 340:	80 81       	ld	r24, Z
+ 342:	81 11       	cpse	r24, r1
+ 344:	8e cf       	rjmp	.-228    	; 0x262 <LCD_GeneralMessage+0x82>
+ 346:	94 cf       	rjmp	.-216    	; 0x270 <LCD_GeneralMessage+0x90>
+ 348:	e7 01       	movw	r28, r14
+ 34a:	f0 e1       	ldi	r31, 0x10	; 16
+ 34c:	ef 0e       	add	r14, r31
+ 34e:	f1 1c       	adc	r15, r1
+ 350:	89 91       	ld	r24, Y+
+ 352:	0e 94 c8 00 	call	0x190	; 0x190 <send_a_character>
+ 356:	8f e4       	ldi	r24, 0x4F	; 79
+ 358:	93 ec       	ldi	r25, 0xC3	; 195
+ 35a:	01 97       	sbiw	r24, 0x01	; 1
+ 35c:	f1 f7       	brne	.-4      	; 0x35a <LCD_GeneralMessage+0x17a>
+ 35e:	00 c0       	rjmp	.+0      	; 0x360 <LCD_GeneralMessage+0x180>
+ 360:	00 00       	nop
+ 362:	ce 15       	cp	r28, r14
+ 364:	df 05       	cpc	r29, r15
+ 366:	09 f0       	breq	.+2      	; 0x36a <LCD_GeneralMessage+0x18a>
+ 368:	94 cf       	rjmp	.-216    	; 0x292 <LCD_GeneralMessage+0xb2>
+ 36a:	21 c0       	rjmp	.+66     	; 0x3ae <LCD_GeneralMessage+0x1ce>
+ 36c:	ef e5       	ldi	r30, 0x5F	; 95
+ 36e:	fa ee       	ldi	r31, 0xEA	; 234
+ 370:	31 97       	sbiw	r30, 0x01	; 1
+ 372:	f1 f7       	brne	.-4      	; 0x370 <LCD_GeneralMessage+0x190>
+ 374:	00 c0       	rjmp	.+0      	; 0x376 <LCD_GeneralMessage+0x196>
+ 376:	00 00       	nop
+ 378:	82 e0       	ldi	r24, 0x02	; 2
+ 37a:	0e 94 a0 00 	call	0x140	; 0x140 <send_a_command>
+ 37e:	c0 cf       	rjmp	.-128    	; 0x300 <LCD_GeneralMessage+0x120>
+ 380:	63 36       	cpi	r22, 0x63	; 99
+ 382:	09 f4       	brne	.+2      	; 0x386 <LCD_GeneralMessage+0x1a6>
+ 384:	b0 cf       	rjmp	.-160    	; 0x2e6 <LCD_GeneralMessage+0x106>
+ 386:	f2 cf       	rjmp	.-28     	; 0x36c <LCD_GeneralMessage+0x18c>
+ 388:	80 ec       	ldi	r24, 0xC0	; 192
+ 38a:	0e 94 a0 00 	call	0x140	; 0x140 <send_a_command>
+ 38e:	c0 e0       	ldi	r28, 0x00	; 0
+ 390:	75 cf       	rjmp	.-278    	; 0x27c <LCD_GeneralMessage+0x9c>
+ 392:	f6 01       	movw	r30, r12
+ 394:	80 81       	ld	r24, Z
+ 396:	81 11       	cpse	r24, r1
+ 398:	54 cf       	rjmp	.-344    	; 0x242 <LCD_GeneralMessage+0x62>
+ 39a:	f6 cf       	rjmp	.-20     	; 0x388 <LCD_GeneralMessage+0x1a8>
+ 39c:	80 ec       	ldi	r24, 0xC0	; 192
+ 39e:	0e 94 a0 00 	call	0x140	; 0x140 <send_a_command>
+ 3a2:	05 c0       	rjmp	.+10     	; 0x3ae <LCD_GeneralMessage+0x1ce>
+ 3a4:	f6 01       	movw	r30, r12
+ 3a6:	80 81       	ld	r24, Z
+ 3a8:	81 11       	cpse	r24, r1
+ 3aa:	4d cf       	rjmp	.-358    	; 0x246 <LCD_GeneralMessage+0x66>
+ 3ac:	f7 cf       	rjmp	.-18     	; 0x39c <LCD_GeneralMessage+0x1bc>
+ 3ae:	df 91       	pop	r29
+ 3b0:	cf 91       	pop	r28
+ 3b2:	1f 91       	pop	r17
+ 3b4:	0f 91       	pop	r16
+ 3b6:	ff 90       	pop	r15
+ 3b8:	ef 90       	pop	r14
+ 3ba:	df 90       	pop	r13
+ 3bc:	cf 90       	pop	r12
+ 3be:	bf 90       	pop	r11
+ 3c0:	af 90       	pop	r10
+ 3c2:	08 95       	ret
+
+000003c4 <LCD_Selector>:
+ 3c4:	cf 93       	push	r28
+ 3c6:	c8 2f       	mov	r28, r24
+ 3c8:	8c e0       	ldi	r24, 0x0C	; 12
+ 3ca:	0e 94 a0 00 	call	0x140	; 0x140 <send_a_command>
+ 3ce:	c1 30       	cpi	r28, 0x01	; 1
+ 3d0:	89 f4       	brne	.+34     	; 0x3f4 <LCD_Selector+0x30>
+ 3d2:	2b e6       	ldi	r18, 0x6B	; 107
+ 3d4:	30 e0       	ldi	r19, 0x00	; 0
+ 3d6:	4c e6       	ldi	r20, 0x6C	; 108
+ 3d8:	50 e0       	ldi	r21, 0x00	; 0
+ 3da:	6e e0       	ldi	r22, 0x0E	; 14
+ 3dc:	83 e6       	ldi	r24, 0x63	; 99
+ 3de:	0e 94 f0 00 	call	0x1e0	; 0x1e0 <LCD_GeneralMessage>
+ 3e2:	23 e6       	ldi	r18, 0x63	; 99
+ 3e4:	30 e0       	ldi	r19, 0x00	; 0
+ 3e6:	4c e6       	ldi	r20, 0x6C	; 108
+ 3e8:	50 e0       	ldi	r21, 0x00	; 0
+ 3ea:	66 e0       	ldi	r22, 0x06	; 6
+ 3ec:	83 e6       	ldi	r24, 0x63	; 99
+ 3ee:	0e 94 f0 00 	call	0x1e0	; 0x1e0 <LCD_GeneralMessage>
+ 3f2:	4d c0       	rjmp	.+154    	; 0x48e <__LOCK_REGION_LENGTH__+0x8e>
+ 3f4:	c0 3b       	cpi	r28, 0xB0	; 176
+ 3f6:	89 f4       	brne	.+34     	; 0x41a <__LOCK_REGION_LENGTH__+0x1a>
+ 3f8:	2c e6       	ldi	r18, 0x6C	; 108
+ 3fa:	30 e0       	ldi	r19, 0x00	; 0
+ 3fc:	4a e6       	ldi	r20, 0x6A	; 106
+ 3fe:	50 e0       	ldi	r21, 0x00	; 0
+ 400:	63 e6       	ldi	r22, 0x63	; 99
+ 402:	8e e0       	ldi	r24, 0x0E	; 14
+ 404:	0e 94 f0 00 	call	0x1e0	; 0x1e0 <LCD_GeneralMessage>
+ 408:	2c e6       	ldi	r18, 0x6C	; 108
+ 40a:	30 e0       	ldi	r19, 0x00	; 0
+ 40c:	45 e6       	ldi	r20, 0x65	; 101
+ 40e:	50 e0       	ldi	r21, 0x00	; 0
+ 410:	63 e6       	ldi	r22, 0x63	; 99
+ 412:	8a e0       	ldi	r24, 0x0A	; 10
+ 414:	0e 94 f0 00 	call	0x1e0	; 0x1e0 <LCD_GeneralMessage>
+ 418:	3a c0       	rjmp	.+116    	; 0x48e <__LOCK_REGION_LENGTH__+0x8e>
+ 41a:	c1 3b       	cpi	r28, 0xB1	; 177
+ 41c:	89 f4       	brne	.+34     	; 0x440 <__LOCK_REGION_LENGTH__+0x40>
+ 41e:	2c e6       	ldi	r18, 0x6C	; 108
+ 420:	30 e0       	ldi	r19, 0x00	; 0
+ 422:	49 e6       	ldi	r20, 0x69	; 105
+ 424:	50 e0       	ldi	r21, 0x00	; 0
+ 426:	63 e6       	ldi	r22, 0x63	; 99
+ 428:	8a e0       	ldi	r24, 0x0A	; 10
+ 42a:	0e 94 f0 00 	call	0x1e0	; 0x1e0 <LCD_GeneralMessage>
+ 42e:	2c e6       	ldi	r18, 0x6C	; 108
+ 430:	30 e0       	ldi	r19, 0x00	; 0
+ 432:	4d e6       	ldi	r20, 0x6D	; 109
+ 434:	50 e0       	ldi	r21, 0x00	; 0
+ 436:	63 e6       	ldi	r22, 0x63	; 99
+ 438:	8e e0       	ldi	r24, 0x0E	; 14
+ 43a:	0e 94 f0 00 	call	0x1e0	; 0x1e0 <LCD_GeneralMessage>
+ 43e:	27 c0       	rjmp	.+78     	; 0x48e <__LOCK_REGION_LENGTH__+0x8e>
+ 440:	c3 30       	cpi	r28, 0x03	; 3
+ 442:	89 f4       	brne	.+34     	; 0x466 <__LOCK_REGION_LENGTH__+0x66>
+ 444:	2b e6       	ldi	r18, 0x6B	; 107
+ 446:	30 e0       	ldi	r19, 0x00	; 0
+ 448:	4c e6       	ldi	r20, 0x6C	; 108
+ 44a:	50 e0       	ldi	r21, 0x00	; 0
+ 44c:	6e e0       	ldi	r22, 0x0E	; 14
+ 44e:	83 e6       	ldi	r24, 0x63	; 99
+ 450:	0e 94 f0 00 	call	0x1e0	; 0x1e0 <LCD_GeneralMessage>
+ 454:	23 e6       	ldi	r18, 0x63	; 99
+ 456:	30 e0       	ldi	r19, 0x00	; 0
+ 458:	4c e6       	ldi	r20, 0x6C	; 108
+ 45a:	50 e0       	ldi	r21, 0x00	; 0
+ 45c:	64 e0       	ldi	r22, 0x04	; 4
+ 45e:	83 e6       	ldi	r24, 0x63	; 99
+ 460:	0e 94 f0 00 	call	0x1e0	; 0x1e0 <LCD_GeneralMessage>
+ 464:	14 c0       	rjmp	.+40     	; 0x48e <__LOCK_REGION_LENGTH__+0x8e>
+ 466:	c2 30       	cpi	r28, 0x02	; 2
+ 468:	11 f0       	breq	.+4      	; 0x46e <__LOCK_REGION_LENGTH__+0x6e>
+ 46a:	c4 30       	cpi	r28, 0x04	; 4
+ 46c:	81 f4       	brne	.+32     	; 0x48e <__LOCK_REGION_LENGTH__+0x8e>
+ 46e:	2b e6       	ldi	r18, 0x6B	; 107
+ 470:	30 e0       	ldi	r19, 0x00	; 0
+ 472:	4c e6       	ldi	r20, 0x6C	; 108
+ 474:	50 e0       	ldi	r21, 0x00	; 0
+ 476:	66 e0       	ldi	r22, 0x06	; 6
+ 478:	83 e6       	ldi	r24, 0x63	; 99
+ 47a:	0e 94 f0 00 	call	0x1e0	; 0x1e0 <LCD_GeneralMessage>
+ 47e:	23 e6       	ldi	r18, 0x63	; 99
+ 480:	30 e0       	ldi	r19, 0x00	; 0
+ 482:	4c e6       	ldi	r20, 0x6C	; 108
+ 484:	50 e0       	ldi	r21, 0x00	; 0
+ 486:	6e e0       	ldi	r22, 0x0E	; 14
+ 488:	83 e6       	ldi	r24, 0x63	; 99
+ 48a:	0e 94 f0 00 	call	0x1e0	; 0x1e0 <LCD_GeneralMessage>
+ 48e:	cf 91       	pop	r28
+ 490:	08 95       	ret
+
+00000492 <LCD_TEMP_PRINT>:
+ 492:	cf 93       	push	r28
+ 494:	df 93       	push	r29
+ 496:	d8 2f       	mov	r29, r24
+ 498:	8c e0       	ldi	r24, 0x0C	; 12
+ 49a:	0e 94 a0 00 	call	0x140	; 0x140 <send_a_command>
+ 49e:	2b e6       	ldi	r18, 0x6B	; 107
+ 4a0:	30 e0       	ldi	r19, 0x00	; 0
+ 4a2:	4c e6       	ldi	r20, 0x6C	; 108
+ 4a4:	50 e0       	ldi	r21, 0x00	; 0
+ 4a6:	6b e0       	ldi	r22, 0x0B	; 11
+ 4a8:	83 e6       	ldi	r24, 0x63	; 99
+ 4aa:	0e 94 f0 00 	call	0x1e0	; 0x1e0 <LCD_GeneralMessage>
+ 4ae:	9d ec       	ldi	r25, 0xCD	; 205
+ 4b0:	d9 9f       	mul	r29, r25
+ 4b2:	c1 2d       	mov	r28, r1
+ 4b4:	11 24       	eor	r1, r1
+ 4b6:	c6 95       	lsr	r28
+ 4b8:	c6 95       	lsr	r28
+ 4ba:	c6 95       	lsr	r28
+ 4bc:	c9 9f       	mul	r28, r25
+ 4be:	91 2d       	mov	r25, r1
+ 4c0:	11 24       	eor	r1, r1
+ 4c2:	96 95       	lsr	r25
+ 4c4:	96 95       	lsr	r25
+ 4c6:	96 95       	lsr	r25
+ 4c8:	99 0f       	add	r25, r25
+ 4ca:	89 2f       	mov	r24, r25
+ 4cc:	88 0f       	add	r24, r24
+ 4ce:	88 0f       	add	r24, r24
+ 4d0:	98 0f       	add	r25, r24
+ 4d2:	8c 2f       	mov	r24, r28
+ 4d4:	89 1b       	sub	r24, r25
+ 4d6:	80 5d       	subi	r24, 0xD0	; 208
+ 4d8:	0e 94 c8 00 	call	0x190	; 0x190 <send_a_character>
+ 4dc:	cc 0f       	add	r28, r28
+ 4de:	8c 2f       	mov	r24, r28
+ 4e0:	88 0f       	add	r24, r24
+ 4e2:	88 0f       	add	r24, r24
+ 4e4:	c8 0f       	add	r28, r24
+ 4e6:	8d 2f       	mov	r24, r29
+ 4e8:	8c 1b       	sub	r24, r28
+ 4ea:	80 5d       	subi	r24, 0xD0	; 208
+ 4ec:	0e 94 c8 00 	call	0x190	; 0x190 <send_a_character>
+ 4f0:	df 91       	pop	r29
+ 4f2:	cf 91       	pop	r28
+ 4f4:	08 95       	ret
+
+000004f6 <LCD_Init>:
+ 4f6:	81 b3       	in	r24, 0x11	; 17
+ 4f8:	80 6f       	ori	r24, 0xF0	; 240
+ 4fa:	81 bb       	out	0x11, r24	; 17
+ 4fc:	8a 9a       	sbi	0x11, 2	; 17
+ 4fe:	8b 9a       	sbi	0x11, 3	; 17
+ 500:	2f e7       	ldi	r18, 0x7F	; 127
+ 502:	88 e3       	ldi	r24, 0x38	; 56
+ 504:	91 e0       	ldi	r25, 0x01	; 1
+ 506:	21 50       	subi	r18, 0x01	; 1
+ 508:	80 40       	sbci	r24, 0x00	; 0
+ 50a:	90 40       	sbci	r25, 0x00	; 0
+ 50c:	e1 f7       	brne	.-8      	; 0x506 <LCD_Init+0x10>
+ 50e:	00 c0       	rjmp	.+0      	; 0x510 <LCD_Init+0x1a>
+ 510:	00 00       	nop
+ 512:	82 e0       	ldi	r24, 0x02	; 2
+ 514:	0e 94 a0 00 	call	0x140	; 0x140 <send_a_command>
+ 518:	88 e2       	ldi	r24, 0x28	; 40
+ 51a:	0e 94 a0 00 	call	0x140	; 0x140 <send_a_command>
+ 51e:	8e e0       	ldi	r24, 0x0E	; 14
+ 520:	0e 94 a0 00 	call	0x140	; 0x140 <send_a_command>
+ 524:	86 e0       	ldi	r24, 0x06	; 6
+ 526:	0e 94 a0 00 	call	0x140	; 0x140 <send_a_command>
+ 52a:	81 e0       	ldi	r24, 0x01	; 1
+ 52c:	0e 94 a0 00 	call	0x140	; 0x140 <send_a_command>
+ 530:	08 95       	ret
+
+00000532 <LCD_Pass_Req>:
+ 532:	8f 3f       	cpi	r24, 0xFF	; 255
+ 534:	d9 f0       	breq	.+54     	; 0x56c <LCD_Pass_Req+0x3a>
+ 536:	20 91 55 01 	lds	r18, 0x0155	; 0x800155 <Entry_Pass>
+ 53a:	30 91 56 01 	lds	r19, 0x0156	; 0x800156 <Entry_Pass+0x1>
+ 53e:	26 30       	cpi	r18, 0x06	; 6
+ 540:	31 05       	cpc	r19, r1
+ 542:	a1 f0       	breq	.+40     	; 0x56c <LCD_Pass_Req+0x3a>
+ 544:	0e 94 c8 00 	call	0x190	; 0x190 <send_a_character>
+ 548:	2f e7       	ldi	r18, 0x7F	; 127
+ 54a:	88 e3       	ldi	r24, 0x38	; 56
+ 54c:	91 e0       	ldi	r25, 0x01	; 1
+ 54e:	21 50       	subi	r18, 0x01	; 1
+ 550:	80 40       	sbci	r24, 0x00	; 0
+ 552:	90 40       	sbci	r25, 0x00	; 0
+ 554:	e1 f7       	brne	.-8      	; 0x54e <LCD_Pass_Req+0x1c>
+ 556:	00 c0       	rjmp	.+0      	; 0x558 <LCD_Pass_Req+0x26>
+ 558:	00 00       	nop
+ 55a:	80 91 55 01 	lds	r24, 0x0155	; 0x800155 <Entry_Pass>
+ 55e:	90 91 56 01 	lds	r25, 0x0156	; 0x800156 <Entry_Pass+0x1>
+ 562:	01 96       	adiw	r24, 0x01	; 1
+ 564:	90 93 56 01 	sts	0x0156, r25	; 0x800156 <Entry_Pass+0x1>
+ 568:	80 93 55 01 	sts	0x0155, r24	; 0x800155 <Entry_Pass>
+ 56c:	08 95       	ret
+
+0000056e <SPI_MasterInit>:
+ 56e:	87 b3       	in	r24, 0x17	; 23
+ 570:	80 6b       	ori	r24, 0xB0	; 176
+ 572:	87 bb       	out	0x17, r24	; 23
+ 574:	be 98       	cbi	0x17, 6	; 23
+ 576:	81 e5       	ldi	r24, 0x51	; 81
+ 578:	8d b9       	out	0x0d, r24	; 13
+ 57a:	08 95       	ret
+
+0000057c <SPI_Transmitter>:
+ 57c:	8f b9       	out	0x0f, r24	; 15
+ 57e:	8f e1       	ldi	r24, 0x1F	; 31
+ 580:	9e e4       	ldi	r25, 0x4E	; 78
+ 582:	01 97       	sbiw	r24, 0x01	; 1
+ 584:	f1 f7       	brne	.-4      	; 0x582 <SPI_Transmitter+0x6>
+ 586:	00 c0       	rjmp	.+0      	; 0x588 <SPI_Transmitter+0xc>
+ 588:	00 00       	nop
+ 58a:	77 9b       	sbis	0x0e, 7	; 14
+ 58c:	fe cf       	rjmp	.-4      	; 0x58a <SPI_Transmitter+0xe>
+ 58e:	9f e7       	ldi	r25, 0x7F	; 127
+ 590:	28 e3       	ldi	r18, 0x38	; 56
+ 592:	81 e0       	ldi	r24, 0x01	; 1
+ 594:	91 50       	subi	r25, 0x01	; 1
+ 596:	20 40       	sbci	r18, 0x00	; 0
+ 598:	80 40       	sbci	r24, 0x00	; 0
+ 59a:	e1 f7       	brne	.-8      	; 0x594 <SPI_Transmitter+0x18>
+ 59c:	00 c0       	rjmp	.+0      	; 0x59e <SPI_Transmitter+0x22>
+ 59e:	00 00       	nop
+ 5a0:	8f b1       	in	r24, 0x0f	; 15
+ 5a2:	08 95       	ret
+
+000005a4 <Init_TIMER0>:
+ 5a4:	81 e0       	ldi	r24, 0x01	; 1
+ 5a6:	89 bf       	out	0x39, r24	; 57
+ 5a8:	83 e0       	ldi	r24, 0x03	; 3
+ 5aa:	83 bf       	out	0x33, r24	; 51
+ 5ac:	08 95       	ret
+
+000005ae <TIMER0_IN_SECONDS_WITH_LCD>:
+}
+
+void TIMER0_IN_SECONDS_WITH_LCD(unsigned char position)
 {
+ 5ae:	1f 93       	push	r17
+ 5b0:	cf 93       	push	r28
+ 5b2:	df 93       	push	r29
+ 5b4:	d8 2f       	mov	r29, r24
+	TCNT0=0x70;			//in order to get 250 cycle (0x06 to 0x255"max") + 1
+ 5b6:	80 e7       	ldi	r24, 0x70	; 112
+ 5b8:	82 bf       	out	0x32, r24	; 50
 	unsigned char counter=0;
-	LCD_Init();
- 50a:	0e 94 d4 01 	call	0x3a8	; 0x3a8 <LCD_Init>
-	LCD_GeneralMessage(0,0,"Welcome!       .","Motor Drive P.1M"); // LCD Start message
- 50e:	22 e7       	ldi	r18, 0x72	; 114
- 510:	30 e0       	ldi	r19, 0x00	; 0
- 512:	43 e8       	ldi	r20, 0x83	; 131
- 514:	50 e0       	ldi	r21, 0x00	; 0
- 516:	60 e0       	ldi	r22, 0x00	; 0
- 518:	80 e0       	ldi	r24, 0x00	; 0
- 51a:	0e 94 dc 00 	call	0x1b8	; 0x1b8 <LCD_GeneralMessage>
-	//LCD_GeneralMessage(99,4,"","bye P.1M"); // testing function to LCD_GeneralMessage
-	LCD_Pass_Req01();
- 51e:	0e 94 f2 01 	call	0x3e4	; 0x3e4 <LCD_Pass_Req01>
-	SPI_MasterInit();
- 522:	0e 94 79 02 	call	0x4f2	; 0x4f2 <SPI_MasterInit>
-      while(j<MAX_NUMBER_OF_DIGITS)// LOOP to enter pass and for 1st time till entered 6-i/p from 
-      {
-        Key=GetKeyPressed(); //Get the position of pressed key...
-        PASS[j]=Key;
-        LCD_Pass_Req02(Key);
-        Key=DEFAULT_KEYPRESS; //Reset the Keypad entry
- 526:	1f ef       	ldi	r17, 0xFF	; 255
- 528:	1c c0       	rjmp	.+56     	; 0x562 <main+0x58>
-	SPI_MasterInit();
-	while(1)
-    {
-      while(j<MAX_NUMBER_OF_DIGITS)// LOOP to enter pass and for 1st time till entered 6-i/p from 
-      {
-        Key=GetKeyPressed(); //Get the position of pressed key...
- 52a:	0e 94 49 00 	call	0x92	; 0x92 <GetKeyPressed>
- 52e:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <Key>
-        PASS[j]=Key;
- 532:	e0 91 94 00 	lds	r30, 0x0094	; 0x800094 <__data_end>
- 536:	f0 91 95 00 	lds	r31, 0x0095	; 0x800095 <__data_end+0x1>
- 53a:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <Key>
- 53e:	ea 56       	subi	r30, 0x6A	; 106
- 540:	ff 4f       	sbci	r31, 0xFF	; 255
- 542:	80 83       	st	Z, r24
-        LCD_Pass_Req02(Key);
- 544:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <Key>
- 548:	0e 94 5b 02 	call	0x4b6	; 0x4b6 <LCD_Pass_Req02>
-        Key=DEFAULT_KEYPRESS; //Reset the Keypad entry
- 54c:	10 93 60 00 	sts	0x0060, r17	; 0x800060 <Key>
+	TIMER0_INTERRUPT_FLAG=0;
+ 5ba:	10 92 53 01 	sts	0x0153, r1	; 0x800153 <TIMER0_INTERRUPT_FLAG+0x1>
+ 5be:	10 92 52 01 	sts	0x0152, r1	; 0x800152 <TIMER0_INTERRUPT_FLAG>
+	Init_TIMER0();
+ 5c2:	0e 94 d2 02 	call	0x5a4	; 0x5a4 <Init_TIMER0>
+	send_a_command(cmd_CURSOROFF); //go cursor to Second line...
+ 5c6:	8c e0       	ldi	r24, 0x0C	; 12
+ 5c8:	0e 94 a0 00 	call	0x140	; 0x140 <send_a_command>
+	while(TIMER0_INTERRUPT_SECONDS>0)
+ 5cc:	80 91 50 01 	lds	r24, 0x0150	; 0x800150 <TIMER0_INTERRUPT_SECONDS>
+ 5d0:	90 91 51 01 	lds	r25, 0x0151	; 0x800151 <TIMER0_INTERRUPT_SECONDS+0x1>
+ 5d4:	89 2b       	or	r24, r25
+ 5d6:	09 f4       	brne	.+2      	; 0x5da <TIMER0_IN_SECONDS_WITH_LCD+0x2c>
+ 5d8:	5a c0       	rjmp	.+180    	; 0x68e <TIMER0_IN_SECONDS_WITH_LCD+0xe0>
+		send_a_command(cmd_SECONDLINE); //go cursor to Second line...
+		for(counter=0;counter<position;counter++)
+		{	//shifting the output on screen to the right
+			send_a_command(cmd_RIGHTSHIFT); // shift right 1 X L1
+		}
+		send_a_character(((TIMER0_INTERRUPT_SECONDS%100)/10)+0x30);	//showing higher value digit
+ 5da:	14 e6       	ldi	r17, 0x64	; 100
+	TIMER0_INTERRUPT_FLAG=0;
+	Init_TIMER0();
+	send_a_command(cmd_CURSOROFF); //go cursor to Second line...
+	while(TIMER0_INTERRUPT_SECONDS>0)
+	{
+		send_a_command(cmd_SECONDLINE); //go cursor to Second line...
+ 5dc:	80 ec       	ldi	r24, 0xC0	; 192
+ 5de:	0e 94 a0 00 	call	0x140	; 0x140 <send_a_command>
+		for(counter=0;counter<position;counter++)
+ 5e2:	dd 23       	and	r29, r29
+ 5e4:	39 f0       	breq	.+14     	; 0x5f4 <TIMER0_IN_SECONDS_WITH_LCD+0x46>
+ 5e6:	c0 e0       	ldi	r28, 0x00	; 0
+		{	//shifting the output on screen to the right
+			send_a_command(cmd_RIGHTSHIFT); // shift right 1 X L1
+ 5e8:	84 e1       	ldi	r24, 0x14	; 20
+ 5ea:	0e 94 a0 00 	call	0x140	; 0x140 <send_a_command>
+	Init_TIMER0();
+	send_a_command(cmd_CURSOROFF); //go cursor to Second line...
+	while(TIMER0_INTERRUPT_SECONDS>0)
+	{
+		send_a_command(cmd_SECONDLINE); //go cursor to Second line...
+		for(counter=0;counter<position;counter++)
+ 5ee:	cf 5f       	subi	r28, 0xFF	; 255
+ 5f0:	dc 13       	cpse	r29, r28
+ 5f2:	fa cf       	rjmp	.-12     	; 0x5e8 <TIMER0_IN_SECONDS_WITH_LCD+0x3a>
+		{	//shifting the output on screen to the right
+			send_a_command(cmd_RIGHTSHIFT); // shift right 1 X L1
+		}
+		send_a_character(((TIMER0_INTERRUPT_SECONDS%100)/10)+0x30);	//showing higher value digit
+ 5f4:	40 91 50 01 	lds	r20, 0x0150	; 0x800150 <TIMER0_INTERRUPT_SECONDS>
+ 5f8:	50 91 51 01 	lds	r21, 0x0151	; 0x800151 <TIMER0_INTERRUPT_SECONDS+0x1>
+ 5fc:	9a 01       	movw	r18, r20
+ 5fe:	36 95       	lsr	r19
+ 600:	27 95       	ror	r18
+ 602:	36 95       	lsr	r19
+ 604:	27 95       	ror	r18
+ 606:	ab e7       	ldi	r26, 0x7B	; 123
+ 608:	b4 e1       	ldi	r27, 0x14	; 20
+ 60a:	0e 94 d0 06 	call	0xda0	; 0xda0 <__umulhisi3>
+ 60e:	96 95       	lsr	r25
+ 610:	87 95       	ror	r24
+ 612:	18 9f       	mul	r17, r24
+ 614:	90 01       	movw	r18, r0
+ 616:	19 9f       	mul	r17, r25
+ 618:	30 0d       	add	r19, r0
+ 61a:	11 24       	eor	r1, r1
+ 61c:	ca 01       	movw	r24, r20
+ 61e:	82 1b       	sub	r24, r18
+ 620:	93 0b       	sbc	r25, r19
+ 622:	9c 01       	movw	r18, r24
+ 624:	ad ec       	ldi	r26, 0xCD	; 205
+ 626:	bc ec       	ldi	r27, 0xCC	; 204
+ 628:	0e 94 d0 06 	call	0xda0	; 0xda0 <__umulhisi3>
+ 62c:	96 95       	lsr	r25
+ 62e:	87 95       	ror	r24
+ 630:	96 95       	lsr	r25
+ 632:	87 95       	ror	r24
+ 634:	96 95       	lsr	r25
+ 636:	87 95       	ror	r24
+ 638:	80 5d       	subi	r24, 0xD0	; 208
+ 63a:	0e 94 c8 00 	call	0x190	; 0x190 <send_a_character>
+		send_a_character((TIMER0_INTERRUPT_SECONDS%10)+0x30);		//showing the lower value digit
+ 63e:	40 91 50 01 	lds	r20, 0x0150	; 0x800150 <TIMER0_INTERRUPT_SECONDS>
+ 642:	50 91 51 01 	lds	r21, 0x0151	; 0x800151 <TIMER0_INTERRUPT_SECONDS+0x1>
+ 646:	9a 01       	movw	r18, r20
+ 648:	ad ec       	ldi	r26, 0xCD	; 205
+ 64a:	bc ec       	ldi	r27, 0xCC	; 204
+ 64c:	0e 94 d0 06 	call	0xda0	; 0xda0 <__umulhisi3>
+ 650:	96 95       	lsr	r25
+ 652:	87 95       	ror	r24
+ 654:	96 95       	lsr	r25
+ 656:	87 95       	ror	r24
+ 658:	96 95       	lsr	r25
+ 65a:	87 95       	ror	r24
+ 65c:	9c 01       	movw	r18, r24
+ 65e:	22 0f       	add	r18, r18
+ 660:	33 1f       	adc	r19, r19
+ 662:	88 0f       	add	r24, r24
+ 664:	99 1f       	adc	r25, r25
+ 666:	88 0f       	add	r24, r24
+ 668:	99 1f       	adc	r25, r25
+ 66a:	88 0f       	add	r24, r24
+ 66c:	99 1f       	adc	r25, r25
+ 66e:	82 0f       	add	r24, r18
+ 670:	93 1f       	adc	r25, r19
+ 672:	9a 01       	movw	r18, r20
+ 674:	28 1b       	sub	r18, r24
+ 676:	39 0b       	sbc	r19, r25
+ 678:	c9 01       	movw	r24, r18
+ 67a:	80 5d       	subi	r24, 0xD0	; 208
+ 67c:	0e 94 c8 00 	call	0x190	; 0x190 <send_a_character>
+	TCNT0=0x70;			//in order to get 250 cycle (0x06 to 0x255"max") + 1
+	unsigned char counter=0;
+	TIMER0_INTERRUPT_FLAG=0;
+	Init_TIMER0();
+	send_a_command(cmd_CURSOROFF); //go cursor to Second line...
+	while(TIMER0_INTERRUPT_SECONDS>0)
+ 680:	80 91 50 01 	lds	r24, 0x0150	; 0x800150 <TIMER0_INTERRUPT_SECONDS>
+ 684:	90 91 51 01 	lds	r25, 0x0151	; 0x800151 <TIMER0_INTERRUPT_SECONDS+0x1>
+ 688:	89 2b       	or	r24, r25
+ 68a:	09 f0       	breq	.+2      	; 0x68e <TIMER0_IN_SECONDS_WITH_LCD+0xe0>
+ 68c:	a7 cf       	rjmp	.-178    	; 0x5dc <TIMER0_IN_SECONDS_WITH_LCD+0x2e>
+	TCCR0=(1<<CS00)|(1<<CS01);			//Start Timer0 & clock/64 PreScale.
+}
+
+void Close_TIMER0(void)
+{
+	TCCR0=0x00;
+ 68e:	13 be       	out	0x33, r1	; 51
+		}
+		send_a_character(((TIMER0_INTERRUPT_SECONDS%100)/10)+0x30);	//showing higher value digit
+		send_a_character((TIMER0_INTERRUPT_SECONDS%10)+0x30);		//showing the lower value digit
+	}//end of showing seconds on screen loop
+	Close_TIMER0();		//turn off timer
+}
+ 690:	df 91       	pop	r29
+ 692:	cf 91       	pop	r28
+ 694:	1f 91       	pop	r17
+ 696:	08 95       	ret
+
+00000698 <UART_Init>:
+#include <avr/interrupt.h>
+***********************/
+
+void UART_Init(void)
+{
+	DDRD  |= (1<<PD1);
+ 698:	89 9a       	sbi	0x11, 1	; 17
+	DDRD  &= (~(1<<PD0));
+ 69a:	88 98       	cbi	0x11, 0	; 17
+	UBRRL = 51;
+ 69c:	83 e3       	ldi	r24, 0x33	; 51
+ 69e:	89 b9       	out	0x09, r24	; 9
+	UBRRH = 0;
+ 6a0:	10 bc       	out	0x20, r1	; 32
+	//unsigned int BAUD_Rate=9600;								//			F_CPU
+	//unsigned int UBRR_Value;									//UBRR=------------------ - 1					((F_CPU => the clock of the microcontroller..))			
+	//UBRR_Value = (((F_CPU)/(16 * BAUD_Rate))-1);				//		16 * BAUD_Rate							and the BAUD_Rate is the data transferring bits per sec...
+	UCSRB |= (1<<TXEN) | (1<<RXEN);			//Receive complete IE,Data reg. Empty IE, Transmit/Receive enable,Transmit complete IE
+ 6a2:	8a b1       	in	r24, 0x0a	; 10
+ 6a4:	88 61       	ori	r24, 0x18	; 24
+ 6a6:	8a b9       	out	0x0a, r24	; 10
+	UCSRC |= (1<<URSEL) |(1<<UCSZ0) | (1<<UCSZ1);			// 8bit-data and parity mode Even
+ 6a8:	80 b5       	in	r24, 0x20	; 32
+ 6aa:	86 68       	ori	r24, 0x86	; 134
+ 6ac:	80 bd       	out	0x20, r24	; 32
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
- 550:	2f ef       	ldi	r18, 0xFF	; 255
- 552:	81 ee       	ldi	r24, 0xE1	; 225
- 554:	94 e0       	ldi	r25, 0x04	; 4
- 556:	21 50       	subi	r18, 0x01	; 1
- 558:	80 40       	sbci	r24, 0x00	; 0
- 55a:	90 40       	sbci	r25, 0x00	; 0
- 55c:	e1 f7       	brne	.-8      	; 0x556 <main+0x4c>
- 55e:	00 c0       	rjmp	.+0      	; 0x560 <main+0x56>
- 560:	00 00       	nop
-	//LCD_GeneralMessage(99,4,"","bye P.1M"); // testing function to LCD_GeneralMessage
-	LCD_Pass_Req01();
+ 6ae:	2f e7       	ldi	r18, 0x7F	; 127
+ 6b0:	8a e1       	ldi	r24, 0x1A	; 26
+ 6b2:	96 e0       	ldi	r25, 0x06	; 6
+ 6b4:	21 50       	subi	r18, 0x01	; 1
+ 6b6:	80 40       	sbci	r24, 0x00	; 0
+ 6b8:	90 40       	sbci	r25, 0x00	; 0
+ 6ba:	e1 f7       	brne	.-8      	; 0x6b4 <UART_Init+0x1c>
+ 6bc:	00 c0       	rjmp	.+0      	; 0x6be <UART_Init+0x26>
+ 6be:	00 00       	nop
+ 6c0:	08 95       	ret
+
+000006c2 <UART_Send>:
+	
+}
+
+void UART_Send(unsigned char data)
+{
+	while( !(UCSRA & (1<<UDRE)) ) ; //wait until UDR is empty...
+ 6c2:	5d 9b       	sbis	0x0b, 5	; 11
+ 6c4:	fe cf       	rjmp	.-4      	; 0x6c2 <UART_Send>
+		UDR = data;					//putting data into UDR, send the data...
+ 6c6:	8c b9       	out	0x0c, r24	; 12
+ 6c8:	08 95       	ret
+
+000006ca <UART_Rec>:
+	
+}
+
+unsigned char UART_Rec(void)
+{	
+	while ( !(UCSRA & (1<<RXC)) );	// wait for the receive complete (RXC) flag...
+ 6ca:	5f 9b       	sbis	0x0b, 7	; 11
+ 6cc:	fe cf       	rjmp	.-4      	; 0x6ca <UART_Rec>
+	return UDR;						//Get and return received data from buffer...
+ 6ce:	8c b1       	in	r24, 0x0c	; 12
+ 6d0:	08 95       	ret
+
+000006d2 <main>:
+ * keys pressed to save it... to use in another 
+ * Entry_Pass-is global var, used to: 1-in the LCD_pass-Req02 to 
+ */ 
+
+int main(void)
+{
+ 6d2:	cf 93       	push	r28
+ 6d4:	df 93       	push	r29
+ 6d6:	1f 92       	push	r1
+ 6d8:	cd b7       	in	r28, 0x3d	; 61
+ 6da:	de b7       	in	r29, 0x3e	; 62
+	unsigned char counter=0;
+	volatile unsigned char buffer='y';
+ 6dc:	89 e7       	ldi	r24, 0x79	; 121
+ 6de:	89 83       	std	Y+1, r24	; 0x01
+	unsigned char NUMBER_OF_TRIES=1;	//use to max 3 entries the go to BLOCK function for specific time
+
+	LCD_Init();
+ 6e0:	0e 94 7b 02 	call	0x4f6	; 0x4f6 <LCD_Init>
 	SPI_MasterInit();
+ 6e4:	0e 94 b7 02 	call	0x56e	; 0x56e <SPI_MasterInit>
+	UART_Init();
+ 6e8:	0e 94 4c 03 	call	0x698	; 0x698 <UART_Init>
+	
+	sei();
+ 6ec:	78 94       	sei
+
+int main(void)
+{
+	unsigned char counter=0;
+	volatile unsigned char buffer='y';
+	unsigned char NUMBER_OF_TRIES=1;	//use to max 3 entries the go to BLOCK function for specific time
+ 6ee:	11 e0       	ldi	r17, 0x01	; 1
+		}
+		
+/************************************ MODE SELECTOR ****************************************/
+		else if(NUMBER_OF_TRIES<=3) //First Time Entry...
+		{//first time only, will ask from user to enter mode!
+			MODE=ADMIN; //First and default selection option 
+ 6f0:	ee 24       	eor	r14, r14
+ 6f2:	e3 94       	inc	r14
+			LCD_Init();
+			LCD_GeneralMessage(0,0,"SELECT <->  MODE","ADMIN[X] HOST[ ]"); // LCD Start message
+			RESET_PRESSED_KEY
+ 6f4:	ff 24       	eor	r15, r15
+ 6f6:	fa 94       	dec	r15
+			//LCD_GeneralMessage(0,99,"ACCESS DENIED ","");
+			//LCD_Init();
+			//LCD_GeneralMessage(0,0,"ENTERING WRONG","PASS MANY TIMES");
+			LCD_Init();
+			LCD_GeneralMessage(0,10," <BLOCKED  FOR> ","Seconds");
+			TIMER0_INTERRUPT_SECONDS=30;	//Setting Number of seconds
+ 6f8:	0f 2e       	mov	r0, r31
+ 6fa:	fe e1       	ldi	r31, 0x1E	; 30
+ 6fc:	cf 2e       	mov	r12, r31
+ 6fe:	d1 2c       	mov	r13, r1
+ 700:	f0 2d       	mov	r31, r0
+			LCD_Init();
+			LCD_GeneralMessage(0,99,"TRUE HOST","");
+		}
+		else if(buffer==Wrong_PASSWORD && (MODE == HOST || MODE == ADMIN))
+		{
+			MODE=FALSE_PASSWORD_MODE;
+ 702:	0f 2e       	mov	r0, r31
+ 704:	fa e1       	ldi	r31, 0x1A	; 26
+ 706:	8f 2e       	mov	r8, r31
+ 708:	f0 2d       	mov	r31, r0
+		buffer=NONE;
+		buffer=SPI_Transmitter(TRANSMISSION_COMPLETE);
+		_delay_ms(50);	//Halt the system for the given time in (ms)
+		if(buffer==Right_PASSWORD && MODE == ADMIN)
+		{
+			MODE=TRUE_ADMIN;
+ 70a:	0f 2e       	mov	r0, r31
+ 70c:	f7 e0       	ldi	r31, 0x07	; 7
+ 70e:	bf 2e       	mov	r11, r31
+ 710:	f0 2d       	mov	r31, r0
+				MODE=TRUE_ADMIN;
+			}
+			else if (Key =='*' && MODE != TADMIN_SET_NewHostPass)
+			{
+				LCD_Selector(YES);
+				MODE=TADMIN_SET_NewHostPass;
+ 712:	0f 2e       	mov	r0, r31
+ 714:	f6 e0       	ldi	r31, 0x06	; 6
+ 716:	af 2e       	mov	r10, r31
+ 718:	f0 2d       	mov	r31, r0
+
 	while(1)
-    {
-      while(j<MAX_NUMBER_OF_DIGITS)// LOOP to enter pass and for 1st time till entered 6-i/p from 
- 562:	80 91 94 00 	lds	r24, 0x0094	; 0x800094 <__data_end>
- 566:	90 91 95 00 	lds	r25, 0x0095	; 0x800095 <__data_end+0x1>
- 56a:	06 97       	sbiw	r24, 0x06	; 6
- 56c:	f4 f2       	brlt	.-68     	; 0x52a <main+0x20>
- 56e:	c0 e0       	ldi	r28, 0x00	; 0
- 570:	d0 e0       	ldi	r29, 0x00	; 0
-        _delay_ms(200);
-      }
-/************************ SPI SEND DATA TO SLAVE ****************************/	  
-	  for(counter=0;counter<MAX_NUMBER_OF_DIGITS;counter++) 
-	  {		// Sending 6 digits of password to slave
-			SPI_Transmitter( PASS[counter] );
- 572:	fe 01       	movw	r30, r28
- 574:	ea 56       	subi	r30, 0x6A	; 106
- 576:	ff 4f       	sbci	r31, 0xFF	; 255
- 578:	80 81       	ld	r24, Z
- 57a:	0e 94 80 02 	call	0x500	; 0x500 <SPI_Transmitter>
- 57e:	8f e1       	ldi	r24, 0x1F	; 31
- 580:	9e e4       	ldi	r25, 0x4E	; 78
- 582:	01 97       	sbiw	r24, 0x01	; 1
- 584:	f1 f7       	brne	.-4      	; 0x582 <main+0x78>
- 586:	00 c0       	rjmp	.+0      	; 0x588 <main+0x7e>
- 588:	00 00       	nop
- 58a:	21 96       	adiw	r28, 0x01	; 1
-        LCD_Pass_Req02(Key);
-        Key=DEFAULT_KEYPRESS; //Reset the Keypad entry
-        _delay_ms(200);
-      }
-/************************ SPI SEND DATA TO SLAVE ****************************/	  
-	  for(counter=0;counter<MAX_NUMBER_OF_DIGITS;counter++) 
- 58c:	c6 30       	cpi	r28, 0x06	; 6
- 58e:	d1 05       	cpc	r29, r1
- 590:	81 f7       	brne	.-32     	; 0x572 <main+0x68>
- 592:	e7 cf       	rjmp	.-50     	; 0x562 <main+0x58>
+    {	
+		
+/************************** 30 SEC DELAY --> ENTERING 3-TIMES PASSWORD WRONG ******************/
+		if(NUMBER_OF_TRIES>=4)
+ 71a:	14 30       	cpi	r17, 0x04	; 4
+ 71c:	98 f0       	brcs	.+38     	; 0x744 <main+0x72>
+		{
+			//LCD_Init();
+			//LCD_GeneralMessage(0,99,"ACCESS DENIED ","");
+			//LCD_Init();
+			//LCD_GeneralMessage(0,0,"ENTERING WRONG","PASS MANY TIMES");
+			LCD_Init();
+ 71e:	0e 94 7b 02 	call	0x4f6	; 0x4f6 <LCD_Init>
+			LCD_GeneralMessage(0,10," <BLOCKED  FOR> ","Seconds");
+ 722:	20 e7       	ldi	r18, 0x70	; 112
+ 724:	30 e0       	ldi	r19, 0x00	; 0
+ 726:	48 e7       	ldi	r20, 0x78	; 120
+ 728:	50 e0       	ldi	r21, 0x00	; 0
+ 72a:	6a e0       	ldi	r22, 0x0A	; 10
+ 72c:	80 e0       	ldi	r24, 0x00	; 0
+ 72e:	0e 94 f0 00 	call	0x1e0	; 0x1e0 <LCD_GeneralMessage>
+			TIMER0_INTERRUPT_SECONDS=30;	//Setting Number of seconds
+ 732:	d0 92 51 01 	sts	0x0151, r13	; 0x800151 <TIMER0_INTERRUPT_SECONDS+0x1>
+ 736:	c0 92 50 01 	sts	0x0150, r12	; 0x800150 <TIMER0_INTERRUPT_SECONDS>
+			TIMER0_IN_SECONDS_WITH_LCD(5); //arguments "position" on LCD
+ 73a:	85 e0       	ldi	r24, 0x05	; 5
+ 73c:	0e 94 d7 02 	call	0x5ae	; 0x5ae <TIMER0_IN_SECONDS_WITH_LCD>
+			NUMBER_OF_TRIES=1;
+ 740:	9e 2c       	mov	r9, r14
+ 742:	45 c0       	rjmp	.+138    	; 0x7ce <main+0xfc>
+		}
+		
+/************************************ MODE SELECTOR ****************************************/
+		else if(NUMBER_OF_TRIES<=3) //First Time Entry...
+		{//first time only, will ask from user to enter mode!
+			MODE=ADMIN; //First and default selection option 
+ 744:	e0 92 54 01 	sts	0x0154, r14	; 0x800154 <MODE>
+			LCD_Init();
+ 748:	0e 94 7b 02 	call	0x4f6	; 0x4f6 <LCD_Init>
+			LCD_GeneralMessage(0,0,"SELECT <->  MODE","ADMIN[X] HOST[ ]"); // LCD Start message
+ 74c:	29 e8       	ldi	r18, 0x89	; 137
+ 74e:	30 e0       	ldi	r19, 0x00	; 0
+ 750:	4a e9       	ldi	r20, 0x9A	; 154
+ 752:	50 e0       	ldi	r21, 0x00	; 0
+ 754:	60 e0       	ldi	r22, 0x00	; 0
+ 756:	80 e0       	ldi	r24, 0x00	; 0
+ 758:	0e 94 f0 00 	call	0x1e0	; 0x1e0 <LCD_GeneralMessage>
+			RESET_PRESSED_KEY
+ 75c:	f0 92 60 00 	sts	0x0060, r15	; 0x800060 <__DATA_REGION_ORIGIN__>
+			while(Key != '0') //and mode has been selected (press zero)
+ 760:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 764:	80 33       	cpi	r24, 0x30	; 48
+ 766:	91 f1       	breq	.+100    	; 0x7cc <main+0xfa>
+			{	
+				RESET_PRESSED_KEY
+ 768:	f0 92 60 00 	sts	0x0060, r15	; 0x800060 <__DATA_REGION_ORIGIN__>
+				Key=GetKeyPressed(); //Get the position of pressed key...
+ 76c:	0e 94 49 00 	call	0x92	; 0x92 <GetKeyPressed>
+ 770:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__DATA_REGION_ORIGIN__>
+				if(Key == '#' && MODE!=HOST)
+ 774:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 778:	83 32       	cpi	r24, 0x23	; 35
+ 77a:	61 f4       	brne	.+24     	; 0x794 <main+0xc2>
+ 77c:	80 91 54 01 	lds	r24, 0x0154	; 0x800154 <MODE>
+ 780:	82 30       	cpi	r24, 0x02	; 2
+ 782:	09 f4       	brne	.+2      	; 0x786 <main+0xb4>
+ 784:	bf c2       	rjmp	.+1406   	; 0xd04 <__stack+0x4a5>
+				{
+					LCD_Selector(HOST);
+ 786:	82 e0       	ldi	r24, 0x02	; 2
+ 788:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <LCD_Selector>
+					MODE=HOST;
+ 78c:	82 e0       	ldi	r24, 0x02	; 2
+ 78e:	80 93 54 01 	sts	0x0154, r24	; 0x800154 <MODE>
+ 792:	0d c0       	rjmp	.+26     	; 0x7ae <main+0xdc>
+				}
+				else if (Key =='*' && MODE != ADMIN)
+ 794:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 798:	8a 32       	cpi	r24, 0x2A	; 42
+ 79a:	49 f4       	brne	.+18     	; 0x7ae <main+0xdc>
+ 79c:	80 91 54 01 	lds	r24, 0x0154	; 0x800154 <MODE>
+ 7a0:	81 30       	cpi	r24, 0x01	; 1
+ 7a2:	29 f0       	breq	.+10     	; 0x7ae <main+0xdc>
+				{
+					LCD_Selector(ADMIN);
+ 7a4:	8e 2d       	mov	r24, r14
+ 7a6:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <LCD_Selector>
+					MODE=ADMIN;
+ 7aa:	e0 92 54 01 	sts	0x0154, r14	; 0x800154 <MODE>
+ 7ae:	2f e7       	ldi	r18, 0x7F	; 127
+ 7b0:	88 e3       	ldi	r24, 0x38	; 56
+ 7b2:	91 e0       	ldi	r25, 0x01	; 1
+ 7b4:	21 50       	subi	r18, 0x01	; 1
+ 7b6:	80 40       	sbci	r24, 0x00	; 0
+ 7b8:	90 40       	sbci	r25, 0x00	; 0
+ 7ba:	e1 f7       	brne	.-8      	; 0x7b4 <main+0xe2>
+ 7bc:	00 c0       	rjmp	.+0      	; 0x7be <main+0xec>
+ 7be:	00 00       	nop
+		{//first time only, will ask from user to enter mode!
+			MODE=ADMIN; //First and default selection option 
+			LCD_Init();
+			LCD_GeneralMessage(0,0,"SELECT <->  MODE","ADMIN[X] HOST[ ]"); // LCD Start message
+			RESET_PRESSED_KEY
+			while(Key != '0') //and mode has been selected (press zero)
+ 7c0:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 7c4:	80 33       	cpi	r24, 0x30	; 48
+ 7c6:	81 f6       	brne	.-96     	; 0x768 <main+0x96>
+ 7c8:	91 2e       	mov	r9, r17
+ 7ca:	01 c0       	rjmp	.+2      	; 0x7ce <main+0xfc>
+ 7cc:	91 2e       	mov	r9, r17
+		{
+			//nothing..
+		}
+		
+/*********************************** ADMIN ENTERING PASS *************************************/
+		if(MODE==ADMIN)
+ 7ce:	80 91 54 01 	lds	r24, 0x0154	; 0x800154 <MODE>
+ 7d2:	81 30       	cpi	r24, 0x01	; 1
+ 7d4:	d9 f5       	brne	.+118    	; 0x84c <main+0x17a>
+		{
+			buffer=SPI_Transmitter( MODE );
+ 7d6:	8e 2d       	mov	r24, r14
+ 7d8:	0e 94 be 02 	call	0x57c	; 0x57c <SPI_Transmitter>
+ 7dc:	89 83       	std	Y+1, r24	; 0x01
+			LCD_Init();
+ 7de:	0e 94 7b 02 	call	0x4f6	; 0x4f6 <LCD_Init>
+			LCD_GeneralMessage(0,0,"Enter ADMIN pass",""); 
+ 7e2:	2c e6       	ldi	r18, 0x6C	; 108
+ 7e4:	30 e0       	ldi	r19, 0x00	; 0
+ 7e6:	4b ea       	ldi	r20, 0xAB	; 171
+ 7e8:	50 e0       	ldi	r21, 0x00	; 0
+ 7ea:	60 e0       	ldi	r22, 0x00	; 0
+ 7ec:	80 e0       	ldi	r24, 0x00	; 0
+ 7ee:	0e 94 f0 00 	call	0x1e0	; 0x1e0 <LCD_GeneralMessage>
+			while(Entry_Pass<6)// LOOP to enter pass and for 1st time till entered 6-i/p from
+ 7f2:	80 91 55 01 	lds	r24, 0x0155	; 0x800155 <Entry_Pass>
+ 7f6:	90 91 56 01 	lds	r25, 0x0156	; 0x800156 <Entry_Pass+0x1>
+ 7fa:	06 97       	sbiw	r24, 0x06	; 6
+ 7fc:	14 f5       	brge	.+68     	; 0x842 <main+0x170>
+			{
+				Key=DEFAULT_KEYPRESS; //Reset the Keypad entry
+ 7fe:	f0 92 60 00 	sts	0x0060, r15	; 0x800060 <__DATA_REGION_ORIGIN__>
+				Key=GetKeyPressed(); //Get the position of pressed key...
+ 802:	0e 94 49 00 	call	0x92	; 0x92 <GetKeyPressed>
+ 806:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__DATA_REGION_ORIGIN__>
+				PASS[Entry_Pass]=Key;
+ 80a:	e0 91 55 01 	lds	r30, 0x0155	; 0x800155 <Entry_Pass>
+ 80e:	f0 91 56 01 	lds	r31, 0x0156	; 0x800156 <Entry_Pass+0x1>
+ 812:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 816:	e9 5a       	subi	r30, 0xA9	; 169
+ 818:	fe 4f       	sbci	r31, 0xFE	; 254
+ 81a:	80 83       	st	Z, r24
+				LCD_Pass_Req(Key); //
+ 81c:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 820:	0e 94 99 02 	call	0x532	; 0x532 <LCD_Pass_Req>
+ 824:	2f e7       	ldi	r18, 0x7F	; 127
+ 826:	89 ea       	ldi	r24, 0xA9	; 169
+ 828:	93 e0       	ldi	r25, 0x03	; 3
+ 82a:	21 50       	subi	r18, 0x01	; 1
+ 82c:	80 40       	sbci	r24, 0x00	; 0
+ 82e:	90 40       	sbci	r25, 0x00	; 0
+ 830:	e1 f7       	brne	.-8      	; 0x82a <main+0x158>
+ 832:	00 c0       	rjmp	.+0      	; 0x834 <main+0x162>
+ 834:	00 00       	nop
+		if(MODE==ADMIN)
+		{
+			buffer=SPI_Transmitter( MODE );
+			LCD_Init();
+			LCD_GeneralMessage(0,0,"Enter ADMIN pass",""); 
+			while(Entry_Pass<6)// LOOP to enter pass and for 1st time till entered 6-i/p from
+ 836:	80 91 55 01 	lds	r24, 0x0155	; 0x800155 <Entry_Pass>
+ 83a:	90 91 56 01 	lds	r25, 0x0156	; 0x800156 <Entry_Pass+0x1>
+ 83e:	06 97       	sbiw	r24, 0x06	; 6
+ 840:	f4 f2       	brlt	.-68     	; 0x7fe <main+0x12c>
+				Key=GetKeyPressed(); //Get the position of pressed key...
+				PASS[Entry_Pass]=Key;
+				LCD_Pass_Req(Key); //
+				_delay_ms(150);
+			}
+			Entry_Pass=0;
+ 842:	10 92 56 01 	sts	0x0156, r1	; 0x800156 <Entry_Pass+0x1>
+ 846:	10 92 55 01 	sts	0x0155, r1	; 0x800155 <Entry_Pass>
+ 84a:	62 c2       	rjmp	.+1220   	; 0xd10 <__stack+0x4b1>
+		}
+		
+/************************************ HOST ENTERING PASS *************************************/
+		else if (MODE==HOST)
+ 84c:	82 30       	cpi	r24, 0x02	; 2
+ 84e:	09 f0       	breq	.+2      	; 0x852 <main+0x180>
+ 850:	5f c2       	rjmp	.+1214   	; 0xd10 <__stack+0x4b1>
+		{
+			buffer=SPI_Transmitter( MODE );
+ 852:	0e 94 be 02 	call	0x57c	; 0x57c <SPI_Transmitter>
+ 856:	89 83       	std	Y+1, r24	; 0x01
+			LCD_Init();
+ 858:	0e 94 7b 02 	call	0x4f6	; 0x4f6 <LCD_Init>
+			LCD_GeneralMessage(0,0,"Enter HOST pass","");
+ 85c:	2c e6       	ldi	r18, 0x6C	; 108
+ 85e:	30 e0       	ldi	r19, 0x00	; 0
+ 860:	4c eb       	ldi	r20, 0xBC	; 188
+ 862:	50 e0       	ldi	r21, 0x00	; 0
+ 864:	60 e0       	ldi	r22, 0x00	; 0
+ 866:	80 e0       	ldi	r24, 0x00	; 0
+ 868:	0e 94 f0 00 	call	0x1e0	; 0x1e0 <LCD_GeneralMessage>
+			while(Entry_Pass<6)// LOOP to enter pass and for 1st time till entered 6-i/p from
+ 86c:	80 91 55 01 	lds	r24, 0x0155	; 0x800155 <Entry_Pass>
+ 870:	90 91 56 01 	lds	r25, 0x0156	; 0x800156 <Entry_Pass+0x1>
+ 874:	06 97       	sbiw	r24, 0x06	; 6
+ 876:	14 f5       	brge	.+68     	; 0x8bc <__stack+0x5d>
+			{
+				RESET_PRESSED_KEY
+ 878:	f0 92 60 00 	sts	0x0060, r15	; 0x800060 <__DATA_REGION_ORIGIN__>
+				Key=GetKeyPressed(); //Get the position of pressed key...
+ 87c:	0e 94 49 00 	call	0x92	; 0x92 <GetKeyPressed>
+ 880:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__DATA_REGION_ORIGIN__>
+				PASS[Entry_Pass]=Key;
+ 884:	e0 91 55 01 	lds	r30, 0x0155	; 0x800155 <Entry_Pass>
+ 888:	f0 91 56 01 	lds	r31, 0x0156	; 0x800156 <Entry_Pass+0x1>
+ 88c:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 890:	e9 5a       	subi	r30, 0xA9	; 169
+ 892:	fe 4f       	sbci	r31, 0xFE	; 254
+ 894:	80 83       	st	Z, r24
+				LCD_Pass_Req(Key); //
+ 896:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 89a:	0e 94 99 02 	call	0x532	; 0x532 <LCD_Pass_Req>
+ 89e:	2f e7       	ldi	r18, 0x7F	; 127
+ 8a0:	89 ea       	ldi	r24, 0xA9	; 169
+ 8a2:	93 e0       	ldi	r25, 0x03	; 3
+ 8a4:	21 50       	subi	r18, 0x01	; 1
+ 8a6:	80 40       	sbci	r24, 0x00	; 0
+ 8a8:	90 40       	sbci	r25, 0x00	; 0
+ 8aa:	e1 f7       	brne	.-8      	; 0x8a4 <__stack+0x45>
+ 8ac:	00 c0       	rjmp	.+0      	; 0x8ae <__stack+0x4f>
+ 8ae:	00 00       	nop
+		else if (MODE==HOST)
+		{
+			buffer=SPI_Transmitter( MODE );
+			LCD_Init();
+			LCD_GeneralMessage(0,0,"Enter HOST pass","");
+			while(Entry_Pass<6)// LOOP to enter pass and for 1st time till entered 6-i/p from
+ 8b0:	80 91 55 01 	lds	r24, 0x0155	; 0x800155 <Entry_Pass>
+ 8b4:	90 91 56 01 	lds	r25, 0x0156	; 0x800156 <Entry_Pass+0x1>
+ 8b8:	06 97       	sbiw	r24, 0x06	; 6
+ 8ba:	f4 f2       	brlt	.-68     	; 0x878 <__stack+0x19>
+				Key=GetKeyPressed(); //Get the position of pressed key...
+				PASS[Entry_Pass]=Key;
+				LCD_Pass_Req(Key); //
+				_delay_ms(150);
+			}
+			Entry_Pass=0;
+ 8bc:	10 92 56 01 	sts	0x0156, r1	; 0x800156 <Entry_Pass+0x1>
+ 8c0:	10 92 55 01 	sts	0x0155, r1	; 0x800155 <Entry_Pass>
+ 8c4:	25 c2       	rjmp	.+1098   	; 0xd10 <__stack+0x4b1>
+		}
+		
+/************************ SPI CHECK ADMIN ENTERING PASSWORD FROM SLAVE ************************/
+		for(counter=0;counter<6;counter++)
+		{		// Sending 6 digits of password to slave
+			buffer=SPI_Transmitter( PASS[counter] );
+ 8c6:	f8 01       	movw	r30, r16
+ 8c8:	e9 5a       	subi	r30, 0xA9	; 169
+ 8ca:	fe 4f       	sbci	r31, 0xFE	; 254
+ 8cc:	80 81       	ld	r24, Z
+ 8ce:	0e 94 be 02 	call	0x57c	; 0x57c <SPI_Transmitter>
+ 8d2:	89 83       	std	Y+1, r24	; 0x01
+ 8d4:	2f ef       	ldi	r18, 0xFF	; 255
+ 8d6:	80 e7       	ldi	r24, 0x70	; 112
+ 8d8:	92 e0       	ldi	r25, 0x02	; 2
+ 8da:	21 50       	subi	r18, 0x01	; 1
+ 8dc:	80 40       	sbci	r24, 0x00	; 0
+ 8de:	90 40       	sbci	r25, 0x00	; 0
+ 8e0:	e1 f7       	brne	.-8      	; 0x8da <__stack+0x7b>
+ 8e2:	00 c0       	rjmp	.+0      	; 0x8e4 <__stack+0x85>
+ 8e4:	00 00       	nop
+ 8e6:	0f 5f       	subi	r16, 0xFF	; 255
+ 8e8:	1f 4f       	sbci	r17, 0xFF	; 255
+		{
+			//nothing..
+		}
+		
+/************************ SPI CHECK ADMIN ENTERING PASSWORD FROM SLAVE ************************/
+		for(counter=0;counter<6;counter++)
+ 8ea:	06 30       	cpi	r16, 0x06	; 6
+ 8ec:	11 05       	cpc	r17, r1
+ 8ee:	59 f7       	brne	.-42     	; 0x8c6 <__stack+0x67>
+			buffer=SPI_Transmitter( PASS[counter] );
+			_delay_ms(100);
+		}
+			
+/************************************ SPI - PASSWORD MATCHES? **********************************/
+		buffer=NONE;
+ 8f0:	19 82       	std	Y+1, r1	; 0x01
+		buffer=SPI_Transmitter(TRANSMISSION_COMPLETE);
+ 8f2:	8a e0       	ldi	r24, 0x0A	; 10
+ 8f4:	0e 94 be 02 	call	0x57c	; 0x57c <SPI_Transmitter>
+ 8f8:	89 83       	std	Y+1, r24	; 0x01
+ 8fa:	2f e7       	ldi	r18, 0x7F	; 127
+ 8fc:	88 e3       	ldi	r24, 0x38	; 56
+ 8fe:	91 e0       	ldi	r25, 0x01	; 1
+ 900:	21 50       	subi	r18, 0x01	; 1
+ 902:	80 40       	sbci	r24, 0x00	; 0
+ 904:	90 40       	sbci	r25, 0x00	; 0
+ 906:	e1 f7       	brne	.-8      	; 0x900 <__stack+0xa1>
+ 908:	00 c0       	rjmp	.+0      	; 0x90a <__stack+0xab>
+ 90a:	00 00       	nop
+		_delay_ms(50);	//Halt the system for the given time in (ms)
+		if(buffer==Right_PASSWORD && MODE == ADMIN)
+ 90c:	89 81       	ldd	r24, Y+1	; 0x01
+ 90e:	88 30       	cpi	r24, 0x08	; 8
+ 910:	89 f4       	brne	.+34     	; 0x934 <__stack+0xd5>
+ 912:	80 91 54 01 	lds	r24, 0x0154	; 0x800154 <MODE>
+ 916:	81 30       	cpi	r24, 0x01	; 1
+ 918:	69 f4       	brne	.+26     	; 0x934 <__stack+0xd5>
+		{
+			MODE=TRUE_ADMIN;
+ 91a:	b0 92 54 01 	sts	0x0154, r11	; 0x800154 <MODE>
+			LCD_Init();
+ 91e:	0e 94 7b 02 	call	0x4f6	; 0x4f6 <LCD_Init>
+			LCD_GeneralMessage(0,99,"TRUE ADMIN","");	
+ 922:	2c e6       	ldi	r18, 0x6C	; 108
+ 924:	30 e0       	ldi	r19, 0x00	; 0
+ 926:	4c ec       	ldi	r20, 0xCC	; 204
+ 928:	50 e0       	ldi	r21, 0x00	; 0
+ 92a:	63 e6       	ldi	r22, 0x63	; 99
+ 92c:	80 e0       	ldi	r24, 0x00	; 0
+ 92e:	0e 94 f0 00 	call	0x1e0	; 0x1e0 <LCD_GeneralMessage>
+ 932:	20 c0       	rjmp	.+64     	; 0x974 <__stack+0x115>
+		}
+		else if(buffer==Right_PASSWORD && MODE == HOST)
+ 934:	89 81       	ldd	r24, Y+1	; 0x01
+ 936:	88 30       	cpi	r24, 0x08	; 8
+ 938:	91 f4       	brne	.+36     	; 0x95e <__stack+0xff>
+ 93a:	80 91 54 01 	lds	r24, 0x0154	; 0x800154 <MODE>
+ 93e:	82 30       	cpi	r24, 0x02	; 2
+ 940:	71 f4       	brne	.+28     	; 0x95e <__stack+0xff>
+		{
+			MODE=TRUE_HOST;
+ 942:	85 e0       	ldi	r24, 0x05	; 5
+ 944:	80 93 54 01 	sts	0x0154, r24	; 0x800154 <MODE>
+			LCD_Init();
+ 948:	0e 94 7b 02 	call	0x4f6	; 0x4f6 <LCD_Init>
+			LCD_GeneralMessage(0,99,"TRUE HOST","");
+ 94c:	2c e6       	ldi	r18, 0x6C	; 108
+ 94e:	30 e0       	ldi	r19, 0x00	; 0
+ 950:	47 ed       	ldi	r20, 0xD7	; 215
+ 952:	50 e0       	ldi	r21, 0x00	; 0
+ 954:	63 e6       	ldi	r22, 0x63	; 99
+ 956:	80 e0       	ldi	r24, 0x00	; 0
+ 958:	0e 94 f0 00 	call	0x1e0	; 0x1e0 <LCD_GeneralMessage>
+ 95c:	0b c0       	rjmp	.+22     	; 0x974 <__stack+0x115>
+		}
+		else if(buffer==Wrong_PASSWORD && (MODE == HOST || MODE == ADMIN))
+ 95e:	89 81       	ldd	r24, Y+1	; 0x01
+ 960:	89 30       	cpi	r24, 0x09	; 9
+ 962:	41 f4       	brne	.+16     	; 0x974 <__stack+0x115>
+ 964:	80 91 54 01 	lds	r24, 0x0154	; 0x800154 <MODE>
+ 968:	81 50       	subi	r24, 0x01	; 1
+ 96a:	82 30       	cpi	r24, 0x02	; 2
+ 96c:	18 f4       	brcc	.+6      	; 0x974 <__stack+0x115>
+		{
+			MODE=FALSE_PASSWORD_MODE;
+ 96e:	80 92 54 01 	sts	0x0154, r8	; 0x800154 <MODE>
+ 972:	0e c0       	rjmp	.+28     	; 0x990 <__stack+0x131>
+		}
+		
+/***************************** SET HOST PASSWORD? (WHILE TRUE ADMIN MODE ONLY!) *****************/
+	//MODE=SPI_Transmitter(TRANSMISSION_COMPLETE);
+	//_delay_ms(50);
+		if(MODE == TRUE_ADMIN)
+ 974:	80 91 54 01 	lds	r24, 0x0154	; 0x800154 <MODE>
+ 978:	87 30       	cpi	r24, 0x07	; 7
+ 97a:	51 f4       	brne	.+20     	; 0x990 <__stack+0x131>
+		{	//condition to SET Host pass while ADMIN-Mode only!
+			LCD_Init();
+ 97c:	0e 94 7b 02 	call	0x4f6	; 0x4f6 <LCD_Init>
+			LCD_GeneralMessage(0,0,"SET HOST PASS?","YES[ ] <-> NO[X]"); // LCD Start message	
+ 980:	21 ee       	ldi	r18, 0xE1	; 225
+ 982:	30 e0       	ldi	r19, 0x00	; 0
+ 984:	42 ef       	ldi	r20, 0xF2	; 242
+ 986:	50 e0       	ldi	r21, 0x00	; 0
+ 988:	60 e0       	ldi	r22, 0x00	; 0
+ 98a:	80 e0       	ldi	r24, 0x00	; 0
+ 98c:	0e 94 f0 00 	call	0x1e0	; 0x1e0 <LCD_GeneralMessage>
+		}
+		RESET_PRESSED_KEY
+ 990:	f0 92 60 00 	sts	0x0060, r15	; 0x800060 <__DATA_REGION_ORIGIN__>
+		while(Key!='0' && (MODE == TRUE_ADMIN || MODE == TADMIN_SET_NewHostPass))
+ 994:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 998:	80 33       	cpi	r24, 0x30	; 48
+ 99a:	b9 f1       	breq	.+110    	; 0xa0a <__stack+0x1ab>
+ 99c:	80 91 54 01 	lds	r24, 0x0154	; 0x800154 <MODE>
+ 9a0:	86 50       	subi	r24, 0x06	; 6
+ 9a2:	82 30       	cpi	r24, 0x02	; 2
+ 9a4:	90 f5       	brcc	.+100    	; 0xa0a <__stack+0x1ab>
+		{
+			Key=GetKeyPressed(); //Get the position of pressed key...
+ 9a6:	0e 94 49 00 	call	0x92	; 0x92 <GetKeyPressed>
+ 9aa:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__DATA_REGION_ORIGIN__>
+			if(Key == '#' && MODE!=TRUE_ADMIN)
+ 9ae:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 9b2:	83 32       	cpi	r24, 0x23	; 35
+ 9b4:	59 f4       	brne	.+22     	; 0x9cc <__stack+0x16d>
+ 9b6:	80 91 54 01 	lds	r24, 0x0154	; 0x800154 <MODE>
+ 9ba:	87 30       	cpi	r24, 0x07	; 7
+ 9bc:	09 f4       	brne	.+2      	; 0x9c0 <__stack+0x161>
+ 9be:	ab c1       	rjmp	.+854    	; 0xd16 <__stack+0x4b7>
+			{
+				LCD_Selector(NO);
+ 9c0:	84 e0       	ldi	r24, 0x04	; 4
+ 9c2:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <LCD_Selector>
+				MODE=TRUE_ADMIN;
+ 9c6:	b0 92 54 01 	sts	0x0154, r11	; 0x800154 <MODE>
+ 9ca:	0d c0       	rjmp	.+26     	; 0x9e6 <__stack+0x187>
+			}
+			else if (Key =='*' && MODE != TADMIN_SET_NewHostPass)
+ 9cc:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 9d0:	8a 32       	cpi	r24, 0x2A	; 42
+ 9d2:	49 f4       	brne	.+18     	; 0x9e6 <__stack+0x187>
+ 9d4:	80 91 54 01 	lds	r24, 0x0154	; 0x800154 <MODE>
+ 9d8:	86 30       	cpi	r24, 0x06	; 6
+ 9da:	29 f0       	breq	.+10     	; 0x9e6 <__stack+0x187>
+			{
+				LCD_Selector(YES);
+ 9dc:	83 e0       	ldi	r24, 0x03	; 3
+ 9de:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <LCD_Selector>
+				MODE=TADMIN_SET_NewHostPass;
+ 9e2:	a0 92 54 01 	sts	0x0154, r10	; 0x800154 <MODE>
+ 9e6:	2f ef       	ldi	r18, 0xFF	; 255
+ 9e8:	80 e7       	ldi	r24, 0x70	; 112
+ 9ea:	92 e0       	ldi	r25, 0x02	; 2
+ 9ec:	21 50       	subi	r18, 0x01	; 1
+ 9ee:	80 40       	sbci	r24, 0x00	; 0
+ 9f0:	90 40       	sbci	r25, 0x00	; 0
+ 9f2:	e1 f7       	brne	.-8      	; 0x9ec <__stack+0x18d>
+ 9f4:	00 c0       	rjmp	.+0      	; 0x9f6 <__stack+0x197>
+ 9f6:	00 00       	nop
+		{	//condition to SET Host pass while ADMIN-Mode only!
+			LCD_Init();
+			LCD_GeneralMessage(0,0,"SET HOST PASS?","YES[ ] <-> NO[X]"); // LCD Start message	
+		}
+		RESET_PRESSED_KEY
+		while(Key!='0' && (MODE == TRUE_ADMIN || MODE == TADMIN_SET_NewHostPass))
+ 9f8:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 9fc:	80 33       	cpi	r24, 0x30	; 48
+ 9fe:	29 f0       	breq	.+10     	; 0xa0a <__stack+0x1ab>
+ a00:	80 91 54 01 	lds	r24, 0x0154	; 0x800154 <MODE>
+ a04:	86 50       	subi	r24, 0x06	; 6
+ a06:	82 30       	cpi	r24, 0x02	; 2
+ a08:	70 f2       	brcs	.-100    	; 0x9a6 <__stack+0x147>
+			{
+				//nothing
+			}
+			_delay_ms(100);	//Halt the system for the given time in (ms)
+		}
+		buffer=SPI_Transmitter(MODE); //Sending if again mode (if we wanna change the Host address)
+ a0a:	80 91 54 01 	lds	r24, 0x0154	; 0x800154 <MODE>
+ a0e:	0e 94 be 02 	call	0x57c	; 0x57c <SPI_Transmitter>
+ a12:	89 83       	std	Y+1, r24	; 0x01
 
-00000594 <_exit>:
- 594:	f8 94       	cli
+/********************************* SETTING NEW-HOST PASSWORD ********************************/
+		if(MODE==TADMIN_SET_NewHostPass)
+ a14:	80 91 54 01 	lds	r24, 0x0154	; 0x800154 <MODE>
+ a18:	86 30       	cpi	r24, 0x06	; 6
+ a1a:	09 f0       	breq	.+2      	; 0xa1e <__stack+0x1bf>
+ a1c:	4b c0       	rjmp	.+150    	; 0xab4 <__stack+0x255>
+		{
+			LCD_Init();
+ a1e:	0e 94 7b 02 	call	0x4f6	; 0x4f6 <LCD_Init>
+			LCD_GeneralMessage(0,0,"Set New HOST pas","");
+ a22:	2c e6       	ldi	r18, 0x6C	; 108
+ a24:	30 e0       	ldi	r19, 0x00	; 0
+ a26:	41 e0       	ldi	r20, 0x01	; 1
+ a28:	51 e0       	ldi	r21, 0x01	; 1
+ a2a:	60 e0       	ldi	r22, 0x00	; 0
+ a2c:	80 e0       	ldi	r24, 0x00	; 0
+ a2e:	0e 94 f0 00 	call	0x1e0	; 0x1e0 <LCD_GeneralMessage>
+			while(Entry_Pass<6)// LOOP to enter pass and for 1st time till entered 6-i/p from
+ a32:	80 91 55 01 	lds	r24, 0x0155	; 0x800155 <Entry_Pass>
+ a36:	90 91 56 01 	lds	r25, 0x0156	; 0x800156 <Entry_Pass+0x1>
+ a3a:	06 97       	sbiw	r24, 0x06	; 6
+ a3c:	04 f5       	brge	.+64     	; 0xa7e <__stack+0x21f>
+			{
+				Key=GetKeyPressed(); //Get the position of pressed key...
+ a3e:	0e 94 49 00 	call	0x92	; 0x92 <GetKeyPressed>
+ a42:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__DATA_REGION_ORIGIN__>
+				PASS[Entry_Pass]=Key;
+ a46:	e0 91 55 01 	lds	r30, 0x0155	; 0x800155 <Entry_Pass>
+ a4a:	f0 91 56 01 	lds	r31, 0x0156	; 0x800156 <Entry_Pass+0x1>
+ a4e:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ a52:	e9 5a       	subi	r30, 0xA9	; 169
+ a54:	fe 4f       	sbci	r31, 0xFE	; 254
+ a56:	80 83       	st	Z, r24
+				LCD_Pass_Req(Key); //
+ a58:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ a5c:	0e 94 99 02 	call	0x532	; 0x532 <LCD_Pass_Req>
+ a60:	2f e7       	ldi	r18, 0x7F	; 127
+ a62:	89 ea       	ldi	r24, 0xA9	; 169
+ a64:	93 e0       	ldi	r25, 0x03	; 3
+ a66:	21 50       	subi	r18, 0x01	; 1
+ a68:	80 40       	sbci	r24, 0x00	; 0
+ a6a:	90 40       	sbci	r25, 0x00	; 0
+ a6c:	e1 f7       	brne	.-8      	; 0xa66 <__stack+0x207>
+ a6e:	00 c0       	rjmp	.+0      	; 0xa70 <__stack+0x211>
+ a70:	00 00       	nop
+/********************************* SETTING NEW-HOST PASSWORD ********************************/
+		if(MODE==TADMIN_SET_NewHostPass)
+		{
+			LCD_Init();
+			LCD_GeneralMessage(0,0,"Set New HOST pas","");
+			while(Entry_Pass<6)// LOOP to enter pass and for 1st time till entered 6-i/p from
+ a72:	80 91 55 01 	lds	r24, 0x0155	; 0x800155 <Entry_Pass>
+ a76:	90 91 56 01 	lds	r25, 0x0156	; 0x800156 <Entry_Pass+0x1>
+ a7a:	06 97       	sbiw	r24, 0x06	; 6
+ a7c:	04 f3       	brlt	.-64     	; 0xa3e <__stack+0x1df>
+				Key=GetKeyPressed(); //Get the position of pressed key...
+				PASS[Entry_Pass]=Key;
+				LCD_Pass_Req(Key); //
+				_delay_ms(150);	
+			}
+			Entry_Pass=0;
+ a7e:	10 92 56 01 	sts	0x0156, r1	; 0x800156 <Entry_Pass+0x1>
+ a82:	10 92 55 01 	sts	0x0155, r1	; 0x800155 <Entry_Pass>
+ a86:	00 e0       	ldi	r16, 0x00	; 0
+ a88:	10 e0       	ldi	r17, 0x00	; 0
+			for(counter=0;counter<6;counter++)
+			{		// Sending 6 digits of password to slave
+				buffer=SPI_Transmitter( PASS[counter] );
+ a8a:	f8 01       	movw	r30, r16
+ a8c:	e9 5a       	subi	r30, 0xA9	; 169
+ a8e:	fe 4f       	sbci	r31, 0xFE	; 254
+ a90:	80 81       	ld	r24, Z
+ a92:	0e 94 be 02 	call	0x57c	; 0x57c <SPI_Transmitter>
+ a96:	89 83       	std	Y+1, r24	; 0x01
+ a98:	2f ef       	ldi	r18, 0xFF	; 255
+ a9a:	80 e7       	ldi	r24, 0x70	; 112
+ a9c:	92 e0       	ldi	r25, 0x02	; 2
+ a9e:	21 50       	subi	r18, 0x01	; 1
+ aa0:	80 40       	sbci	r24, 0x00	; 0
+ aa2:	90 40       	sbci	r25, 0x00	; 0
+ aa4:	e1 f7       	brne	.-8      	; 0xa9e <__stack+0x23f>
+ aa6:	00 c0       	rjmp	.+0      	; 0xaa8 <__stack+0x249>
+ aa8:	00 00       	nop
+ aaa:	0f 5f       	subi	r16, 0xFF	; 255
+ aac:	1f 4f       	sbci	r17, 0xFF	; 255
+				PASS[Entry_Pass]=Key;
+				LCD_Pass_Req(Key); //
+				_delay_ms(150);	
+			}
+			Entry_Pass=0;
+			for(counter=0;counter<6;counter++)
+ aae:	06 30       	cpi	r16, 0x06	; 6
+ ab0:	11 05       	cpc	r17, r1
+ ab2:	59 f7       	brne	.-42     	; 0xa8a <__stack+0x22b>
+			//nothing
+		}
+	
 
-00000596 <__stop_program>:
- 596:	ff cf       	rjmp	.-2      	; 0x596 <__stop_program>
+/********************* ADJUSTING DATA IN True_HOST or TRUE_ADMIN MODES *************************/
+		if(MODE==TRUE_ADMIN || MODE==TADMIN_SET_NewHostPass)
+ ab4:	80 91 54 01 	lds	r24, 0x0154	; 0x800154 <MODE>
+ ab8:	9a ef       	ldi	r25, 0xFA	; 250
+ aba:	98 0f       	add	r25, r24
+ abc:	92 30       	cpi	r25, 0x02	; 2
+ abe:	08 f0       	brcs	.+2      	; 0xac2 <__stack+0x263>
+ ac0:	99 c0       	rjmp	.+306    	; 0xbf4 <__stack+0x395>
+		{
+			UART_Init();
+ ac2:	0e 94 4c 03 	call	0x698	; 0x698 <UART_Init>
+			AC_STAT=UART_Rec();
+ ac6:	0e 94 65 03 	call	0x6ca	; 0x6ca <UART_Rec>
+ aca:	80 93 62 00 	sts	0x0062, r24	; 0x800062 <AC_STAT>
+ ace:	2f eb       	ldi	r18, 0xBF	; 191
+ ad0:	8a ed       	ldi	r24, 0xDA	; 218
+ ad2:	90 e0       	ldi	r25, 0x00	; 0
+ ad4:	21 50       	subi	r18, 0x01	; 1
+ ad6:	80 40       	sbci	r24, 0x00	; 0
+ ad8:	90 40       	sbci	r25, 0x00	; 0
+ ada:	e1 f7       	brne	.-8      	; 0xad4 <__stack+0x275>
+ adc:	00 c0       	rjmp	.+0      	; 0xade <__stack+0x27f>
+ ade:	00 00       	nop
+			_delay_ms(35);
+			AC_DATA_VALUE=UART_Rec();
+ ae0:	0e 94 65 03 	call	0x6ca	; 0x6ca <UART_Rec>
+ ae4:	80 93 61 00 	sts	0x0061, r24	; 0x800061 <AC_DATA_VALUE>
+		
+			LCD_Init();
+ ae8:	0e 94 7b 02 	call	0x4f6	; 0x4f6 <LCD_Init>
+			LCD_GeneralMessage(0,0,"AC.ADMIN     / ","Change.Temp   °C");
+ aec:	22 e1       	ldi	r18, 0x12	; 18
+ aee:	31 e0       	ldi	r19, 0x01	; 1
+ af0:	43 e2       	ldi	r20, 0x23	; 35
+ af2:	51 e0       	ldi	r21, 0x01	; 1
+ af4:	60 e0       	ldi	r22, 0x00	; 0
+ af6:	80 e0       	ldi	r24, 0x00	; 0
+ af8:	0e 94 f0 00 	call	0x1e0	; 0x1e0 <LCD_GeneralMessage>
+			if(AC_STAT== AC_STAT_OFF) // printing out the stat of motor
+ afc:	80 91 62 00 	lds	r24, 0x0062	; 0x800062 <AC_STAT>
+ b00:	81 3b       	cpi	r24, 0xB1	; 177
+ b02:	31 f4       	brne	.+12     	; 0xb10 <__stack+0x2b1>
+			{
+				LCD_Selector(AC_STAT_OFF);
+ b04:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <LCD_Selector>
+				AC_STAT=AC_STAT_OFF;
+ b08:	81 eb       	ldi	r24, 0xB1	; 177
+ b0a:	80 93 62 00 	sts	0x0062, r24	; 0x800062 <AC_STAT>
+ b0e:	08 c0       	rjmp	.+16     	; 0xb20 <__stack+0x2c1>
+			}
+			else if (AC_STAT==AC_STAT_ON)
+ b10:	80 91 62 00 	lds	r24, 0x0062	; 0x800062 <AC_STAT>
+ b14:	80 3b       	cpi	r24, 0xB0	; 176
+ b16:	21 f4       	brne	.+8      	; 0xb20 <__stack+0x2c1>
+			{
+				LCD_Selector(AC_STAT_ON);
+ b18:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <LCD_Selector>
+				AC_STAT==AC_STAT_ON;
+ b1c:	80 91 62 00 	lds	r24, 0x0062	; 0x800062 <AC_STAT>
+			}
+			else
+			{
+				//Nothing...
+			}
+			LCD_TEMP_PRINT(AC_DATA_VALUE);
+ b20:	80 91 61 00 	lds	r24, 0x0061	; 0x800061 <AC_DATA_VALUE>
+ b24:	0e 94 49 02 	call	0x492	; 0x492 <LCD_TEMP_PRINT>
+			RESET_PRESSED_KEY
+ b28:	f0 92 60 00 	sts	0x0060, r15	; 0x800060 <__DATA_REGION_ORIGIN__>
+			UART_Send(BUSY);
+ b2c:	8b ec       	ldi	r24, 0xCB	; 203
+ b2e:	0e 94 61 03 	call	0x6c2	; 0x6c2 <UART_Send>
+			while(Key != '0') //and mode has been selected (press zero)
+ b32:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ b36:	80 33       	cpi	r24, 0x30	; 48
+ b38:	09 f4       	brne	.+2      	; 0xb3c <__stack+0x2dd>
+ b3a:	d1 c0       	rjmp	.+418    	; 0xcde <__stack+0x47f>
+			{
+				UART_Send(BUSY);
+ b3c:	8b ec       	ldi	r24, 0xCB	; 203
+ b3e:	0e 94 61 03 	call	0x6c2	; 0x6c2 <UART_Send>
+				Key=GetKeyPressed(); //Get the position of pressed key...
+ b42:	0e 94 49 00 	call	0x92	; 0x92 <GetKeyPressed>
+ b46:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__DATA_REGION_ORIGIN__>
+				if(Key == '*' && AC_STAT== AC_STAT_OFF)
+ b4a:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ b4e:	8a 32       	cpi	r24, 0x2A	; 42
+ b50:	59 f4       	brne	.+22     	; 0xb68 <__stack+0x309>
+ b52:	80 91 62 00 	lds	r24, 0x0062	; 0x800062 <AC_STAT>
+ b56:	81 3b       	cpi	r24, 0xB1	; 177
+ b58:	39 f4       	brne	.+14     	; 0xb68 <__stack+0x309>
+				{
+					LCD_Selector(AC_STAT_ON);
+ b5a:	80 eb       	ldi	r24, 0xB0	; 176
+ b5c:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <LCD_Selector>
+					AC_STAT=AC_STAT_ON;
+ b60:	80 eb       	ldi	r24, 0xB0	; 176
+ b62:	80 93 62 00 	sts	0x0062, r24	; 0x800062 <AC_STAT>
+ b66:	32 c0       	rjmp	.+100    	; 0xbcc <__stack+0x36d>
+				}
+				else if (Key =='#' && AC_STAT==AC_STAT_ON)
+ b68:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ b6c:	83 32       	cpi	r24, 0x23	; 35
+ b6e:	59 f4       	brne	.+22     	; 0xb86 <__stack+0x327>
+ b70:	80 91 62 00 	lds	r24, 0x0062	; 0x800062 <AC_STAT>
+ b74:	80 3b       	cpi	r24, 0xB0	; 176
+ b76:	39 f4       	brne	.+14     	; 0xb86 <__stack+0x327>
+				{
+					LCD_Selector(AC_STAT_OFF);
+ b78:	81 eb       	ldi	r24, 0xB1	; 177
+ b7a:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <LCD_Selector>
+					AC_STAT=AC_STAT_OFF;
+ b7e:	81 eb       	ldi	r24, 0xB1	; 177
+ b80:	80 93 62 00 	sts	0x0062, r24	; 0x800062 <AC_STAT>
+ b84:	23 c0       	rjmp	.+70     	; 0xbcc <__stack+0x36d>
+				}
+				else if (Key =='7' && AC_DATA_VALUE>18)
+ b86:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ b8a:	87 33       	cpi	r24, 0x37	; 55
+ b8c:	71 f4       	brne	.+28     	; 0xbaa <__stack+0x34b>
+ b8e:	80 91 61 00 	lds	r24, 0x0061	; 0x800061 <AC_DATA_VALUE>
+ b92:	83 31       	cpi	r24, 0x13	; 19
+ b94:	50 f0       	brcs	.+20     	; 0xbaa <__stack+0x34b>
+				{
+					AC_DATA_VALUE--;
+ b96:	80 91 61 00 	lds	r24, 0x0061	; 0x800061 <AC_DATA_VALUE>
+ b9a:	81 50       	subi	r24, 0x01	; 1
+ b9c:	80 93 61 00 	sts	0x0061, r24	; 0x800061 <AC_DATA_VALUE>
+					LCD_TEMP_PRINT(AC_DATA_VALUE);
+ ba0:	80 91 61 00 	lds	r24, 0x0061	; 0x800061 <AC_DATA_VALUE>
+ ba4:	0e 94 49 02 	call	0x492	; 0x492 <LCD_TEMP_PRINT>
+ ba8:	11 c0       	rjmp	.+34     	; 0xbcc <__stack+0x36d>
+				}
+				else if (Key =='9' && AC_DATA_VALUE<38)
+ baa:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ bae:	89 33       	cpi	r24, 0x39	; 57
+ bb0:	69 f4       	brne	.+26     	; 0xbcc <__stack+0x36d>
+ bb2:	80 91 61 00 	lds	r24, 0x0061	; 0x800061 <AC_DATA_VALUE>
+ bb6:	86 32       	cpi	r24, 0x26	; 38
+ bb8:	48 f4       	brcc	.+18     	; 0xbcc <__stack+0x36d>
+				{
+					AC_DATA_VALUE++;
+ bba:	80 91 61 00 	lds	r24, 0x0061	; 0x800061 <AC_DATA_VALUE>
+ bbe:	8f 5f       	subi	r24, 0xFF	; 255
+ bc0:	80 93 61 00 	sts	0x0061, r24	; 0x800061 <AC_DATA_VALUE>
+					LCD_TEMP_PRINT(AC_DATA_VALUE);
+ bc4:	80 91 61 00 	lds	r24, 0x0061	; 0x800061 <AC_DATA_VALUE>
+ bc8:	0e 94 49 02 	call	0x492	; 0x492 <LCD_TEMP_PRINT>
+ bcc:	8f e0       	ldi	r24, 0x0F	; 15
+ bce:	97 e2       	ldi	r25, 0x27	; 39
+ bd0:	01 97       	sbiw	r24, 0x01	; 1
+ bd2:	f1 f7       	brne	.-4      	; 0xbd0 <__stack+0x371>
+ bd4:	00 c0       	rjmp	.+0      	; 0xbd6 <__stack+0x377>
+ bd6:	00 00       	nop
+				else
+				{
+					//nothing...
+				}
+				_delay_ms(5);
+				UART_Send(AC_STAT);
+ bd8:	80 91 62 00 	lds	r24, 0x0062	; 0x800062 <AC_STAT>
+ bdc:	0e 94 61 03 	call	0x6c2	; 0x6c2 <UART_Send>
+				UART_Send(AC_DATA_VALUE);
+ be0:	80 91 61 00 	lds	r24, 0x0061	; 0x800061 <AC_DATA_VALUE>
+ be4:	0e 94 61 03 	call	0x6c2	; 0x6c2 <UART_Send>
+				//Nothing...
+			}
+			LCD_TEMP_PRINT(AC_DATA_VALUE);
+			RESET_PRESSED_KEY
+			UART_Send(BUSY);
+			while(Key != '0') //and mode has been selected (press zero)
+ be8:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ bec:	80 33       	cpi	r24, 0x30	; 48
+ bee:	09 f0       	breq	.+2      	; 0xbf2 <__stack+0x393>
+ bf0:	a5 cf       	rjmp	.-182    	; 0xb3c <__stack+0x2dd>
+ bf2:	75 c0       	rjmp	.+234    	; 0xcde <__stack+0x47f>
+				UART_Send(AC_DATA_VALUE);
+			}
+		//sending back last changing values
+			
+		}
+		else if(MODE == TRUE_HOST)
+ bf4:	85 30       	cpi	r24, 0x05	; 5
+ bf6:	09 f0       	breq	.+2      	; 0xbfa <__stack+0x39b>
+ bf8:	72 c0       	rjmp	.+228    	; 0xcde <__stack+0x47f>
+		{
+			//sending back last changing values
+			UART_Init();
+ bfa:	0e 94 4c 03 	call	0x698	; 0x698 <UART_Init>
+			AC_STAT=UART_Rec();
+ bfe:	0e 94 65 03 	call	0x6ca	; 0x6ca <UART_Rec>
+ c02:	80 93 62 00 	sts	0x0062, r24	; 0x800062 <AC_STAT>
+ c06:	9f eb       	ldi	r25, 0xBF	; 191
+ c08:	2a ed       	ldi	r18, 0xDA	; 218
+ c0a:	80 e0       	ldi	r24, 0x00	; 0
+ c0c:	91 50       	subi	r25, 0x01	; 1
+ c0e:	20 40       	sbci	r18, 0x00	; 0
+ c10:	80 40       	sbci	r24, 0x00	; 0
+ c12:	e1 f7       	brne	.-8      	; 0xc0c <__stack+0x3ad>
+ c14:	00 c0       	rjmp	.+0      	; 0xc16 <__stack+0x3b7>
+ c16:	00 00       	nop
+			_delay_ms(35);
+			AC_DATA_VALUE=UART_Rec();
+ c18:	0e 94 65 03 	call	0x6ca	; 0x6ca <UART_Rec>
+ c1c:	80 93 61 00 	sts	0x0061, r24	; 0x800061 <AC_DATA_VALUE>
+		
+			LCD_Init();
+ c20:	0e 94 7b 02 	call	0x4f6	; 0x4f6 <LCD_Init>
+			LCD_GeneralMessage(0,0,"AC.ADMIN     / ","Change.Temp   °C");
+ c24:	22 e1       	ldi	r18, 0x12	; 18
+ c26:	31 e0       	ldi	r19, 0x01	; 1
+ c28:	43 e2       	ldi	r20, 0x23	; 35
+ c2a:	51 e0       	ldi	r21, 0x01	; 1
+ c2c:	60 e0       	ldi	r22, 0x00	; 0
+ c2e:	80 e0       	ldi	r24, 0x00	; 0
+ c30:	0e 94 f0 00 	call	0x1e0	; 0x1e0 <LCD_GeneralMessage>
+			if(AC_STAT== AC_STAT_OFF) // printing out the stat of motor
+ c34:	80 91 62 00 	lds	r24, 0x0062	; 0x800062 <AC_STAT>
+ c38:	81 3b       	cpi	r24, 0xB1	; 177
+ c3a:	31 f4       	brne	.+12     	; 0xc48 <__stack+0x3e9>
+			{
+				LCD_Selector(AC_STAT_OFF);
+ c3c:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <LCD_Selector>
+				AC_STAT=AC_STAT_OFF;
+ c40:	81 eb       	ldi	r24, 0xB1	; 177
+ c42:	80 93 62 00 	sts	0x0062, r24	; 0x800062 <AC_STAT>
+ c46:	08 c0       	rjmp	.+16     	; 0xc58 <__stack+0x3f9>
+			}
+			else if (AC_STAT==AC_STAT_ON)
+ c48:	80 91 62 00 	lds	r24, 0x0062	; 0x800062 <AC_STAT>
+ c4c:	80 3b       	cpi	r24, 0xB0	; 176
+ c4e:	21 f4       	brne	.+8      	; 0xc58 <__stack+0x3f9>
+			{
+				LCD_Selector(AC_STAT_ON);
+ c50:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <LCD_Selector>
+				AC_STAT==AC_STAT_ON;
+ c54:	80 91 62 00 	lds	r24, 0x0062	; 0x800062 <AC_STAT>
+			}
+			else
+			{
+				//Nothing
+			}
+			LCD_TEMP_PRINT(AC_DATA_VALUE);
+ c58:	80 91 61 00 	lds	r24, 0x0061	; 0x800061 <AC_DATA_VALUE>
+ c5c:	0e 94 49 02 	call	0x492	; 0x492 <LCD_TEMP_PRINT>
+			RESET_PRESSED_KEY
+ c60:	f0 92 60 00 	sts	0x0060, r15	; 0x800060 <__DATA_REGION_ORIGIN__>
+			UART_Send(BUSY);
+ c64:	8b ec       	ldi	r24, 0xCB	; 203
+ c66:	0e 94 61 03 	call	0x6c2	; 0x6c2 <UART_Send>
+			while(Key != '0') //and mode has been selected (press zero)
+ c6a:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ c6e:	80 33       	cpi	r24, 0x30	; 48
+ c70:	b1 f1       	breq	.+108    	; 0xcde <__stack+0x47f>
+			{
+				UART_Send(BUSY);
+ c72:	8b ec       	ldi	r24, 0xCB	; 203
+ c74:	0e 94 61 03 	call	0x6c2	; 0x6c2 <UART_Send>
+				Key=GetKeyPressed(); //Get the position of pressed key...
+ c78:	0e 94 49 00 	call	0x92	; 0x92 <GetKeyPressed>
+ c7c:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__DATA_REGION_ORIGIN__>
+				if(Key == '*' && AC_STAT== AC_STAT_OFF)
+ c80:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ c84:	8a 32       	cpi	r24, 0x2A	; 42
+ c86:	59 f4       	brne	.+22     	; 0xc9e <__stack+0x43f>
+ c88:	80 91 62 00 	lds	r24, 0x0062	; 0x800062 <AC_STAT>
+ c8c:	81 3b       	cpi	r24, 0xB1	; 177
+ c8e:	39 f4       	brne	.+14     	; 0xc9e <__stack+0x43f>
+				{
+					LCD_Selector(AC_STAT_ON);
+ c90:	80 eb       	ldi	r24, 0xB0	; 176
+ c92:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <LCD_Selector>
+					AC_STAT=AC_STAT_ON;
+ c96:	80 eb       	ldi	r24, 0xB0	; 176
+ c98:	80 93 62 00 	sts	0x0062, r24	; 0x800062 <AC_STAT>
+ c9c:	0e c0       	rjmp	.+28     	; 0xcba <__stack+0x45b>
+				}
+				else if (Key =='#' && AC_STAT==AC_STAT_ON)
+ c9e:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ ca2:	83 32       	cpi	r24, 0x23	; 35
+ ca4:	51 f4       	brne	.+20     	; 0xcba <__stack+0x45b>
+ ca6:	80 91 62 00 	lds	r24, 0x0062	; 0x800062 <AC_STAT>
+ caa:	80 3b       	cpi	r24, 0xB0	; 176
+ cac:	31 f4       	brne	.+12     	; 0xcba <__stack+0x45b>
+				{
+					LCD_Selector(AC_STAT_OFF);
+ cae:	81 eb       	ldi	r24, 0xB1	; 177
+ cb0:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <LCD_Selector>
+					AC_STAT=AC_STAT_OFF;
+ cb4:	81 eb       	ldi	r24, 0xB1	; 177
+ cb6:	80 93 62 00 	sts	0x0062, r24	; 0x800062 <AC_STAT>
+ cba:	8f e0       	ldi	r24, 0x0F	; 15
+ cbc:	97 e2       	ldi	r25, 0x27	; 39
+ cbe:	01 97       	sbiw	r24, 0x01	; 1
+ cc0:	f1 f7       	brne	.-4      	; 0xcbe <__stack+0x45f>
+ cc2:	00 c0       	rjmp	.+0      	; 0xcc4 <__stack+0x465>
+ cc4:	00 00       	nop
+				{
+					//nothing...
+				}
+				_delay_ms(5);
+				//sending back last changing values
+				UART_Send(AC_STAT);
+ cc6:	80 91 62 00 	lds	r24, 0x0062	; 0x800062 <AC_STAT>
+ cca:	0e 94 61 03 	call	0x6c2	; 0x6c2 <UART_Send>
+				UART_Send(AC_DATA_VALUE);
+ cce:	80 91 61 00 	lds	r24, 0x0061	; 0x800061 <AC_DATA_VALUE>
+ cd2:	0e 94 61 03 	call	0x6c2	; 0x6c2 <UART_Send>
+				//Nothing
+			}
+			LCD_TEMP_PRINT(AC_DATA_VALUE);
+			RESET_PRESSED_KEY
+			UART_Send(BUSY);
+			while(Key != '0') //and mode has been selected (press zero)
+ cd6:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ cda:	80 33       	cpi	r24, 0x30	; 48
+ cdc:	51 f6       	brne	.-108    	; 0xc72 <__stack+0x413>
+			LCD_GeneralMessage(0,4,"  Wrong password","Try Again");
+			NUMBER_OF_TRIES++;	//Max 3 wrong tries!...
+		}
+		else
+		{
+			NUMBER_OF_TRIES=1;	/*if MODE== True HOSt/ True Admin or even True admin setting new 
+ cde:	1e 2d       	mov	r17, r14
+				UART_Send(AC_STAT);
+				UART_Send(AC_DATA_VALUE);
+			}
+		}
+/**********************ACCESS Denied Message**************/
+		if(MODE==FALSE_PASSWORD_MODE)
+ ce0:	80 91 54 01 	lds	r24, 0x0154	; 0x800154 <MODE>
+ ce4:	8a 31       	cpi	r24, 0x1A	; 26
+ ce6:	09 f0       	breq	.+2      	; 0xcea <__stack+0x48b>
+ ce8:	18 cd       	rjmp	.-1488   	; 0x71a <main+0x48>
+		{//will reach to that condition means that the MODE hasn't changed to TRUE_XXXX
+			LCD_Init();
+ cea:	0e 94 7b 02 	call	0x4f6	; 0x4f6 <LCD_Init>
+			LCD_GeneralMessage(0,4,"  Wrong password","Try Again");
+ cee:	23 e3       	ldi	r18, 0x33	; 51
+ cf0:	31 e0       	ldi	r19, 0x01	; 1
+ cf2:	4d e3       	ldi	r20, 0x3D	; 61
+ cf4:	51 e0       	ldi	r21, 0x01	; 1
+ cf6:	64 e0       	ldi	r22, 0x04	; 4
+ cf8:	80 e0       	ldi	r24, 0x00	; 0
+ cfa:	0e 94 f0 00 	call	0x1e0	; 0x1e0 <LCD_GeneralMessage>
+			NUMBER_OF_TRIES++;	//Max 3 wrong tries!...
+ cfe:	11 e0       	ldi	r17, 0x01	; 1
+ d00:	19 0d       	add	r17, r9
+ d02:	0b cd       	rjmp	.-1514   	; 0x71a <main+0x48>
+				if(Key == '#' && MODE!=HOST)
+				{
+					LCD_Selector(HOST);
+					MODE=HOST;
+				}
+				else if (Key =='*' && MODE != ADMIN)
+ d04:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ d08:	8a 32       	cpi	r24, 0x2A	; 42
+ d0a:	09 f0       	breq	.+2      	; 0xd0e <__stack+0x4af>
+ d0c:	50 cd       	rjmp	.-1376   	; 0x7ae <main+0xdc>
+ d0e:	4a cd       	rjmp	.-1388   	; 0x7a4 <main+0xd2>
+ d10:	00 e0       	ldi	r16, 0x00	; 0
+ d12:	10 e0       	ldi	r17, 0x00	; 0
+ d14:	d8 cd       	rjmp	.-1104   	; 0x8c6 <__stack+0x67>
+			if(Key == '#' && MODE!=TRUE_ADMIN)
+			{
+				LCD_Selector(NO);
+				MODE=TRUE_ADMIN;
+			}
+			else if (Key =='*' && MODE != TADMIN_SET_NewHostPass)
+ d16:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ d1a:	8a 32       	cpi	r24, 0x2A	; 42
+ d1c:	09 f0       	breq	.+2      	; 0xd20 <__stack+0x4c1>
+ d1e:	63 ce       	rjmp	.-826    	; 0x9e6 <__stack+0x187>
+ d20:	5d ce       	rjmp	.-838    	; 0x9dc <__stack+0x17d>
+
+00000d22 <__vector_11>:
+    return 0;
+}
+
+
+ISR(TIMER0_OVF_vect)
+{
+ d22:	1f 92       	push	r1
+ d24:	0f 92       	push	r0
+ d26:	0f b6       	in	r0, 0x3f	; 63
+ d28:	0f 92       	push	r0
+ d2a:	11 24       	eor	r1, r1
+ d2c:	2f 93       	push	r18
+ d2e:	8f 93       	push	r24
+ d30:	9f 93       	push	r25
+	if(TIMER0_INTERRUPT_FLAG>=0 && TIMER0_INTERRUPT_FLAG<=500)
+ d32:	80 91 52 01 	lds	r24, 0x0152	; 0x800152 <TIMER0_INTERRUPT_FLAG>
+ d36:	90 91 53 01 	lds	r25, 0x0153	; 0x800153 <TIMER0_INTERRUPT_FLAG+0x1>
+ d3a:	80 91 52 01 	lds	r24, 0x0152	; 0x800152 <TIMER0_INTERRUPT_FLAG>
+ d3e:	90 91 53 01 	lds	r25, 0x0153	; 0x800153 <TIMER0_INTERRUPT_FLAG+0x1>
+ d42:	85 3f       	cpi	r24, 0xF5	; 245
+ d44:	91 40       	sbci	r25, 0x01	; 1
+ d46:	50 f4       	brcc	.+20     	; 0xd5c <__vector_11+0x3a>
+	{
+		++TIMER0_INTERRUPT_FLAG;
+ d48:	80 91 52 01 	lds	r24, 0x0152	; 0x800152 <TIMER0_INTERRUPT_FLAG>
+ d4c:	90 91 53 01 	lds	r25, 0x0153	; 0x800153 <TIMER0_INTERRUPT_FLAG+0x1>
+ d50:	01 96       	adiw	r24, 0x01	; 1
+ d52:	90 93 53 01 	sts	0x0153, r25	; 0x800153 <TIMER0_INTERRUPT_FLAG+0x1>
+ d56:	80 93 52 01 	sts	0x0152, r24	; 0x800152 <TIMER0_INTERRUPT_FLAG>
+ d5a:	18 c0       	rjmp	.+48     	; 0xd8c <__vector_11+0x6a>
+	}
+	else if(TIMER0_INTERRUPT_FLAG>=500 && TIMER0_INTERRUPT_SECONDS>=0)
+ d5c:	80 91 52 01 	lds	r24, 0x0152	; 0x800152 <TIMER0_INTERRUPT_FLAG>
+ d60:	90 91 53 01 	lds	r25, 0x0153	; 0x800153 <TIMER0_INTERRUPT_FLAG+0x1>
+ d64:	84 3f       	cpi	r24, 0xF4	; 244
+ d66:	91 40       	sbci	r25, 0x01	; 1
+ d68:	88 f0       	brcs	.+34     	; 0xd8c <__vector_11+0x6a>
+ d6a:	80 91 50 01 	lds	r24, 0x0150	; 0x800150 <TIMER0_INTERRUPT_SECONDS>
+ d6e:	90 91 51 01 	lds	r25, 0x0151	; 0x800151 <TIMER0_INTERRUPT_SECONDS+0x1>
+	{
+		TIMER0_INTERRUPT_SECONDS--;
+ d72:	80 91 50 01 	lds	r24, 0x0150	; 0x800150 <TIMER0_INTERRUPT_SECONDS>
+ d76:	90 91 51 01 	lds	r25, 0x0151	; 0x800151 <TIMER0_INTERRUPT_SECONDS+0x1>
+ d7a:	01 97       	sbiw	r24, 0x01	; 1
+ d7c:	90 93 51 01 	sts	0x0151, r25	; 0x800151 <TIMER0_INTERRUPT_SECONDS+0x1>
+ d80:	80 93 50 01 	sts	0x0150, r24	; 0x800150 <TIMER0_INTERRUPT_SECONDS>
+		TIMER0_INTERRUPT_FLAG=0;
+ d84:	10 92 53 01 	sts	0x0153, r1	; 0x800153 <TIMER0_INTERRUPT_FLAG+0x1>
+ d88:	10 92 52 01 	sts	0x0152, r1	; 0x800152 <TIMER0_INTERRUPT_FLAG>
+	{
+		//nothing...
+	}
+	// Decrement the timer flag, each second
+	
+	TCNT0=0x70; //Reseting timer0 counter register.
+ d8c:	80 e7       	ldi	r24, 0x70	; 112
+ d8e:	82 bf       	out	0x32, r24	; 50
+	//to get overflow every 250 clock! ((255-6)+1).
+ d90:	9f 91       	pop	r25
+ d92:	8f 91       	pop	r24
+ d94:	2f 91       	pop	r18
+ d96:	0f 90       	pop	r0
+ d98:	0f be       	out	0x3f, r0	; 63
+ d9a:	0f 90       	pop	r0
+ d9c:	1f 90       	pop	r1
+ d9e:	18 95       	reti
+
+00000da0 <__umulhisi3>:
+ da0:	a2 9f       	mul	r26, r18
+ da2:	b0 01       	movw	r22, r0
+ da4:	b3 9f       	mul	r27, r19
+ da6:	c0 01       	movw	r24, r0
+ da8:	a3 9f       	mul	r26, r19
+ daa:	70 0d       	add	r23, r0
+ dac:	81 1d       	adc	r24, r1
+ dae:	11 24       	eor	r1, r1
+ db0:	91 1d       	adc	r25, r1
+ db2:	b2 9f       	mul	r27, r18
+ db4:	70 0d       	add	r23, r0
+ db6:	81 1d       	adc	r24, r1
+ db8:	11 24       	eor	r1, r1
+ dba:	91 1d       	adc	r25, r1
+ dbc:	08 95       	ret
+
+00000dbe <_exit>:
+ dbe:	f8 94       	cli
+
+00000dc0 <__stop_program>:
+ dc0:	ff cf       	rjmp	.-2      	; 0xdc0 <__stop_program>

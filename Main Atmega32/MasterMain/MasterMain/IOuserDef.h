@@ -5,6 +5,7 @@ if #include <avr/io.h> works... no need that file...
 Created by: MostafaGhazolley@outlook.com
 */
 #include <avr/io.h>
+#include <avr/delay.h>
 #ifndef __AVR_ATmega32__	//enable DDR/PIN,... registers on Atmega32.
 #define __AVR_ATmega32__
 #endif
